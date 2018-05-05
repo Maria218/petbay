@@ -2,6 +2,7 @@
 .navbar {
   background-color: #51E7F3;
   height: 62.95px;
+  max-width: 100%;
 }
 
 .nav-link {
@@ -32,15 +33,6 @@
   color: #8190A5;
 }
 
-.image {
-  position: relative;
-}
-
-#adopt {
-  position: absolute;
-  bottom: 0;
-  background: rgba(0, 0, 0, 0.5);
-  color: white;
-  text-align: center;
-  width: 100%;
+img {
+  max-width: 100%;
 }

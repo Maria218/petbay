@@ -8,12 +8,7 @@ export default class Home extends Component {
     return(
       <div>
         <Navbar />
-        <div className="container-fluid">
-          <div className="image">
-            <img src="/images/homepage.jpg" />
-            <h2 id="adopt">Are you ready to adopt a pet?</h2>
-          </div>
-        </div>
+        <img src="/images/homepage.jpg" />
       </div>
     )
   }
