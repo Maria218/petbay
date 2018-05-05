@@ -1,1 +1,8 @@
 /* CSS declarations go here */
+.navbar {
+  background-color: #51E7F3;
+}
+
+.nav-link {
+  color: #47525E;
+}
