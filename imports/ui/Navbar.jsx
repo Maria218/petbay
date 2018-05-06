@@ -27,25 +27,25 @@ export default class Navbar extends Component {
               <li className="nav-item dropdown">
                 <a className="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Pet Care</a>
                 <div className="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                  <a className="dropdown-item" href="#">Vet Services</a>
-                  <a className="dropdown-item" href="#">Pet Supplies</a>
+                  <a className="dropdown-item" href="/vets">Vet Services</a>
+                  <a className="dropdown-item" href="/pet-things">Pet Supplies</a>
                 </div>
               </li>
               <li className="nav-item">
-                <a className="nav-link" href="contact2.html">Home a Pet</a>
+                <a className="nav-link" href="/homing">Home a Pet</a>
               </li>
               <li className="nav-item">
-                <a className="nav-link" href="contact.html">Advertise</a>
+                <a className="nav-link" href="/advertise">Advertise</a>
               </li>
               <li className="nav-item dropdown">
                 <a className="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Get Involved</a>
                 <div className="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                  <a className="dropdown-item" href="#">Report a Stray</a>
-                  <a className="dropdown-item" href="#">Volunteer</a>
+                  <a className="dropdown-item" href="/report">Report a Stray</a>
+                  <a className="dropdown-item" href="/volunteer">Volunteer</a>
                 </div>
               </li>
               <li className="nav-item">
-                <a className="nav-link" href="#">Contact Us</a>
+                <a className="nav-link" href="/contactus">Contact Us</a>
               </li>
             </ul>
           </div>
