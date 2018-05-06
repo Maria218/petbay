@@ -1,6 +1,10 @@
 import route from './router.js';
 import Home from '/imports/ui/Home.jsx';
-import Categories from '/imports/ui/Categories.jsx'
+import Dogs from '/imports/ui/Dogs.jsx';
+import Cats from '/imports/ui/Cats.jsx';
+import Birds from '/imports/ui/Birds.jsx';
 
 route('/', Home);
-route('/categories',Categories);
+route('/dogs', Dogs);
+route('/cats', Cats);
+route('/birds', Birds);

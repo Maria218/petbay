@@ -60,3 +60,8 @@ body {
   font-weight: 400;
   color: #47525E;
 }
+
+.page-footer {
+  background-color: #2A65A4;
+  height: 207px;
+}
