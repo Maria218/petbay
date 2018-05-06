@@ -11,7 +11,8 @@ export default class Categories extends Component{
             <div className="">
             <Navbar/>
             <br/>
-            <p className="h1" style={{textAlign: "center"}}>Pick Your Pet</p>
+            <p className="h1" style={{textAlign: "center"}}>PICK YOUR PET</p><br />
+            <div className ="container">
                 <div className="card-deck">
                 <div className ="row">
   <div className="card border-primary col-md-4">
@@ -22,7 +23,7 @@ export default class Categories extends Component{
       <h6 className="card-subtitle mb-2">Price: 300</h6>
       <h6 className="card-subtitle mb-2">Center: Home-A-Pet</h6>
        <p className="card-text">A good friendly dog.</p>
-       <a href="#" class="btn btn-primary">Buy</a>
+       <a href="#" className="btn btn-primary">Buy</a>
     </div>
     <div className="card-footer">
       <small className="text-muted">Posted 3 mins ago</small>
@@ -36,7 +37,7 @@ export default class Categories extends Component{
       <h6 className="card-subtitle mb-2">Price: Free</h6>
       <h6 className="card-subtitle mb-2">Center: Home-A-Pet</h6>
       <p className="card-text">Strong Guard dog</p>
-      <a href="#" class="btn btn-primary">Adopt</a>
+      <a href="#" className="btn btn-primary">Adopt</a>
     </div>
     <div className="card-footer">
       <small className="text-muted">Posted 3 mins ago</small>
@@ -50,7 +51,7 @@ export default class Categories extends Component{
       <h6 className="card-subtitle mb-2">Price: 350</h6>
       <h6 className="card-subtitle mb-2">Center: Home-A-Pet</h6>
       <p className="card-text">A nice dog</p>
-      <a href="#" class="btn btn-primary">Buy</a>
+      <a href="#" className="btn btn-primary">Buy</a>
     </div>
     <div className="card-footer">
       <small className="text-muted">Posted: 3 mins ago</small>
@@ -66,7 +67,7 @@ export default class Categories extends Component{
       <h6 className="card-subtitle mb-2">Price: Free</h6>
       <h6 className="card-subtitle mb-2">Center: Home-A-Pet</h6>
        <p className="card-text">A good friendly dog.</p>
-       <a href="#" class="btn btn-primary">Adopt</a>
+       <a href="#" className="btn btn-primary">Adopt</a>
     </div>
     <div className="card-footer">
       <small className="text-muted">Posted 3 mins ago</small>
@@ -80,7 +81,7 @@ export default class Categories extends Component{
       <h6 className="card-subtitle mb-2">Price: Free</h6>
       <h6 className="card-subtitle mb-2">Center: Home-A-Pet</h6>
        <p className="card-text">A good friendly dog.</p>
-       <a href="#" class="btn btn-primary">Adopt</a>
+       <a href="#" className="btn btn-primary">Adopt</a>
     </div>
     <div className="card-footer">
       <small className="text-muted">Posted 3 mins ago</small>
@@ -94,7 +95,7 @@ export default class Categories extends Component{
       <h6 className="card-subtitle mb-2">Price: 200</h6>
       <h6 className="card-subtitle mb-2">Center: Home-A-Pet</h6>
        <p className="card-text">A good friendly dog.</p>
-       <a href="#" class="btn btn-primary">Buy</a>
+       <a href="#" className="btn btn-primary">Buy</a>
     </div>
     <div className="card-footer">
       <small className="text-muted">Posted 3 mins ago</small>
@@ -102,7 +103,10 @@ export default class Categories extends Component{
   </div>
 </div>
 </div>
-            
+</div>
+
+<br /><br />
+
 
             </div>
         )

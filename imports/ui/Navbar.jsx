@@ -5,8 +5,8 @@ export default class Navbar extends Component {
   render(){
     return(
       <div>
-        <nav className="navbar navbar-expand-lg">
-          <span className="navbar-brand mb-0 h1" href="#"><img src="/images/logo.svg" />Pet Connection</span>
+        <nav className="navbar navbar-expand-lg navbar-light">
+          <span className="navbar-brand mb-0 h1" href="#"><img src="images/logo.png" alt="" />Pet Connections</span>
           <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span className="navbar-toggler-icon"></span>
           </button>
@@ -32,10 +32,10 @@ export default class Navbar extends Component {
                 </div>
               </li>
               <li className="nav-item">
-                <a className="nav-link" href="#">Home a Pet</a>
+                <a className="nav-link" href="contact2.html">Home a Pet</a>
               </li>
               <li className="nav-item">
-                <a className="nav-link" href="#">Advertise</a>
+                <a className="nav-link" href="contact.html">Advertise</a>
               </li>
               <li className="nav-item dropdown">
                 <a className="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Get Involved</a>

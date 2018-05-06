@@ -1,8 +1,8 @@
 /* CSS declarations go here */
 .navbar {
   background-color: #51E7F3;
-  height: 62.95px;
 }
+
 
 .nav-link {
   color: #47525E;
@@ -10,13 +10,12 @@
   font-size: 18px;
   font-weight: 400;
   line-height: 47px;
-  text-align: center;
 }
 
 .active {
   background-color: #40A9BD;
   width: 100px;
-  height: 62.95px;
+  text-align: center;
 }
 
 .navbar-brand {
@@ -54,4 +53,10 @@ body {
   color: #8190A5;
   font-size: 14px;
   text-align: center;
+}
+
+.h1 {
+  font-family: 'Lato', sans-serif;
+  font-weight: 400;
+  color: #47525E;
 }
