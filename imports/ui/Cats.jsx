@@ -2,7 +2,8 @@ import { Meteor } from 'meteor/meteor';
 import React, { Component } from 'react';
 import route from '/imports/routing/router.js';
 import { withTracker } from 'meteor/react-meteor-data';
-import Navbar from '/imports/ui/Navbar.jsx'
+import Navbar from '/imports/ui/Navbar.jsx';
+import Footer from '/imports/ui/Footer.jsx';
 
 
 export default class Cats extends Component{
@@ -107,7 +108,7 @@ export default class Cats extends Component{
 
 <br /><br />
 
-
+<Footer />
             </div>
         )
 

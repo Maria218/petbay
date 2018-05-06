@@ -96,6 +96,14 @@ body {
   margin-right: 100%;
 }
 
+.vertical {
+  border: none;
+  border-left: 1px solid #47525e;
+  /* background-color: ; */
+  height: 240px;
+  /* width: 1px; */
+}
+
 .copyright {
   background-color: #161c27;
   text-align: center;
