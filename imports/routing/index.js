@@ -22,3 +22,4 @@ route('/report', Report);
 route('/vets', Vets);
 route('/homing', Homing);
 route('/contactus', ContactUs);
+route('/login', ContactUs);

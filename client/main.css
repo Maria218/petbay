@@ -130,3 +130,10 @@ a {
   font-family: 'Lato', sans-serif;
   text-align: left;
 }
+
+.volunteer {
+  font-family: 'Lato', sans-serif;
+  text-align: center;
+  color: #47525E;
+  font-weight: 400;
+}
