@@ -39,7 +39,9 @@ export default class Homing extends Component {
               </div><br/>
               <button type="submit" className="btn btn-primary">Sign Up</button>
           </form>
-
+          <div>
+              <p>By Signing Up, You agree to our terms and conditions</p>
+          </div>
       </div>
       </div>
         <Footer />
