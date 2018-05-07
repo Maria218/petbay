@@ -124,3 +124,9 @@ a {
   font-weight: 400;
   color: #47525E;
 }
+
+.info {
+  color: #3b2c9a;
+  font-family: 'Lato', sans-serif;
+  text-align: left;
+}
