@@ -1,8 +1,11 @@
 import { Meteor } from 'meteor/meteor';
+import { Accounts } from 'meteor/accounts-base';
 import React, { Component } from 'react';
 import route from '/imports/routing/router.js';
 import Navbar from '/imports/ui/Navbar.jsx';
 import Footer from '/imports/ui/Footer.jsx';
+//import USERS from '/imports/api/profiles/Collections.jsx';
+
 
 export default class Homing extends Component {
 
@@ -16,15 +19,14 @@ export default class Homing extends Component {
   getUserData =(e) =>{
     e.preventDefault();
     const {target} = e;
-    const name = target.fullname.value;
+    const name = target.name.value;
     const email = target.email.value;
-    const phoneNumber = target.phone.value;
+    const phone = target.phone.value;
     const password = target.password.value;
     const password2 = target.password2.value;
 
    // console.log(name,email,password,password2);
-   if(password.trim!==password2.trim ||password.length<=6
-   ){
+   if(password.trim!==password2.trim){
      this.setState({
        error: "Passwords do not match"
      })
@@ -40,15 +42,17 @@ export default class Homing extends Component {
    const user = {
      email,
      password,
-     phone,
+     
      profile: {
        name,
+       phone,
      },
      createdAt: new Date()
    }
    Accounts.createUser(user,error=>{
      error ? console.log(error.reason) : console.log("Account Created Succesfully")
-   })      
+   }) ;
+   route.go('/')     
 
 
   }
@@ -57,12 +61,13 @@ export default class Homing extends Component {
     return(
       <div>
         <Navbar /><br/>
+        <div className="container">
         <div className="row justify-content-center">
         <div className="col-md-4">
         <div className="text-center">
         <h4>Sign Up To Continue</h4>
         </div>
-          <form onSubmit = {this.getUserData}>
+          <form onSubmit = {this.getUserData} className="needs-validation">
               <div className="form-group">
                   <label className="col-form-label" htmlFor="formGroupExampleInput">Organization Name</label>
                   <input type="text" className="form-control" name="name" id="formGroupExampleInput" placeholder="Enter Name" required />
@@ -73,11 +78,11 @@ export default class Homing extends Component {
               </div>
               <div className="form-group">
                   <label className="col-form-label" htmlFor="formGroupExampleInput2">Contact Number</label>
-                  <input type="number" className="form-control" name="phoneNumber" id="formGroupExampleInput2" placeholder="Enter Phone Number" required/>
+                  <input type="number" className="form-control" name="phone" id="formGroupExampleInput2" placeholder="Enter Phone Number" required/>
               </div>
               <div className="form-group">
                   <label className="col-form-label" htmlFor="formGroupExampleInput2">Password</label>
-                  <input type="password" className="form-control" name="password1" id="formGroupExampleInput2" placeholder="Enter Password" required/>
+                  <input type="password" className="form-control" name="password" id="formGroupExampleInput2" placeholder="Enter Password" required/>
               </div>
               <div className="form-group">
                   <label className="col-form-label" htmlFor="formGroupExampleInput2">Confirm Password</label>
@@ -94,6 +99,10 @@ export default class Homing extends Component {
           <div className="text-center">
               <p>By Signing Up, You agree to our terms and conditions</p>
           </div>
+          <p>{this.state.error}</p>
+          <p>{this.state.error2}</p>
+          
+      </div>
       </div>
       </div><br/>
         <Footer />

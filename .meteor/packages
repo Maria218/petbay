@@ -24,3 +24,5 @@ cultofcoders:meteor-react-routing
 alexwine:bootstrap-4
 react-meteor-data
 meteortoys:allthings
+accounts-password
+accounts-ui
