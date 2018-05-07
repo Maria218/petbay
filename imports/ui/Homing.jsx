@@ -37,7 +37,7 @@ export default class Homing extends Component {
                   <label className="col-form-label" for="formGroupExampleInput2">Location</label>
                   <input type="text" className="form-control" name="location" id="formGroupExampleInput2" placeholder="Enter Town Name" required/>
               </div><br/>
- 
+              <button type="submit" className="btn btn-primary">Sign Up</button>
           </form>
 
       </div>
