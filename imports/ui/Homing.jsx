@@ -9,6 +9,21 @@ export default class Homing extends Component {
     return(
       <div>
         <Navbar />
+        <div className="row justify-content-center">
+        <div className="col-md-4">
+        <h4>Sign Up To Continue</h4>
+          <form onSubmit = {this.getUserData}>
+
+
+
+
+
+
+ 
+          </form>
+
+      </div>
+      </div>
         <Footer />
       </div>
     )
