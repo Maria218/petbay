@@ -64,33 +64,33 @@ export default class Homing extends Component {
         </div>
           <form onSubmit = {this.getUserData}>
               <div className="form-group">
-                  <label className="col-form-label" for="formGroupExampleInput">Organization Name</label>
+                  <label className="col-form-label" htmlFor="formGroupExampleInput">Organization Name</label>
                   <input type="text" className="form-control" name="name" id="formGroupExampleInput" placeholder="Enter Name" required />
               </div>
               <div className="form-group">
-                  <label className="col-form-label" for="formGroupExampleInput2">Email Address</label>
+                  <label className="col-form-label" htmlFor="formGroupExampleInput2">Email Address</label>
                   <input type="email" className="form-control" name="email" id="formGroupExampleInput2" placeholder="Enter Email Address" required/>
               </div>
               <div className="form-group">
-                  <label className="col-form-label" for="formGroupExampleInput2">Contact Number</label>
+                  <label className="col-form-label" htmlFor="formGroupExampleInput2">Contact Number</label>
                   <input type="number" className="form-control" name="phoneNumber" id="formGroupExampleInput2" placeholder="Enter Phone Number" required/>
               </div>
               <div className="form-group">
-                  <label className="col-form-label" for="formGroupExampleInput2">Password</label>
+                  <label className="col-form-label" htmlFor="formGroupExampleInput2">Password</label>
                   <input type="password" className="form-control" name="password1" id="formGroupExampleInput2" placeholder="Enter Password" required/>
               </div>
               <div className="form-group">
-                  <label className="col-form-label" for="formGroupExampleInput2">Confirm Password</label>
+                  <label className="col-form-label" htmlFor="formGroupExampleInput2">Confirm Password</label>
                   <input type="password" className="form-control" name="password2" id="formGroupExampleInput2" placeholder="Enter Password Again" required/>
               </div>
               <div className="form-group">
-                  <label className="col-form-label" for="formGroupExampleInput2">Location</label>
+                  <label className="col-form-label" htmlFor="formGroupExampleInput2">Location</label>
                   <input type="text" className="form-control" name="location" id="formGroupExampleInput2" placeholder="Enter Town Name" required/>
               </div><br/>
               <div className="text-center">
               <button type="submit" className="btn btn-primary">Sign Up</button>
               </div>
-          </form>
+          </form><br/>
           <div className="text-center">
               <p>By Signing Up, You agree to our terms and conditions</p>
           </div>
