@@ -52,7 +52,7 @@ export default class Homing extends Component {
    Accounts.createUser(user,error=>{
      error ? console.log(error.reason) : console.log("Account Created Successfully")
    }) ;
-  route.go('/')     
+  route.go('/dashboard');     
 
 
   }
