@@ -35,6 +35,10 @@ export default class Dashboard extends Component {
         <h3 style={{textAlign:"right", paddingRight:10+"px"}}>Welcome{this.props.name}</h3>
         
         </div>
+        <div>
+        <i className="fa fa-upload fa-4x"><a  href="/">Upload Pet</a></i>
+
+        </div>
 
       </div>
     );
