@@ -2,8 +2,8 @@ import React, { Component } from 'react';
 import route from '/imports/routing/router.js';
 
 export default class Navbar extends Component {
-  render(){
-    return(
+  render() {
+    return (
       <div>
         <nav className="navbar navbar-expand-lg navbar-light">
           <span className="navbar-brand mb-0 h1" href="#"><img src="images/logo.png" alt="" />Pet Connections</span>
