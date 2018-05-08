@@ -13,10 +13,10 @@ export default class Navbar extends Component {
 
           <div className="collapse navbar-collapse" id="navbarSupportedContent">
             <ul className="navbar-nav ml-auto">
-              <li className="nav-item active">
+              <li className={`nav-item ${this.props.home}`} >
                 <a className="nav-link" href="/">Home <span className="sr-only">(current)</span></a>
               </li>
-              <li className="nav-item dropdown">
+              <li className={`nav-item dropdown ${this.props.pets}`}>
                 <a className="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Pets</a>
                 <div className="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                   <a className="dropdown-item" href="/dogs">Dogs</a>
