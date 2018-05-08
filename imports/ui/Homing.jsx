@@ -14,6 +14,7 @@ export default class Homing extends Component {
     this.state = {
       error :"",
       error2 :""
+
     }
   }
   getUserData =(e) =>{
@@ -25,17 +26,16 @@ export default class Homing extends Component {
     const password = target.password.value;
     const password2 = target.password2.value;
 
-   // console.log(name,email,password,password2);
-   if(password.trim!==password2.trim){
+   if(password.trim()!==password2.trim()){
      this.setState({
        error: "Passwords do not match"
      })
      return;
-   }
+   };
    if(password.length <=6
    ){
      this.setState({
-       error2: "Password length should be more than 6 letters"
+       error2: "Password too short"
      })
      return;
    }
@@ -50,9 +50,9 @@ export default class Homing extends Component {
      createdAt: new Date()
    }
    Accounts.createUser(user,error=>{
-     error ? console.log(error.reason) : console.log("Account Created Succesfully")
+     error ? console.log(error.reason) : console.log("Account Created Successfully")
    }) ;
-   route.go('/')     
+  route.go('/')     
 
 
   }
@@ -82,11 +82,13 @@ export default class Homing extends Component {
               </div>
               <div className="form-group">
                   <label className="col-form-label" htmlFor="formGroupExampleInput2">Password</label>
-                  <input type="password" className="form-control" name="password" id="formGroupExampleInput2" placeholder="Enter Password" required/>
+                  <input type="password" className="form-control" name="password" id="formGroupExampleInput2" placeholder="Choose Password" required/>
+                  <p style={{color:"red"}}>{this.state.error2}</p>
               </div>
               <div className="form-group">
                   <label className="col-form-label" htmlFor="formGroupExampleInput2">Confirm Password</label>
                   <input type="password" className="form-control" name="password2" id="formGroupExampleInput2" placeholder="Enter Password Again" required/>
+                  <p style={{color:"red"}}>{this.state.error}</p>
               </div>
               <div className="form-group">
                   <label className="col-form-label" htmlFor="formGroupExampleInput2">Location</label>
@@ -99,8 +101,6 @@ export default class Homing extends Component {
           <div className="text-center">
               <p>By Signing Up, You agree to our terms and conditions</p>
           </div>
-          <p>{this.state.error}</p>
-          <p>{this.state.error2}</p>
           
       </div>
       </div>
