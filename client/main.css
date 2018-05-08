@@ -103,9 +103,7 @@ a {
 .vertical {
   border: none;
   border-left: 1px solid #47525e;
-  /* background-color: ; */
   height: 240px;
-  /* width: 1px; */
 }
 
 .copyright {
@@ -137,7 +135,3 @@ a {
   color: #47525E;
   font-weight: 400;
 }
-
-/* .btn {
-  justify-content: center;
-} */
