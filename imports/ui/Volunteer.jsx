@@ -22,9 +22,7 @@ export default class Volunteer extends Component {
             <div className="col-md-6">
               <h5 className="top-middle">Lorem ipsum dolor</h5>
               <p className="bottom-middle">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla vestibulum mauris ut diam vulputate, nec scelerisque magna maximus.</p>
-              <div className="text-center">
-                <button type="button" className="btn btn-outline-primary">Volunteer</button>
-              </div>
+              <button type="button" className="btn btn-outline-primary">Volunteer</button>
             </div>
           </div>
           <br />
@@ -36,9 +34,7 @@ export default class Volunteer extends Component {
             <div className="col-md-6">
               <h5 className="top-middle">Lorem ipsum dolor</h5>
               <p className="bottom-middle">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla vestibulum mauris ut diam vulputate, nec scelerisque magna maximus.</p>
-              <div className="text-center">
-                <button type="button" className="btn btn-outline-primary">Volunteer</button>
-              </div>
+              <button type="button" className="btn btn-outline-primary">Volunteer</button>
             </div>
           </div>
           <br />
@@ -50,15 +46,10 @@ export default class Volunteer extends Component {
             <div className="col-md-6">
               <h5 className="top-middle">Lorem ipsum dolor</h5>
               <p className="bottom-middle">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla vestibulum mauris ut diam vulputate, nec scelerisque magna maximus.</p>
-              <div className="text-center">
-                <button type="button" className="btn btn-outline-primary">Volunteer</button>
-              </div>
+              <button type="button" className="btn btn-outline-primary text-center">Volunteer</button>
             </div>
           </div>
-          <br />
-          <div className="text-center">
-            <i class="fa fa-angle-left fa-4x text-center"></i><i class="fa fa-angle-right fa-4x text-center"></i>
-          </div>
+          <i class="fa fa-angle-right text-center"></i>
         </div>
         <br />
         <br />
