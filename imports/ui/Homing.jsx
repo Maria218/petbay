@@ -42,7 +42,7 @@ export default class Homing extends Component {
    const user = {
      email,
      password,
-     
+
      profile: {
        name,
        phone,
@@ -52,7 +52,11 @@ export default class Homing extends Component {
    Accounts.createUser(user,error=>{
      error ? console.log(error.reason) : console.log("Account Created Successfully")
    }) ;
+<<<<<<< HEAD
   route.go('/dashboard');     
+=======
+  route.go('/')
+>>>>>>> c354912a04c960b5de31d2c4b0a13c4d1ca2213a
 
 
   }
@@ -101,7 +105,7 @@ export default class Homing extends Component {
           <div className="text-center">
               <p>By Signing Up, You agree to our terms and conditions</p>
           </div>
-          
+
       </div>
       </div>
       </div><br/>

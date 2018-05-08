@@ -22,7 +22,7 @@ export default class Volunteer extends Component {
             <div className="col-md-6">
               <h5 className="top-middle">Lorem ipsum dolor</h5>
               <p className="bottom-middle">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla vestibulum mauris ut diam vulputate, nec scelerisque magna maximus.</p>
-              <button type="button" class="btn btn-outline-primary">Volunteer</button>
+              <button type="button" className="btn btn-outline-primary">Volunteer</button>
             </div>
           </div>
           <br />
@@ -34,7 +34,7 @@ export default class Volunteer extends Component {
             <div className="col-md-6">
               <h5 className="top-middle">Lorem ipsum dolor</h5>
               <p className="bottom-middle">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla vestibulum mauris ut diam vulputate, nec scelerisque magna maximus.</p>
-              <button type="button" class="btn btn-outline-primary">Volunteer</button>
+              <button type="button" className="btn btn-outline-primary">Volunteer</button>
             </div>
           </div>
           <br />
@@ -46,7 +46,7 @@ export default class Volunteer extends Component {
             <div className="col-md-6">
               <h5 className="top-middle">Lorem ipsum dolor</h5>
               <p className="bottom-middle">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla vestibulum mauris ut diam vulputate, nec scelerisque magna maximus.</p>
-              <button type="button" class="btn btn-outline-primary text-center">Volunteer</button>
+              <button type="button" className="btn btn-outline-primary text-center">Volunteer</button>
             </div>
           </div>
           <i class="fa fa-angle-right text-center"></i>

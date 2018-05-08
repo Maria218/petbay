@@ -11,6 +11,7 @@ import Vets from '/imports/ui/Vets.jsx';
 import Homing from '/imports/ui/Homing.jsx';
 import ContactUs from '/imports/ui/ContactUs.jsx';
 import LogIn from '/imports/ui/LogIn.jsx';
+import Dashboard from '/imports/ui/Dashboard.jsx';
 
 route('/', Home);
 route('/dogs', Dogs);
@@ -24,3 +25,4 @@ route('/vets', Vets);
 route('/homing', Homing);
 route('/contactus', ContactUs);
 route('/login', LogIn);
+route('dashboard', Dashboard);
