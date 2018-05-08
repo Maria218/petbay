@@ -16,8 +16,16 @@ export default class Dashboard extends Component {
               <li className="nav-item active">
                 <a className="nav-link" href="/">Home <span className="sr-only">(current)</span></a>
               </li>
+              <li className="nav-item dropdown">
+              <a className="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Pets</a>
+              <div className="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                <a className="dropdown-item" href="/dogs">Dogs</a>
+                <a className="dropdown-item" href="/cats">Cats</a>
+                <a className="dropdown-item" href="/birds">Birds</a>
+              </div>
+            </li>
               <li className="nav-item">
-                <a className="nav-link" href="/login">Log in</a>
+                <a className="nav-link" href="/login">Log Out</a>
               </li>
             </ul>
           </div>
