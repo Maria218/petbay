@@ -14,7 +14,6 @@
 
 .active {
   background-color: #40A9BD;
-  /* width: 100px; */
   text-align: center;
 }
 
@@ -134,4 +133,11 @@ a {
   text-align: center;
   color: #47525E;
   font-weight: 400;
+}
+
+.contact-btn {
+  background-color: #4ae2de;
+  color: black;
+  width: 300px;
+  border: none;
 }
