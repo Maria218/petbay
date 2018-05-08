@@ -30,7 +30,7 @@ export default class Dashboard extends Component {
             </ul>
           </div>
         </nav>
-        <div style={{width:100+"%",height:25+"em",backgroundColor:"cyan"}}>
+        <div style={{width:100+"%",height:15+"em",backgroundColor:"cyan"}}>
         </div>
 
       </div>
