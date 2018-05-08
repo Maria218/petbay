@@ -32,6 +32,8 @@ export default class Dashboard extends Component {
         </nav>
         <div style={{width:100+"%",height:15+"em",backgroundColor:"cyan"}}>
         <h3 style={{textAlign:"left", paddingTop:10+"px"}}>Dashboard</h3>
+        <h3 style={{textAlign:"right", paddingRight:10+"px"}}>Welcome{this.props.name}</h3>
+        
         </div>
 
       </div>
