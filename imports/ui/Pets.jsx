@@ -8,7 +8,7 @@ export default class Pets extends Component {
   render() {
     return (
       <div>
-        <Navbar />
+        <Navbar petCare={'active'}/>
         <br />
         <p className="h1" style={{ textAlign: "center" }}>PAMPER YOUR PET</p><br />
         <p className="volunteer"> With these different pet supplies sold by your favorite brands</p>

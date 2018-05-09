@@ -8,7 +8,7 @@ export default class Report extends Component {
   render(){
     return(
       <div className="stray">
-        <Navbar />
+        <Navbar getInvolved={'active'}/>
         <br />
         <br />
         <div className="container">

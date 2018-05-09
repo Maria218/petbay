@@ -8,7 +8,7 @@ export default class Volunteer extends Component {
   render(){
     return(
       <div>
-        <Navbar />
+        <Navbar getInvolved={'active'}/>
         <br />
         <h1 className="volunteer">WANT TO VOLUNTEER?</h1>
         <h5 className="volunteer">Explore the list of organisations and help save our furry friends</h5>

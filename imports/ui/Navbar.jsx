@@ -24,30 +24,30 @@ export default class Navbar extends Component {
                   <a className="dropdown-item" href="/birds">Birds</a>
                 </div>
               </li>
-              <li className="nav-item dropdown">
+              <li className={`nav-item dropdown ${this.props.petCare}`}>
                 <a className="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Pet Care</a>
                 <div className="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                   <a className="dropdown-item" href="/vets">Vet Services</a>
                   <a className="dropdown-item" href="/pet-things">Pet Supplies</a>
                 </div>
               </li>
-              <li className="nav-item">
+              <li className={`nav-item ${this.props.homePet}`}>
                 <a className="nav-link" href="/homing">Home a Pet</a>
               </li>
-              <li className="nav-item">
+              <li className={`nav-item ${this.props.advert}`}>
                 <a className="nav-link" href="/advertise">Advertise</a>
               </li>
-              <li className="nav-item dropdown">
+              <li className={`nav-item dropdown ${this.props.getInvolved}`}>
                 <a className="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Get Involved</a>
                 <div className="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                   <a className="dropdown-item" href="/report">Report a Stray</a>
                   <a className="dropdown-item" href="/volunteer">Volunteer</a>
                 </div>
               </li>
-              <li className="nav-item">
+              <li className={`nav-item ${this.props.contact}`}>
                 <a className="nav-link" href="/contactus">Contact Us</a>
               </li>
-              <li className="nav-item">
+              <li className={`nav-item ${this.props.login}`}>
                 <a className="nav-link" href="/login">Log in</a>
               </li>
             </ul>

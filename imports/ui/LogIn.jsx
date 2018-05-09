@@ -21,7 +21,7 @@ export default class LogIn extends Component {
     render() {
         return (
             <div>
-                <Navbar /><br />
+                <Navbar login={'active'}/><br />
                 <div className="row justify-content-center">
                     <div className="col-md-4">
                         <h4>Enter Your Details To Log In</h4>

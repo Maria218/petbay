@@ -8,7 +8,7 @@ export default class Vets extends Component {
   render(){
     return(
       <div>
-        <Navbar />
+        <Navbar petCare={'active'}/>
         <Footer />
       </div>
     )
