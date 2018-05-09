@@ -1,14 +1,14 @@
 import { Meteor } from 'meteor/meteor';
 import React, { Component } from 'react';
 import route from '/imports/routing/router.js';
-import Navbar from '/imports/ui/Navbar.jsx';
+import Navbar from './Navbar.jsx';
 import Footer from '/imports/ui/Footer.jsx';
 
 export default class Home extends Component {
   render(){
     return(
       <div>
-        <Navbar />
+        <Navbar home={' active'}/>
         <img src="/images/homepage.jpg" />
         <br />
         <br />
