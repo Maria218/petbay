@@ -10,7 +10,7 @@ export default class Dogs extends Component{
     render(){
         return(
             <div className="">
-            <Navbar/>
+            <Navbar pets={'active'}/>
             <br/>
             <p className="h1" style={{textAlign: "center"}}>PICK YOUR PET</p><br />
             <div className ="container">
