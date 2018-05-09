@@ -8,7 +8,7 @@ export default class Advertise extends Component {
   render(){
     return(
       <div>
-        <Navbar />
+        <Navbar advert={' active'}/>
         <Footer />
       </div>
     )

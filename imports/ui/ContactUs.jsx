@@ -56,7 +56,7 @@ export default class ContactUs extends Component {
   render(){
     return(
       <div>
-        <Navbar />
+        <Navbar contact={'active'}/>
         <br />
         <br />
 
