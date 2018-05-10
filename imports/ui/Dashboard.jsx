@@ -2,6 +2,9 @@ import React, { Component } from 'react';
 import route from '/imports/routing/router.js';
 
 export default class Dashboard extends Component {
+  constructor(props){
+    super(props)
+  }
   render(){
     return(
       <div>
@@ -32,11 +35,11 @@ export default class Dashboard extends Component {
         </nav>
         <div style={{width:100+"%",height:15+"em",backgroundColor:"cyan"}}>
         <h3 style={{textAlign:"left", paddingTop:10+"px"}}>Dashboard</h3>
-        <h3 style={{textAlign:"right", paddingRight:10+"px"}}>Welcome{this.props.name}</h3>
+        <h3 style={{textAlign:"right", paddingRight:10+"px"}}>{this.props._id}</h3>
         
         </div>
         <div>
-        <i className="fa fa-upload fa-4x"><a  href="/">Upload Pet</a></i>
+        <a  href="/"><i className="fa fa-upload fa-4x"></i></a>
 
         </div>
 

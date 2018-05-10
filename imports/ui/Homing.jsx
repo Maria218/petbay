@@ -13,10 +13,13 @@ export default class Homing extends Component {
     super(props);
     this.state = {
       error :"",
-      error2 :""
+      error2 :"",
 
     }
   }
+//   goToContacts = () => {
+//     route.go('/dashboard',{_id:this.state.name},{});   
+// }
   getUserData =(e) =>{
     e.preventDefault();
     const {target} = e;
@@ -53,7 +56,8 @@ export default class Homing extends Component {
      error ? console.log(error.reason) : console.log("Account Created Successfully")
    }) ;
 
-  route.go('/dashboard');
+  route.go('/dashboard');   
+  
 
 
 
@@ -96,12 +100,12 @@ export default class Homing extends Component {
               <div className="form-group">
                   <label className="col-form-label" htmlFor="formGroupExampleInput2">Password</label>
                   <input type="password" className="form-control" name="password" id="formGroupExampleInput2" placeholder="Choose Password"  required/>
-                  <p style={{color:"red"}}>{error2 ? this.state.error2:""}</p>
+                  <p style={{color:"red"}}>{this.state.error2}</p>
               </div>
               <div className="form-group">
                   <label className="col-form-label" htmlFor="formGroupExampleInput2">Confirm Password</label>
                   <input type="password" className="form-control" name="password2" id="formGroupExampleInput2" placeholder="Enter Password Again"required/>
-                  <p style={{color:"red"}}>{error ? this.state.error:""}</p>
+                  <p style={{color:"red"}}>{this.state.error}</p>
               </div>
               <div className="form-group">
                   <label className="col-form-label" htmlFor="formGroupExampleInput2">Location</label>
