@@ -152,3 +152,8 @@ body {
 .care {
   text-align: justify;
 }
+
+form {
+  border: medium solid #878aa7;
+  padding: 20px;
+}

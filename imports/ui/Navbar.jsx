@@ -1,6 +1,16 @@
 import React, { Component } from 'react';
 import route from '/imports/routing/router.js';
 
+// if (Meteor.isClient) {
+//    // var myData = {
+//    //    key1: "value1",
+//    //    key2: "value2"
+//    // }
+//    // Session.set('mySession', myData);
+//    // var sessionDataToLog = Session.get('mySession');
+//    // console.log(sessionDataToLog);
+// }
+
 export default class Navbar extends Component {
   render() {
     return (

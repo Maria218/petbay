@@ -22,7 +22,7 @@ export default class Home extends Component {
               <img src="/images/dog-homepage.jpg" />
               <br />
               <br />
-              <h4 className="top-middle">Find Yourself a Furry Friend</h4>
+              <h4 className="top-middle">Get Yourself a Furry Friend</h4>
               <p className="bottom-middle">Check out the different categories of pets put up for adoption by different centres and individuals. Connect with adoption centers, pet stores and others to find these wonderful pets forever homes.</p>
             </div>
             <div className = "col-md-4">
@@ -37,7 +37,7 @@ export default class Home extends Component {
               <br />
               <br />
               <h4 className="top-middle">Give a Pet for Adoption</h4>
-              <p className="bottom-middle">Have a pet you want to give up for adoption? Create an account and upload information about your pet</p>
+              <p className="bottom-middle">Have a pet you want to give up for adoption? Create an account, upload information about your pet and set a price and your pet will be added to our list of pets for adoption for any potential buyer to see. Give your pet a good home today.</p>
             </div>
           </div>
         </div>

@@ -36,11 +36,11 @@ export default class Dashboard extends Component {
         <div style={{width:100+"%",height:15+"em",backgroundColor:"cyan"}}>
         <h3 style={{textAlign:"left", paddingTop:10+"px"}}>Dashboard</h3>
         <h3 style={{textAlign:"right", paddingRight:10+"px"}}>{this.props._id}</h3>
-        
-        </div>
-        <div>
-        <a  href="/"><i className="fa fa-upload fa-4x"></i></a>
 
+      </div><br />
+      <h2 className="report">Upload Pet Information</h2><br />
+        <div className="text-center">
+          <a href="/upload"><i className="fa fa-upload fa-4x"></i></a>
         </div>
 
       </div>

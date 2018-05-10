@@ -10,32 +10,62 @@ export default class Uploads extends Component {
   render(){
     return(
         <div>
-        <form>
-        <div class="row">
-          <div class="col">
-          <label htmlFor="inputEmail4">Pet Name</label>
-            <input type="text" class="form-control" placeholder="Pet name" required/>
+          <nav className="navbar navbar-expand-lg navbar-light">
+            <span className="navbar-brand mb-0 h1" href="#"><h3>TELL US ABOUT YOUR PET</h3></span>
+            <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+              <span className="navbar-toggler-icon"></span>
+            </button>
+
+            <div className="collapse navbar-collapse" id="navbarSupportedContent">
+              <ul className="navbar-nav ml-auto">
+                <li className="nav-item">
+                  <a className="nav-link" href="/">Back Home <span className="sr-only">(current)</span></a>
+                </li>
+              </ul>
+            </div>
+          </nav>
+          <br />
+          <h4 className="report">EDIT YOUR PET INFORMATION</h4>
+        <div className="container">
+          <form>
+          <div className="row">
+            <div className="col">
+              <label htmlFor="inputEmail4">Pet Name</label><input type="text" className="form-control" placeholder="Pet name" required/>
+            </div>
+            <div className="col">
+            <label htmlFor="inputEmail4">Pet Age</label>
+              <input type="text" className="form-control" placeholder="Pet name" required/>
+            </div>
+          </div><br />
+        <div className="row">
+          <div className="col">
+          <label className="mr-sm-2" htmlFor="inlineFormCustomSelect">Pet Gender</label>
+          <select className="custom-select mr-sm-2" id="inlineFormCustomSelect" required>
+            <option defaultValue>Select Gender</option>
+            <option value="1">female</option>
+            <option value="2">male</option>
+          </select>
           </div>
-          <div class="col">
-          <label htmlFor="inputEmail4">Age</label>
-            <input type="text" class="form-control" placeholder="Pet name" required/>
+          <div className="col">
+          <label htmlFor="inputEmail4">Pet Breed</label>
+            <input type="text" className="form-control" placeholder="Last name" required/>
           </div>
+        </div><br />
+        <div className="row">
+          <div className="col">
+            <label htmlFor="inputEmail4">Pet Location</label><input type="text" className="form-control" placeholder="Pet name" required/>
+          </div>
+          <div className="col">
+          <label htmlFor="inputEmail4">Health</label>
+            <input type="text" className="form-control" placeholder="Pet name" required/>
+          </div>
+        </div><br />
+        <div className="col-md-6 form-group">
+          <label htmlFor="exampleFormControlTextarea1">PET DESCRIPTION</label>
+          <textarea className="form-control" id="exampleFormControlTextarea1" rows="5"></textarea>
         </div>
-      <div class="row">
-        <div class="col">
-        <label class="mr-sm-2" htmlFor="inlineFormCustomSelect">Gender</label>
-        <select class="custom-select mr-sm-2" id="inlineFormCustomSelect" required>
-          <option selected>Select Gender</option>
-          <option value="1">female</option>
-          <option value="2">male</option>
-        </select>
+      </form>
         </div>
-        <div class="col">
-        <label htmlFor="inputEmail4">Breed</label>
-          <input type="text" class="form-control" placeholder="Last name" required/>
-        </div>
-      </div>
-    </form>
         </div>
     );
   }

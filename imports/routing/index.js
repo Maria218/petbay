@@ -27,4 +27,4 @@ route('/homing', Homing);
 route('/contactus', ContactUs);
 route('/login', LogIn);
 route('/dashboard', Dashboard);
-route('/Upload', Uploads);
+route('/upload', Uploads);
