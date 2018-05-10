@@ -39,7 +39,7 @@ export default class Dashboard extends Component {
         
         </div>
         <div>
-        <a  href="/"><i className="fa fa-upload fa-4x"></i></a>
+        <a  href="/Upload"><i className="fa fa-upload fa-4x"></i></a>
 
         </div>
 
