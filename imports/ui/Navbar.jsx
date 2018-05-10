@@ -28,7 +28,7 @@ export default class Navbar extends Component {
                 <a className="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Pet Care</a>
                 <div className="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                   <a className="dropdown-item" href="/vets">Vet Services</a>
-                  <a className="dropdown-item" href="/pet-things">Pet Supplies</a>
+                  <a className="dropdown-item" href="/petcare">Pet Supplies</a>
                 </div>
               </li>
               <li className={`nav-item ${this.props.homePet}`}>

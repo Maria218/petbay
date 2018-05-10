@@ -4,7 +4,7 @@ import route from '/imports/routing/router.js';
 import Navbar from '/imports/ui/Navbar.jsx';
 import Footer from '/imports/ui/Footer.jsx';
 
-export default class Pets extends Component {
+export default class PetCare extends Component {
   render() {
     return (
       <div>

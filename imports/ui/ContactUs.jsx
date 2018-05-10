@@ -66,7 +66,7 @@ export default class ContactUs extends Component {
         <div className="text-center">
         <h1 className="volunteer">Contact Us</h1>
         <div className="text-center">
-          <p>Get in contact with us whenever you'd like!<i class="fa fa-thumbs-up"></i></p>
+          <p>Get in contact with us whenever you'd like!</p>
         </div>
         </div>
           <form onSubmit = {this.getUserData} className="needs-validation">
@@ -89,15 +89,12 @@ export default class ContactUs extends Component {
               </div>
               <div className="form-group">
                 <label className="volunteer" for="exampleFormControlTextarea1">Your Message</label>
-                  <textarea class="form-control" id="exampleFormControlTextarea1" placeholder="Enter Your Message" rows="3"></textarea>
+                  <textarea className="form-control" id="exampleFormControlTextarea1" placeholder="Enter Your Message" rows="3"></textarea>
               </div><br/>
               <div className="text-center">
-              <button type="button" class="btn btn-primary btn-lg contact-btn">Contact Us</button>
+              <button type="button" className="btn btn-primary btn-lg contact-btn">Contact Us</button>
               </div>
           </form><br/>
-          {/* <div className="text-center">
-              <p>By Signing Up, You agree to our terms and conditions</p>
-          </div> */}
 
       </div>
       </div>

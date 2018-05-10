@@ -32,8 +32,8 @@ export default class Volunteer extends Component {
               <img src="images/adoptioncenter.jpg" />
             </div>
             <div className="col-md-6">
-              <h5 className="top-middle">Lorem ipsum dolor</h5>
-              <p className="bottom-middle">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla vestibulum mauris ut diam vulputate, nec scelerisque magna maximus.</p>
+              <h5 className="top-middle">Lusaka Animal Welfare Society</h5>
+              <p className="bottom-middle">This organisation has been running since 1993</p>
               <button type="button" className="btn btn-outline-primary">Volunteer</button>
             </div>
           </div>
@@ -49,7 +49,7 @@ export default class Volunteer extends Component {
               <button type="button" className="btn btn-outline-primary text-center">Volunteer</button>
             </div>
           </div>
-          <i class="fa fa-angle-right text-center"></i>
+          <i className="fa fa-angle-right text-center"></i>
         </div>
         <br />
         <br />

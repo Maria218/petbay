@@ -12,17 +12,17 @@ export default class Footer extends Component {
               <div className="col-md-3 col-lg-4 col-xl-3 mb-4">
                 <h5 className="title">PET CONNECTIONS</h5>
                 <hr className="deep-purple1" />
-                <p className="align">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+                <p className="align">We are a site for all things pet! Connect to veterinary services, adoption centres, pet care information and all your furry friends on our platform today.</p>
               </div><hr className="vertical"/>
               <div className="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
                 <h5 className="title">LINKS</h5>
                 <hr className="deep-purple2" />
-                <p className="align"><a href="/pet-things"> Pet Supplies</a></p>
-                <p className="align"><a href="/sell">Home a Pet</a></p>
-                <p className="align"><a href="/advertise">Advertise</a></p>
-                <p className="align"><a href="/volunteer">Volunteer</a></p>
-                <p className="align"><a href="/report">Report a Stray</a></p>
-                <p className="align"><a href="/vets">Vet Services</a></p>
+                <p><a href="/pet-things" className="align"> Pet Supplies</a></p>
+                <p><a href="/sell" className="align">Home a Pet</a></p>
+                <p><a href="/advertise" className="align">Advertise</a></p>
+                <p><a href="/volunteer" className="align">Volunteer</a></p>
+                <p><a href="/report" className="align">Report a Stray</a></p>
+                <p><a href="/vets" className="align">Vet Services</a></p>
               </div><hr className="vertical"/>
               <div className="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4">
                 <h5 className="title">AFFILIATES</h5>
@@ -47,7 +47,7 @@ export default class Footer extends Component {
           <div className="copyright">
             © 2018 Copyright:
             <a href="https://localhost:3000/">
-              <strong> PetConnections.com</strong>
+              <strong className="align"> PetConnections.com</strong>
             </a>
           </div>
         </footer>

@@ -22,22 +22,22 @@ export default class Home extends Component {
               <img src="/images/dog-homepage.jpg" />
               <br />
               <br />
-              <h4 className="top-middle">Lorem ipsum dolor</h4>
-              <p className="bottom-middle">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla vestibulum mauris ut diam vulputate, nec scelerisque magna maximus. Suspendisse sit amet ex vestibulum, semper nunc quis, consequat arcu. Pellentesque feugiat molestie enim a aliquam.</p>
+              <h4 className="top-middle">Find Yourself a Furry Friend</h4>
+              <p className="bottom-middle">Check out the different categories of pets put up for adoption by different centres and individuals. Connect with adoption centers, pet stores and others to find these wonderful pets forever homes.</p>
             </div>
             <div className = "col-md-4">
               <img src="/images/cat-homepage.jpg" />
               <br />
               <br />
-              <h4 className="top-middle">Lorem ipsum dolor</h4>
-              <p className="bottom-middle">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla vestibulum mauris ut diam vulputate, nec scelerisque magna maximus. Suspendisse sit amet ex vestibulum, semper nunc quis, consequat arcu. Pellentesque feugiat molestie enim a aliquam.</p>
+              <h4 className="top-middle">Talk to a Vet</h4>
+              <p className="bottom-middle">Visit our Vet Services page to read through helpful information on all things pet care from registered veterinarians and dietitians. Connect to these vets directly with their contact information and ask questions, set appointments, or talk about the general health of a pet.</p>
             </div>
             <div className = "col-md-4">
               <img src="/images/parrots-homepage.jpg" />
               <br />
               <br />
-              <h4 className="top-middle">Lorem ipsum dolor</h4>
-              <p className="bottom-middle">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla vestibulum mauris ut diam vulputate, nec scelerisque magna maximus. Suspendisse sit amet ex vestibulum, semper nunc quis, consequat arcu. Pellentesque feugiat molestie enim a aliquam.</p>
+              <h4 className="top-middle">Give a Pet for Adoption</h4>
+              <p className="bottom-middle">Have a pet you want to give up for adoption? Create an account and upload information about your pet</p>
             </div>
           </div>
         </div>
