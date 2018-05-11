@@ -1,51 +1,52 @@
 import React, { Component } from 'react';
 import route from '/imports/routing/router.js';
+import Pets from '../api/profiles/collections.js';
+
 import Cats from '/imports/ui/Cats.jsx';
+import {withTracker} from 'meteor/react-meteor-data';
+import Dashboard from '/imports/ui/Dashboard.jsx';
 
 
-export default class Uploads extends Component {
+
+export class Uploads extends Component {
   constructor(props){
-    super(props)
+    super(props);
+    this.state = {
+      image:'',
+      petName:'',
+      age:'',
+      gender:'',
+      breed:'',
+      location:'',
+      health:'',
+      price:'',
+      description:''
+    }
   }
-  getUserData =(e) =>{
-    e.preventDefault();
-    const {target} = e;
-    const name = target.name.value;
-    const email = target.email.value;
-    const phone = target.phone.value;
-    const password = target.password.value;
-    const password2 = target.password2.value;
 
-   if(password.trim()!==password2.trim()){
-     this.setState({
-       error: "Passwords do not match"
-     })
-     return;
-   };
-   if(password.length <=6
-   ){
-     this.setState({
-       error2: "Password too short"
-     })
-     return;
-   }
-   const user = {
-     email,
-     password,
 
-     profile: {
-       name,
-       phone,
-     },
-     createdAt: new Date()
-   }
-   Accounts.createUser(user,error=>{
-     error ? console.log(error.reason) : console.log("Account Created Successfully")
-   }) ;
 
+handleSubmit=(e)=>{
+  e.preventDefault();
+  const pet = {
+    image:this.state.image,
+    petName:this.state.petName,
+    age:this.state.age,
+    gender:this.state.gender,
+    breed:this.state.breed,
+    location:this.state.location,
+    health:this.state.health,
+    price:this.state.price,
+    description:this.state.description
+
+  }
+  Meteor.call('pets.create',pet);
+  console.log('pet created')
   route.go('/dashboard');
 
   }
+
+
 
   render(){
     return(
@@ -67,7 +68,7 @@ export default class Uploads extends Component {
           <br />
           <h4 className="report">EDIT YOUR PET INFORMATION</h4>
         <div className="container">
-          <form className="upload">
+          <form onSubmit={this.handleSubmit} className="upload">
             <div className="form-group">
               <label htmlFor="exampleFormControlFile1">Upload Pet Image</label>
               <input type="file" name="image" className="form-control-file" id="exampleFormControlFile1" />
@@ -105,6 +106,10 @@ export default class Uploads extends Component {
           <label htmlFor="inputEmail4">Health</label>
             <input type="text" className="form-control" name="health" placeholder="Health status" required/>
           </div>
+          <div className="col">
+          <label htmlFor="inputEmail4">Price</label>
+            <input type="text" className="form-control" name="price" placeholder="Enter price" required/>
+          </div>
         </div><br />
         <div className="row">
           <div className="col-md-3"></div>
@@ -125,4 +130,14 @@ export default class Uploads extends Component {
         </div>
     );
   }
+
 }
+export default withTracker(() =>{
+  Meteor.subscribe('pets')
+  
+  return{
+    hkPosts : Pets.find().fetch(),
+
+  }
+
+})(Dashboard);
