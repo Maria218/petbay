@@ -11,7 +11,7 @@ import Home from '/imports/ui/Home.jsx';
 import Login from '/imports/ui/LogIn.jsx';
 
 const history = createBrowserHistory();
-const unauthenticatedPages = ['/'];
+const unauthenticatedPages = [];
 const authenticatedPages = ['/dashboard'];
 
 const publicPage = () => {
@@ -40,7 +40,7 @@ export const routes = (
 export const onAuthChange = (authenticated) => {
     console.log("isAuthenticated: ", authenticated);
     const path = history.location.pathname;
-    const isUnauthenticatedPage = unauthenticatedPages.includes(path);
+    // const isUnauthenticatedPage = unauthenticatedPages.includes(path);
     const isAuthenticatedPage = authenticatedPages.includes(path);
     if (authenticated && isUnauthenticatedPage) {   // pages: /signup and /
         console.log(`Authenticated user routed to the path dashboard`);
