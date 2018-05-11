@@ -6,7 +6,6 @@ import Navbar2 from './Navbar2.jsx';
 import Footer from '/imports/ui/Footer.jsx';
 
 export default class Home extends Component {
-
   render(){
     return(
       <div>

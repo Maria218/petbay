@@ -27,4 +27,23 @@ route('/homing', Homing);
 route('/contactus', ContactUs);
 route('/login', LogIn);
 route('/dashboard', Dashboard);
+
+// route('/dashboard', Dashboard, {},
+//  { triggersEnter : [
+//     () => {
+//       if (!Meteor.user()) {
+//         return route('/'); // this would be cleaner if it can work, am not sure
+//       }
+//     },
+//   ]},);
+
+// route('/dashboard', Dashboard, {},
+//   { triggersEnter: [
+//     () => {
+//       if (!(Meteor.loggingIn() || Meteor.userId())) {
+//         return route('/'); //not better way
+//       }
+//     },
+//   ]},);
+
 route('/upload', Uploads);
