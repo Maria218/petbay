@@ -21,7 +21,13 @@ export default class LogIn extends Component {
         const password = target.password.value;
 
         Meteor.loginWithPassword(email, password, err => {
-          err ? console.log(err.reason) : route.go('/dashboard');
+          // err ? console.log(err.reason) : route.go('/dashboard');
+          if (Meteor.user()) {
+            route.go('/dashboard');
+          }
+          else {
+            route.go('/login');
+          }
         })
     }
 

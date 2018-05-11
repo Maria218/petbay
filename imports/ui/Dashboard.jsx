@@ -2,9 +2,13 @@ import React, { Component } from 'react';
 import route from '/imports/routing/router.js';
 
 export default class Dashboard extends Component {
-  constructor(props){
-    super(props)
+
+  logUserOut = (e) => {
+    e.preventDefault();
+    Meteor.logout();
+    route.go("/login");
   }
+
   render(){
     return(
       <div>
@@ -28,7 +32,7 @@ export default class Dashboard extends Component {
               </div>
             </li>
               <li className="nav-item">
-                <a className="nav-link" href="/login">Log Out</a>
+                <a className="nav-link" href="" onClick={this.logUserOut}>Log Out</a>
               </li>
             </ul>
           </div>
