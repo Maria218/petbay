@@ -8,6 +8,11 @@ export default class Dashboard extends Component {
     Meteor.logout();
     route.go("/login");
   }
+  goToUpload = () => {
+   
+    route.go('/upload') // pathDef, params, queryParams
+
+}
 
   render(){
     return(
@@ -44,7 +49,7 @@ export default class Dashboard extends Component {
       </div><br />
       <h2 className="report">Upload Pet Information</h2><br />
         <div className="text-center">
-          <a href="/upload"><i className="fa fa-upload fa-4x"></i></a>
+        <button onClick={this.goToUpload}>Add A Pet</button>
         </div>
 
       </div>
