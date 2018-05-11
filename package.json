@@ -9,10 +9,12 @@
     "bootstrap-imageupload": "^1.1.3",
     "file-upload-react": "^0.1.2",
     "file-upload-with-preview": "^2.0.1",
+    "history": "^4.7.2",
     "meteor-node-stubs": "^0.3.2",
     "react": "^16.3.2",
     "react-dom": "^16.3.2",
     "react-mounter": "^1.2.0",
+    "react-router-dom": "^4.2.2",
     "redux-file-upload": "0.0.19",
     "tether": "^1.4.4"
   }
