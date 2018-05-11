@@ -18,7 +18,7 @@ export default class Homing extends Component {
     }
   }
 //   goToContacts = () => {
-//     route.go('/dashboard',{_id:this.state.name},{});   
+//     route.go('/dashboard',{_id:this.state.name},{});
 // }
   getUserData =(e) =>{
     e.preventDefault();
@@ -56,11 +56,7 @@ export default class Homing extends Component {
      error ? console.log(error.reason) : console.log("Account Created Successfully")
    }) ;
 
-  route.go('/dashboard');   
-  
-
-
-
+  route.go('/dashboard');
 
   }
   // clearErrors = (e)=>{
@@ -112,7 +108,7 @@ export default class Homing extends Component {
                   <input type="text" className="form-control" name="location" id="formGroupExampleInput2" placeholder="Enter Town Name" required/>
               </div><br/>
               <div className="text-center">
-              <button type="submit" className="btn btn-primary">Sign Up</button>
+                <button type="submit" className="btn btn-primary">Sign Up</button>
               </div>
           </form><br/>
           <div className="text-center">

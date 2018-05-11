@@ -7,6 +7,7 @@ export default class Uploads extends Component {
   constructor(props){
     super(props)
   }
+
   render(){
     return(
         <div>
@@ -27,7 +28,11 @@ export default class Uploads extends Component {
           <br />
           <h4 className="report">EDIT YOUR PET INFORMATION</h4>
         <div className="container">
-          <form>
+          <form className="upload">
+            <div className="form-group">
+              <label htmlFor="exampleFormControlFile1">Upload Pet Image</label>
+              <input type="file" className="form-control-file" id="exampleFormControlFile1" />
+            </div>
           <div className="row">
             <div className="col">
               <label htmlFor="inputEmail4">Pet Name</label><input type="text" className="form-control" placeholder="Pet name" required/>
@@ -60,12 +65,22 @@ export default class Uploads extends Component {
             <input type="text" className="form-control" placeholder="Pet name" required/>
           </div>
         </div><br />
-        <div className="col-md-6 form-group">
-          <label htmlFor="exampleFormControlTextarea1">PET DESCRIPTION</label>
-          <textarea className="form-control" id="exampleFormControlTextarea1" rows="5"></textarea>
+        <div className="row">
+          <div className="col-md-3"></div>
+          <div className="col-md-6 form-group describe">
+            <label htmlFor="exampleFormControlTextarea1">PET DESCRIPTION</label>
+            <textarea className="form-control" id="exampleFormControlTextarea1" rows="5"></textarea>
+          </div>
+          <div className="col-md-3"></div>
+        </div>
+        <br />
+        <div className="text-center">
+          <button type="submit" className="btn btn-primary">Upload</button>
         </div>
       </form>
         </div>
+        <br />
+        <br />
         </div>
     );
   }

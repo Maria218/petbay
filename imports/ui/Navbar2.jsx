@@ -1,43 +1,7 @@
 import React, { Component } from 'react';
 import route from '/imports/routing/router.js';
 
-// if (Meteor.isClient) {
-//    var myData = {
-//      key1: "value1",
-//      key2: "value2"
-//     }
-//     Session.set('mySession', myData);
-//     var sessionDataToLog = Session.get('mySession');
-//     console.log(sessionDataToLog);
-// }
-
-export default class Navbar extends Component {
-
-  // addingRole = () => {
-  //   if (Roles.userIsInRole( Meteor.userId(), 'admin', 'accountHolder' )) {
-  //     return
-  //   }
-  // }
-
-  // {if isInRole 'knives' 'chefs'}
-  //     <h3>Knife Cabinet</h3>
-  //     <ul>
-  //       <li>Fillet Knife</li>
-  //       <li>Peeler Knife</li>
-  //       <li>Bread Knife</li>
-  //     </ul>
-  //   {{/if}}
-  //
-  //   {{#if isInRole 'keys' 'owners'}}
-  //     <h3>Restaurant Keys</h3>
-  //     <ul>
-  //       <li>Front Door</li>
-  //       <li>Back Door</li>
-  //       {{#if isInRole 'register' 'owners'}}
-  //       	<li>Lockbox</li>
-  //       {{/if}}
-  //     </ul>
-  //   {{/if}}
+export default class Navbar2 extends Component {
 
   render() {
     return (
@@ -52,6 +16,9 @@ export default class Navbar extends Component {
             <ul className="navbar-nav ml-auto">
               <li className={`nav-item ${this.props.home}`} >
                 <a className="nav-link" href="/">Home <span className="sr-only">(current)</span></a>
+              </li>
+              <li className={`nav-item ${this.props.dashboard}`} >
+                <a className="nav-link" href="/dashboard">Dashboard<span className="sr-only">(current)</span></a>
               </li>
               <li className={`nav-item dropdown ${this.props.pets}`}>
                 <a className="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Pets</a>
@@ -85,7 +52,7 @@ export default class Navbar extends Component {
                 <a className="nav-link" href="/contactus">Contact Us</a>
               </li>
               <li className={`nav-item ${this.props.login}`}>
-                <a className="nav-link" href="/login">Log in</a>
+                <a className="nav-link" href="/login">Log out</a>
               </li>
             </ul>
           </div>
