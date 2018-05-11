@@ -7,18 +7,6 @@ import Footer from '/imports/ui/Footer.jsx';
 
 export default class Home extends Component {
 
-  customNav = () => {
-    if (Meteor.user()) {
-      var myData = <Navbar2 />
-      Session.set('loggedIn', myData);
-      const sessionDataToLog = Session.get('loggedIn');
-      console.log(Meteor.user());
-    }
-  }
-  componentDidMount(){
-    console.log(Meteor.user());
-  }
-
   render(){
     return(
       <div>

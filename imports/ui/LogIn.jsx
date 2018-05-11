@@ -5,6 +5,7 @@ import route from '/imports/routing/router.js';
 import { withTracker } from 'meteor/react-meteor-data';
 import Navbar from '/imports/ui/Navbar.jsx';
 import Footer from '/imports/ui/Footer.jsx';
+import Dashboard from '/imports/ui/Dashboard.jsx';
 
 
 export default class LogIn extends Component {
@@ -20,9 +21,8 @@ export default class LogIn extends Component {
         const password = target.password.value;
 
         Meteor.loginWithPassword(email, password, err => {
-          err ? console.log(err.reason) : console.log("Logged In Successfully");
+          err ? console.log(err.reason) : route.go('/dashboard');
         })
-        route.go('/dashboard');
     }
 
     render() {

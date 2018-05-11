@@ -1,43 +1,55 @@
 import React, { Component } from 'react';
 import route from '/imports/routing/router.js';
 
-// if (Meteor.isClient) {
-//    var myData = {
-//      key1: "value1",
-//      key2: "value2"
-//     }
-//     Session.set('mySession', myData);
-//     var sessionDataToLog = Session.get('mySession');
-//     console.log(sessionDataToLog);
-// }
-
 export default class Navbar extends Component {
 
-  // addingRole = () => {
-  //   if (Roles.userIsInRole( Meteor.userId(), 'admin', 'accountHolder' )) {
-  //     return
-  //   }
-  // }
+  goHome = () => {
+    route.go('/');
+  }
 
-  // {if isInRole 'knives' 'chefs'}
-  //     <h3>Knife Cabinet</h3>
-  //     <ul>
-  //       <li>Fillet Knife</li>
-  //       <li>Peeler Knife</li>
-  //       <li>Bread Knife</li>
-  //     </ul>
-  //   {{/if}}
-  //
-  //   {{#if isInRole 'keys' 'owners'}}
-  //     <h3>Restaurant Keys</h3>
-  //     <ul>
-  //       <li>Front Door</li>
-  //       <li>Back Door</li>
-  //       {{#if isInRole 'register' 'owners'}}
-  //       	<li>Lockbox</li>
-  //       {{/if}}
-  //     </ul>
-  //   {{/if}}
+  goToDogs = () => {
+    route.go("/dogs")
+  }
+
+  goToCats = () => {
+    route.go("/cats")
+  }
+
+  goToBirds = () => {
+    route.go("/birds")
+  }
+
+  goToVets = () => {
+    route.go("/vets")
+  }
+
+  goToSupplies = () => {
+    route.go("/petcare")
+  }
+
+  goToHoming = () => {
+    route.go("/homing")
+  }
+
+  goToAdvertise = () => {
+    route.go("/advertise")
+  }
+
+  goToReportStray = () => {
+    route.go("/report")
+  }
+
+  goToVolunteer = () => {
+    route.go("/volunteer")
+  }
+
+  goToContact = () => {
+    route.go("/contactus")
+  }
+
+  goToLogin = () => {
+    route.go("/login")
+  }
 
   render() {
     return (
@@ -51,41 +63,41 @@ export default class Navbar extends Component {
           <div className="collapse navbar-collapse" id="navbarSupportedContent">
             <ul className="navbar-nav ml-auto">
               <li className={`nav-item ${this.props.home}`} >
-                <a className="nav-link" href="/">Home <span className="sr-only">(current)</span></a>
+                <a className="nav-link" href="" onClick = {this.goHome}>Home <span className="sr-only">(current)</span></a>
               </li>
               <li className={`nav-item dropdown ${this.props.pets}`}>
                 <a className="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Pets</a>
                 <div className="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                  <a className="dropdown-item" href="/dogs">Dogs</a>
-                  <a className="dropdown-item" href="/cats">Cats</a>
-                  <a className="dropdown-item" href="/birds">Birds</a>
+                  <a className="dropdown-item" href="" onClick = {this.goToDogs}>Dogs</a>
+                  <a className="dropdown-item" href="" onClick = {this.goToCats}>Cats</a>
+                  <a className="dropdown-item" href="" onClick = {this.goToBirds}>Birds</a>
                 </div>
               </li>
               <li className={`nav-item dropdown ${this.props.petCare}`}>
                 <a className="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Pet Care</a>
                 <div className="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                  <a className="dropdown-item" href="/vets">Vet Services</a>
-                  <a className="dropdown-item" href="/petcare">Pet Supplies</a>
+                  <a className="dropdown-item" href="" onClick = {this.goToVets}>Vet Services</a>
+                  <a className="dropdown-item" href="" onClick = {this.goToSupplies}>Pet Supplies</a>
                 </div>
               </li>
               <li className={`nav-item ${this.props.homePet}`}>
-                <a className="nav-link" href="/homing">Home a Pet</a>
+                <a className="nav-link" href="" onClick = {this.goToHoming}>Home a Pet</a>
               </li>
               <li className={`nav-item ${this.props.advert}`}>
-                <a className="nav-link" href="/advertise">Advertise</a>
+                <a className="nav-link" href="" onClick = {this.goToAdvertise}>Advertise</a>
               </li>
               <li className={`nav-item dropdown ${this.props.getInvolved}`}>
                 <a className="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Get Involved</a>
                 <div className="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                  <a className="dropdown-item" href="/report">Report a Stray</a>
-                  <a className="dropdown-item" href="/volunteer">Volunteer</a>
+                  <a className="dropdown-item" href="" onClick = {this.goToReportStray}>Report a Stray</a>
+                  <a className="dropdown-item" href="" onClick = {this.goToVolunteer}>Volunteer</a>
                 </div>
               </li>
               <li className={`nav-item ${this.props.contact}`}>
-                <a className="nav-link" href="/contactus">Contact Us</a>
+                <a className="nav-link" href="" onClick = {this.goToContact}>Contact Us</a>
               </li>
               <li className={`nav-item ${this.props.login}`}>
-                <a className="nav-link" href="/login">Log in</a>
+                <a className="nav-link" href="" onClick = {this.goToLogin}>Log in</a>
               </li>
             </ul>
           </div>
