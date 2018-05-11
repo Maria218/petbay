@@ -6,7 +6,3 @@ Tracker.autorun(function(){
     const authenticated = !! Meteor.userId();
     onAuthChange(authenticated);
 });
-
-Meteor.startup(() => {
-    ReactDOM.render(routes, document.getElementById('app'));
-});
