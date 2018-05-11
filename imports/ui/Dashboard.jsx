@@ -44,7 +44,7 @@ export default class Dashboard extends Component {
       </div><br />
       <h2 className="report">Upload Pet Information</h2><br />
         <div className="text-center">
-          <a href="/upload"><i className="fa fa-upload fa-4x"></i></a>
+        <input type="submit" value="Add Pet"/>
         </div>
 
       </div>
