@@ -42,7 +42,6 @@ export default class Dashboard extends Component {
         <h3 style={{textAlign:"right", paddingRight:10+"px"}}>{this.props._id}</h3>
 
       </div><br />
-      <h2 className="report">Upload Pet Information</h2><br />
         <div className="">
         <input type="submit" value="Add Pet"/>
         </div>
