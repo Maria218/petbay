@@ -25,17 +25,7 @@ export class Dashboard extends Component {
       return(name);
     }
   }
-  // getUserName=()=>{
-  //   const users = this.props.users;
-  //   return Meteor.user.map((user)=>{
-  //     return(
-  //       <div key = {user._id} >
-  //         <h2>{this.user.profile.name}</h2>
-  //       </div>
-  //     )
-  //   })
-  // }
-
+  
   getAllPets=()=>{
     const pets = this.props.pets;
     return pets.map((pet) => {

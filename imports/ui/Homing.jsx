@@ -4,8 +4,6 @@ import React, { Component } from 'react';
 import route from '/imports/routing/router.js';
 import Navbar from '/imports/ui/Navbar.jsx';
 import Footer from '/imports/ui/Footer.jsx';
-//import USERS from '/imports/api/profiles/Collections.jsx';
-
 
 export default class Homing extends Component {
 
@@ -17,9 +15,7 @@ export default class Homing extends Component {
 
     }
   }
-//   goToContacts = () => {
-//     route.go('/dashboard',{_id:this.state.name},{});
-// }
+
   getUserData =(e) =>{
     e.preventDefault();
     const {target} = e;
@@ -35,8 +31,7 @@ export default class Homing extends Component {
      })
      return;
    };
-   if(password.length <=6
-   ){
+   if(password.length <=6){
      this.setState({
        error2: "Password too short"
      })
@@ -49,8 +44,8 @@ export default class Homing extends Component {
      profile: {
        name,
        phone,
+       createdAt: new Date()
      },
-     createdAt: new Date()
    }
    Accounts.createUser(user,error=>{
      error ? console.log(error.reason) : console.log("Account Created Successfully")
@@ -59,16 +54,6 @@ export default class Homing extends Component {
   route.go('/dashboard');
 
   }
-  // clearErrors = (e)=>{
-  //   const {target}= e;
-  //   //e.preventDefault;
-  //   if(target.value==""){
-  //     this.setState({
-  //       error: "",
-  //       error2: ""
-  //     })
-  //   };
-  // }
 
   render(){
     return(
