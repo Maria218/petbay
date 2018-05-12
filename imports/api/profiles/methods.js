@@ -6,7 +6,10 @@ Meteor.methods({
         Pets.insert(pet);
     }
 })
-
-
-
-
+//
+// Meteor.methods({
+//   find_by_username: function(name){
+//     var user = await Accounts.findUserByUsername(name);
+//     return user;
+//   }
+// });

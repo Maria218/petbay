@@ -18,6 +18,13 @@ export class Dashboard extends Component {
   goToUpload = () => {
     route.go('/upload') // pathDef, params, queryParams
   }
+
+  welcome = () => {
+    if (Meteor.user()){
+      var name = Meteor.user().profile.name
+      return(name);
+    }
+  }
   // getUserName=()=>{
   //   const users = this.props.users;
   //   return Meteor.user.map((user)=>{
@@ -30,7 +37,6 @@ export class Dashboard extends Component {
   // }
 
   getAllPets=()=>{
-    console.log(Meteor.users.find().fetch());
     const pets = this.props.pets;
     return pets.map((pet) => {
       return (
@@ -87,7 +93,7 @@ export class Dashboard extends Component {
         </nav>
         <div style={{width:100+"%",height:15+"em",backgroundColor:"cyan"}}>
         <h3 style={{textAlign:"left", paddingTop:10+"px"}}>Dashboard</h3>
-        <h3 style={{textAlign:"right", paddingRight:10+"px"}}>Welcome, {Meteor.userId()}</h3>
+        <h3 style={{textAlign:"right", paddingRight:10+"px"}}>Welcome, {this.welcome()}</h3>
 
       </div><br />
       <h2 className="report">Upload Pet Information</h2>
