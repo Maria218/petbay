@@ -3,6 +3,9 @@ import route from '/imports/routing/router.js';
 import Pets from '../api/profiles/collections.js';
 import {Uploads} from '/imports/ui/Upload.jsx';
 import {withTracker} from 'meteor/react-meteor-data';
+import { Meteor } from 'meteor/meteor';
+import { Accounts } from 'meteor/accounts-base';
+import { Mongo } from 'meteor/mongo';
 
 export class Dashboard extends Component {
 
@@ -15,12 +18,24 @@ export class Dashboard extends Component {
   goToUpload = () => {
     route.go('/upload') // pathDef, params, queryParams
   }
+  // getUserName=()=>{
+  //   const users = this.props.users;
+  //   return Meteor.user.map((user)=>{
+  //     return(
+  //       <div key = {user._id} >
+  //         <h2>{this.user.profile.name}</h2>
+  //       </div>
+  //     )
+  //   })
+  // }
 
   getAllPets=()=>{
+    console.log(Meteor.users.find().fetch());
     const pets = this.props.pets;
     return pets.map((pet) => {
       return (
         <div key = {pet._id} className="card border-primary">
+
           <img className="card-img-top" src={pet.image} style={{width: 100 + "%"}} alt="Card image cap"/>
           <div className="card-body">
             <h5 className="card-title"><strong>Name:</strong> {pet.petName}</h5>
@@ -72,13 +87,16 @@ export class Dashboard extends Component {
         </nav>
         <div style={{width:100+"%",height:15+"em",backgroundColor:"cyan"}}>
         <h3 style={{textAlign:"left", paddingTop:10+"px"}}>Dashboard</h3>
-        <h3 style={{textAlign:"right", paddingRight:10+"px"}}>{this.props._id}</h3>
+        <h3 style={{textAlign:"right", paddingRight:10+"px"}}>Welcome, {Meteor.userId()}</h3>
 
       </div><br />
-      <h2 className="report">Upload Pet Information</h2><br />
+      <h2 className="report">Upload Pet Information</h2>
+      <br />
         <div className="text-center">
         <button onClick={this.goToUpload}>Add A Pet</button>
         </div>
+        <br />
+        <br />
 
         <div className="container">
           <div className="card-columns">
