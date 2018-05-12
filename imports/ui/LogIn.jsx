@@ -35,8 +35,8 @@ export default class LogIn extends Component {
                           <h4>Enter Your Details To Log In</h4>
                           <form onSubmit = {this.logUserIn}>
                               <div className="form-group">
-                                  <label className="col-form-label" htmlFor="formGroupExampleInput2">Email Address</label>
-                                  <input type="email" className="form-control" name="email" id="formGroupExampleInput2" placeholder="Enter Email Address" required />
+                                  <label className="col-form-label" htmlFor="formGroupExampleInput">Email Address</label>
+                                  <input type="email" className="form-control" name="email" id="formGroupExampleInput1" placeholder="Enter Email Address" required />
                               </div>
                               <div className="form-group">
                                   <label className="col-form-label" htmlFor="formGroupExampleInput2">Password</label>
