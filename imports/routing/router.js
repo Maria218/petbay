@@ -6,13 +6,13 @@ import React from 'react';
 import route from './router.js';
 import { Router, Route, Switch } from 'react-router-dom';
 import createBrowserHistory from 'history/createBrowserHistory';
-import Homing from '/imports/ui/Homing.jsx';
+import Uploads from '/imports/ui/Upload.jsx';
 import Home from '/imports/ui/Home.jsx';
 import Login from '/imports/ui/LogIn.jsx';
 
 const history = createBrowserHistory();
 const unauthenticatedPages = [];
-const authenticatedPages = ['/dashboard'];
+const authenticatedPages = ['/dashboard', '/upload'];
 
 const publicPage = () => {
     if (Meteor.userId()) {
@@ -29,8 +29,8 @@ const privatePage = () => {
 export const routes = (
     <Router history = {history}>
         <Switch>
-          <Route exact path='/' component= {Login} onEnter={publicPage}/>
-          <Route exact path='/homing' component={Homing} onEnter={publicPage}/>
+          <Route exact path='/' component= {Home} onEnter={publicPage}/>
+          <Route exact path='/upload' component={Uploads} onEnter={publicPage}/>
           <Route exact path='/dashboard' render={ () => <Home greet='User'/> } onEnter={privatePage} />
           <Route component={Home}/>
         </Switch>

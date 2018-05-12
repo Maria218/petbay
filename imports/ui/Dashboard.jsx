@@ -1,17 +1,45 @@
 import React, { Component } from 'react';
 import route from '/imports/routing/router.js';
+import Pets from '../api/profiles/collections.js';
+import {Uploads} from '/imports/ui/Upload.jsx';
+import {withTracker} from 'meteor/react-meteor-data';
 
-export default class Dashboard extends Component {
+export class Dashboard extends Component {
 
   logUserOut = (e) => {
     e.preventDefault();
     Meteor.logout();
     route.go("/login");
   }
-  goToUpload = () => {
-   
-    route.go('/upload') // pathDef, params, queryParams
 
+  goToUpload = () => {
+    route.go('/upload') // pathDef, params, queryParams
+  }
+
+  getAllPets=()=>{
+    const pets = this.props.pets;
+    return pets.map((pet) => {
+      return (
+        <div key = {pet._id} className="card border-primary">
+          <img className="card-img-top" src={pet.image} style={{width: 100 + "%"}} alt="Card image cap"/>
+          <div className="card-body">
+            <h5 className="card-title"><strong>Name:</strong> {pet.petName}</h5>
+            <h6 className="card-subtitle mb-2"><strong>Age:</strong> {pet.age}</h6>
+            <h6 className="card-subtitle mb-2"><strong>Gender:</strong> {pet.gender}</h6>
+            <h6 className="card-subtitle mb-2"><strong>Breed:</strong> {pet.breed}</h6>
+            <h6 className="card-subtitle mb-2"><strong>Health:</strong> {pet.health}</h6>
+            <h6 className="card-subtitle mb-2"><strong>Price:</strong> {pet.price}</h6>
+            <h6 className="card-subtitle mb-2"><strong>Location:</strong> {pet.location}</h6>
+            <p className="card-text"><strong>Description:</strong> {pet.description}</p>
+            <a href="#" className="btn btn-primary">Buy</a>
+          </div>
+          <div className="card-footer">
+            <small className="text-muted">Posted 3 mins ago</small>
+          </div>
+        </div>
+      )
+    }
+  )
 }
 
   render(){
@@ -52,7 +80,22 @@ export default class Dashboard extends Component {
         <button onClick={this.goToUpload}>Add A Pet</button>
         </div>
 
+        <div className="container">
+          <div className="card-columns">
+              {this.getAllPets()}
+          </div>
+        </div>
+
       </div>
     );
   }
 }
+
+export default withTracker(() =>{
+  Meteor.subscribe('pets')
+
+  return{
+    pets : Pets.find().fetch(),
+  }
+
+})(Dashboard);
