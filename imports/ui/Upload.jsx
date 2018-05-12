@@ -39,7 +39,8 @@ export class Uploads extends Component {
       location:this.state.location,
       health:this.state.health,
       price:this.state.price,
-      description:this.state.description
+      description:this.state.description,
+      createdAt: new Date()
 
     }
     Meteor.call('pets.create',pet);

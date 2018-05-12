@@ -21,7 +21,7 @@ export class Dashboard extends Component {
 
   welcome = () => {
     if (Meteor.user()){
-      var name = Meteor.user().profile.name
+      const name = Meteor.user().profile.name
       return(name);
     }
   }
