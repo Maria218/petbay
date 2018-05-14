@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
 import route from '/imports/routing/router.js';
 import Pets from '../api/profiles/collections.js';
-
 import Cats from '/imports/ui/Cats.jsx';
 import {withTracker} from 'meteor/react-meteor-data';
 import {Dashboard} from '/imports/ui/Dashboard.jsx';
+import { FilesCollection } from 'meteor/ostrio:files';
 
 
 
@@ -21,11 +21,27 @@ export class Uploads extends Component {
       health:'',
       price:'',
       description:'',
-      category:''
+      category:'',
+      file: '',
+      imagePreviewUrl: ''
     }
   }
 
+  handleImageChange(e) {
+    e.preventDefault();
 
+    let reader = new FileReader();
+    let file = e.target.files[0];
+
+    reader.onloadend = () => {
+      this.setState({
+        file: file,
+        imagePreviewUrl: reader.result
+      });
+    }
+
+    reader.readAsDataURL(file)
+  }
 
   handleSubmit=(e)=>{
     e.preventDefault();
@@ -108,6 +124,15 @@ export class Uploads extends Component {
 
 
   render(){
+
+    let {imagePreviewUrl} = this.state;
+    let $imagePreview = null;
+    if (imagePreviewUrl) {
+      $imagePreview = (<img src={imagePreviewUrl} style={{width:100+"px",height:100+"px"}}/>);
+    } else {
+      $imagePreview = (<div className="previewText">Please select an Image for Preview<br/></div>);
+    }
+
     return(
         <div>
           <nav className="navbar navbar-expand-lg navbar-light">
@@ -126,12 +151,20 @@ export class Uploads extends Component {
           </nav>
           <br />
           <h4 className="report">EDIT YOUR PET INFORMATION</h4>
-        <div className="container">
+         <div className="container">
+
           <form onSubmit={this.handleSubmit} className="upload">
-            {/* <div className="form-group">
-              <label htmlFor="exampleFormControlFile1">Upload Pet Image</label>
-              <input type="file" name="image" className="form-control-file" id="exampleFormControlFile1" />
-            </div> */}
+          <div className="imgPreview">
+          <div className="row">
+                {$imagePreview}     
+          </div>
+         </div>
+         <div className="row">
+          <div className="col">
+              <label htmlFor="inputEmail4">Pet Image</label><br/>
+              <input className="fileInput" type="file" name="file" onChange={(e)=>this.handleImageChange(e)} />
+          </div>
+         </div>
           <div className="row">
             <div className="col">
               <label htmlFor="inputEmail4">Pet Name</label>
