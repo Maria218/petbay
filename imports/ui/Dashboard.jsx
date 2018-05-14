@@ -25,7 +25,7 @@ export class Dashboard extends Component {
       return(name);
     }
   }
-  
+
   getAllPets=()=>{
     const pets = this.props.pets;
     return pets.map((pet) => {

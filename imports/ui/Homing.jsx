@@ -48,7 +48,7 @@ export default class Homing extends Component {
      },
    }
    Accounts.createUser(user,error=>{
-     error ? console.log(error.reason) : console.log("Account Created Successfully")
+     error ? console.log(error.reason) : console.log("Account Created Successfully");
    }) ;
 
   route.go('/dashboard');
@@ -67,7 +67,7 @@ export default class Homing extends Component {
         </div>
           <form onSubmit = {this.getUserData} className="needs-validation">
               <div className="form-group">
-                  <label className="col-form-label" htmlFor="formGroupExampleInput">Organization Name</label>
+                  <label className="col-form-label" htmlFor="formGroupExampleInput">Individual or Organization Name</label>
                   <input type="text" className="form-control" name="name" id="formGroupExampleInput" placeholder="Enter Name" required />
               </div>
               <div className="form-group">
