@@ -161,3 +161,23 @@ body {
 .describe {
   text-align: center;
 }
+.imgau{
+  position: absolute;
+  top:0;
+  left:0;
+}
+.imgau1 {
+  border-radius: 50%;
+  width:400px;
+  height:400px;
+  top:400px;
+  left:400px;
+position:relative;
+}
+.tint{
+  position:relative;
+    border-radius: 50%;
+    width: 200px;
+    height: 200px;
+    background:rgba(0, 0, 0, 0.5);
+}

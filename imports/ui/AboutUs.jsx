@@ -43,27 +43,27 @@ export default class AboutUs extends Component{
             <div class="container">
               <div class="row">
                 <div class="col-md-3">
-                  <figure class="tint t1">
-                  <img src="images/dman.png" class="imgab"/></figure>
+                  <figure>
+                  <img src="images/dman.png" class="tint"/></figure>
                   <h1>Damiano SilverHand</h1>
                   <p class="ptext">Am proud to be with pet and to walk with them
                      at my free time!!</p>
                 </div>
                 <div class="col-md-3">
-                  <figure class="tint t2">
-                  <img src="images/cat6.jpg" class="imgab"/></figure>
+                  <figure>
+                  <img src="images/cat6.jpg" class="tint"/></figure>
                   <h1>Maria Situmbeko</h1>
                   <p class="ptext">I like to take care of pet and give them food and clean water to drink and to care for them when they sick I take them to vet for help!!!!</p>
                 </div>
                 <div class="col-md-3">
-                  <figure class="tint t3">
-                  <img src="images/img.jpg" class="imgab"/></figure>
+                  <figure>
+                  <img src="images/img.jpg" class="tint"/></figure>
                   <h1>Munnah Stephanie</h1>
                   <p class="ptext">I like been with pet and they are cool and good animal to be with!!!</p>
                 </div>
                 <div class="col-md-3">
-                  <figure class="tint t4">
-                  <img src="images/mary.jpg" class="imgab"/></figure>
+                  <figure>
+                  <img src="images/mary.jpg" class="tint"/></figure>
                   <h1>Mary Mulunda</h1>
                   <p class="ptext">I love to be with pets and to play with them at my free time because they are cool and fantastic animals to be with and I make sure to keep them safe !!! </p>
                 </div>
