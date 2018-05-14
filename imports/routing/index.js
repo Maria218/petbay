@@ -10,7 +10,7 @@ import Report from '/imports/ui/Report.jsx';
 import Vets from '/imports/ui/Vets.jsx';
 import Homing from '/imports/ui/Homing.jsx';
 import ContactUs from '/imports/ui/ContactUs.jsx';
-import AboutUs from '/imports/ui/AboutUs.jsx';
+// import AboutUs from '/imports/ui/AboutUs.jsx';
 import LogIn from '/imports/ui/LogIn.jsx';
 import Dashboard from '/imports/ui/Dashboard.jsx';
 import Uploads from '/imports/ui/Upload.jsx';
@@ -26,7 +26,7 @@ route('/report', Report);
 route('/vets', Vets);
 route('/homing', Homing);
 route('/contactus', ContactUs);
-route('/aboutus', AboutUs)
+// route('/aboutus', AboutUs)
 route('/login', LogIn);
 route('/dashboard', Dashboard);
 route('/upload', Uploads);

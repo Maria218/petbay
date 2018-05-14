@@ -42,10 +42,10 @@ export const onAuthChange = (authenticated) => {
     const path = history.location.pathname;
     // const isUnauthenticatedPage = unauthenticatedPages.includes(path);
     const isAuthenticatedPage = authenticatedPages.includes(path);
-    if (authenticated && isUnauthenticatedPage) {   // pages: /signup and /
+    if (authenticated) {   // pages: /signup and /
         console.log(`Authenticated user routed to the path dashboard`);
         history.replace('/dashboard');
-    } else if (!authenticated && isAuthenticatedPage) {
+    } else if (!authenticated) {
         console.log(`Unauthenticated user routed to the path /`);
         history.replace('/');
     }

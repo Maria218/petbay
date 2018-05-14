@@ -47,9 +47,9 @@ export default class Navbar extends Component {
     route.go("/contactus")
   }
 
-  goToAbout = () => {
-    route.go("/aboutus")
-  }
+  // goToAbout = () => {
+  //   route.go("/aboutus")
+  // }
 
   goToLogin = () => {
     route.go("/login")
@@ -103,9 +103,9 @@ export default class Navbar extends Component {
               <li className={`nav-item ${this.props.login}`}>
                 <a className="nav-link" href="" onClick = {this.goToLogin}>Log in</a>
               </li>
-              <li className={`nav-item ${this.props.about}`}>
+              {/* <li className={`nav-item ${this.props.about}`}>
                 <a className="nav-link" href="" onClick = {this.goToAbout}>About Us</a>
-              </li>
+              </li> */}
             </ul>
           </div>
         </nav>
