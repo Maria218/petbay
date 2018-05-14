@@ -6,3 +6,7 @@ Meteor.methods({
         Pets.insert(pet);
     }
 })
+
+Meteor.methods({
+    'pets.delete': (pet)=> Pets.remove(pet)
+});

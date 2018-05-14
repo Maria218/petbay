@@ -26,13 +26,13 @@ export class Dashboard extends Component {
     }
   }
 
+  deleteProfile = (e, id) => Meteor.call('pets.delete', id);
+
   getAllPets=()=>{
     const pets = this.props.pets;
-    // var currentUserId = Meteor.userId();
     return pets.map((pet) => {
       return (
         <div key = {pet._id} className="card border-primary">
-
           <img className="card-img-top" src={pet.image} style={{width: 100 + "%"}} alt="Card image cap"/>
           <div className="card-body">
             <h5 className="card-title"><strong>Name:</strong> {pet.petName}</h5>
@@ -43,7 +43,7 @@ export class Dashboard extends Component {
             <h6 className="card-subtitle mb-2"><strong>Price:</strong> {pet.price}</h6>
             <h6 className="card-subtitle mb-2"><strong>Location:</strong> {pet.location}</h6>
             <p className="card-text"><strong>Description:</strong> {pet.description}</p>
-            <a href="" className="btn btn-primary edit" onClick = {this.editProfile}>Edit <i class="fa fa-edit"></i></a>  <a href="" className="btn btn-danger delete" onClick = {this.deleteProfile}>Delete <i class="fa fa-trash"></i></a>
+            <a href="" className="btn btn-primary edit" onClick = {this.editProfile}>Edit <i className="fa fa-edit"></i></a>  <a href="" className="btn btn-danger delete" onClick = {e => this.deleteProfile(e, pet._id)}>Delete <i className="fa fa-trash"></i></a>
           </div>
           <div className="card-footer">
             <small className="text-muted">Posted 3 mins ago</small>
