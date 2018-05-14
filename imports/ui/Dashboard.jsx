@@ -28,6 +28,7 @@ export class Dashboard extends Component {
 
   getAllPets=()=>{
     const pets = this.props.pets;
+    // var currentUserId = Meteor.userId();
     return pets.map((pet) => {
       return (
         <div key = {pet._id} className="card border-primary">
@@ -107,9 +108,9 @@ export class Dashboard extends Component {
 
 export default withTracker(() =>{
   Meteor.subscribe('pets')
-
+  const currentUserId = Meteor.userId();
   return{
-    pets : Pets.find().fetch(),
+    pets : Pets.find({ createdBy: currentUserId }).fetch(),
   }
 
 })(Dashboard);
