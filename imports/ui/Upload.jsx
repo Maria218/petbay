@@ -178,7 +178,7 @@ export class Uploads extends Component {
           </div>
           <div className="col">
             <label htmlFor="inputEmail4">Price</label>
-            <input onChange={this.handlePriceChange} type="number" className="form-control" name="price" placeholder="Enter price" required/>
+            <input onChange={this.handlePriceChange} type="number" className="form-control" name="price" placeholder="Enter price in Kwacha" required/>
           </div>
         </div><br />
         <div className="row">
