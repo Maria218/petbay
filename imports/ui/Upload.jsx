@@ -139,7 +139,7 @@ export class Uploads extends Component {
             </div>
             <div className="col">
             <label htmlFor="inputEmail4">Pet Age</label>
-              <input onChange={this.handleAgeChange} type="text" className="form-control" name="age"  placeholder="Pet age" required/>
+              <input onChange={this.handleAgeChange} type="number" className="form-control" name="age"  placeholder="Pet age" required/>
             </div>
           </div><br />
         <div className="row">
@@ -178,7 +178,7 @@ export class Uploads extends Component {
           </div>
           <div className="col">
             <label htmlFor="inputEmail4">Price</label>
-            <input onChange={this.handlePriceChange} type="text" className="form-control" name="price" placeholder="Enter price" required/>
+            <input onChange={this.handlePriceChange} type="number" className="form-control" name="price" placeholder="Enter price" required/>
           </div>
         </div><br />
         <div className="row">
