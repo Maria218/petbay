@@ -43,7 +43,7 @@ export class Dashboard extends Component {
             <h6 className="card-subtitle mb-2"><strong>Price:</strong> {pet.price}</h6>
             <h6 className="card-subtitle mb-2"><strong>Location:</strong> {pet.location}</h6>
             <p className="card-text"><strong>Description:</strong> {pet.description}</p>
-            <a href="#" className="btn btn-primary">Buy</a>
+            <a href="" className="btn btn-primary edit" onClick = {this.editProfile}>Edit <i class="fa fa-edit"></i></a>  <a href="" className="btn btn-danger delete" onClick = {this.deleteProfile}>Delete <i class="fa fa-trash"></i></a>
           </div>
           <div className="card-footer">
             <small className="text-muted">Posted 3 mins ago</small>
