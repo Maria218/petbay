@@ -26,7 +26,9 @@ export class Dashboard extends Component {
     }
   }
 
-  deleteProfile = (e, id) => Meteor.call('pets.delete', id);
+  deleteProfile = (e, id) => {
+    Meteor.call('pets.delete', id);
+  }
 
   getAllPets=()=>{
     const pets = this.props.pets;
@@ -40,10 +42,32 @@ export class Dashboard extends Component {
             <h6 className="card-subtitle mb-2"><strong>Gender:</strong> {pet.gender}</h6>
             <h6 className="card-subtitle mb-2"><strong>Breed:</strong> {pet.breed}</h6>
             <h6 className="card-subtitle mb-2"><strong>Health:</strong> {pet.health}</h6>
-            <h6 className="card-subtitle mb-2"><strong>Price:</strong>K {pet.price}</h6>
+            <h6 className="card-subtitle mb-2"><strong>Price:</strong> {pet.price}</h6>
             <h6 className="card-subtitle mb-2"><strong>Location:</strong> {pet.location}</h6>
             <p className="card-text"><strong>Description:</strong> {pet.description}</p>
-            <a href="" className="btn btn-primary edit" onClick = {this.editProfile}>Edit <i className="fa fa-edit"></i></a>  <a href="" className="btn btn-danger delete" onClick = {e => this.deleteProfile(e, pet._id)}>Delete <i className="fa fa-trash"></i></a>
+            <a href="" className="btn btn-primary edit" onClick = {this.editProfile}>Edit <i className="fa fa-edit"></i></a>
+            <a href="" className="btn btn-danger delete" data-toggle="modal" data-target="#exampleModal" onClick = {this.warning}>Delete <i className="fa fa-trash"></i></a>
+
+            <div className="modal fade" id="exampleModal" tabIndex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+              <div className="modal-dialog" role="document">
+                <div className="modal-content">
+                  <div className="modal-header">
+                    <h5 className="modal-title" id="exampleModalLabel">Delete Pet</h5>
+                    <button type="button" className="close" data-dismiss="modal" aria-label="Close">
+                      <span aria-hidden="true">&times;</span>
+                    </button>
+                  </div>
+                  <div className="modal-body">
+                    Are you sure you want to delete this file?
+                  </div>
+                  <div className="modal-footer">
+                    <button type="button" className="btn btn-primary" data-dismiss="modal">Close</button>
+                    <button type="button" className="btn btn-danger" data-dismiss="modal" onClick = {e => this.deleteProfile(e, pet._id)}>Yes, delete</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+
           </div>
           <div className="card-footer">
             <small className="text-muted">Posted 3 mins ago</small>
