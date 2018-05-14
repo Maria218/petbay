@@ -29,6 +29,7 @@ export class Uploads extends Component {
 
   handleSubmit=(e)=>{
     e.preventDefault();
+    const currentUserId = Meteor.userId()
     const pet = {
       // image:this.state.image,
       petName:this.state.petName,
@@ -39,7 +40,9 @@ export class Uploads extends Component {
       location:this.state.location,
       health:this.state.health,
       price:this.state.price,
-      description:this.state.description
+      description:this.state.description,
+      createdAt: new Date(),
+      createdBy:currentUserId
 
     }
     Meteor.call('pets.create',pet);
