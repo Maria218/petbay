@@ -21,11 +21,11 @@ export class Dashboard extends Component {
 
   welcome = () => {
     if (Meteor.user()){
-      var name = Meteor.user().profile.name
+      const name = Meteor.user().profile.name
       return(name);
     }
   }
-  
+
   getAllPets=()=>{
     const pets = this.props.pets;
     return pets.map((pet) => {
