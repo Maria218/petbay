@@ -7,29 +7,29 @@ import Footer from '/imports/ui/Footer.jsx';
 
 
 export default class Birds extends Component{
-    render(){
-        return(
-            <div className="">
-            <Navbar pets={'active'}/>
-            <br/>
-            <p className="h1" style={{textAlign: "center"}}>PICK YOUR PET</p><br />
-            <div className ="container">
-                <div className="card-deck">
-                <div className ="row">
-  <div className="card border-primary col-md-4">
-    <img className="card-img-top" src="/images/bird1.jpg" style={{width: 100 + "%"}} alt="Card image cap"/>
-    <div className="card-body">
-      <h5 className="card-title">Name: Rodrigo</h5>
-      <h6 className="card-subtitle mb-2">Age: 2 years</h6>
-      <h6 className="card-subtitle mb-2">Price: 300</h6>
-      <h6 className="card-subtitle mb-2">Center: Home-A-Pet</h6>
-       <p className="card-text">A good friendly bird.</p>
-       <a href="#" className="btn btn-primary">Buy</a>
-    </div>
-    <div className="card-footer">
-      <small className="text-muted">Posted 3 mins ago</small>
-    </div>
-  </div>
+  render(){
+    return(
+      <div className="">
+        <Navbar pets={'active'}/>
+        <br/>
+        <p className="h1" style={{textAlign: "center"}}>PICK YOUR PET</p><br />
+        <div className ="container">
+          <div className="card-deck">
+            <div className ="row">
+              <div className="card border-primary col-md-4">
+                <img className="card-img-top" src="/images/bird1.jpg" style={{width: 100 + "%"}} alt="Card image cap"/>
+                <div className="card-body">
+                  <h5 className="card-title">Name: Rodrigo</h5>
+                  <h6 className="card-subtitle mb-2">Age: 2 years</h6>
+                  <h6 className="card-subtitle mb-2">Price: 300</h6>
+                  <h6 className="card-subtitle mb-2">Center: Home-A-Pet</h6>
+                  <p className="card-text">A good friendly bird.</p>
+                  <a href="#" className="btn btn-primary">Buy</a>
+                </div>
+                <div className="card-footer">
+                  <small className="text-muted">Posted 3 mins ago</small>
+                </div>
+              </div>
   <div className="card border-primary col-md-4">
     <img className="card-img-top" src="/images/bird2.jpg" style={{width: 100 + "%"}} alt="Card image cap"/>
     <div className="card-body">

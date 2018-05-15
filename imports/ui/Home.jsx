@@ -6,10 +6,21 @@ import Navbar2 from './Navbar2.jsx';
 import Footer from '/imports/ui/Footer.jsx';
 
 export default class Home extends Component {
+
+  loggedOn = () => {
+    if (Meteor.user()){
+      // const authentic =
+      return(<Navbar2 />);
+    }
+    else {
+      return(<Navbar />);
+    }
+  }
+
   render(){
     return(
       <div>
-        <Navbar home={' active'}/>
+        {this.loggedOn()}
         <img src="/images/homepage.jpg" />
         <br />
         <br />

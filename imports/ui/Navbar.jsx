@@ -32,7 +32,7 @@ export default class Navbar extends Component {
   }
 
   goToAdvertise = () => {
-    route.go("/advertise")
+    route.go("/advertising")
   }
 
   goToReportStray = () => {
@@ -111,9 +111,6 @@ export default class Navbar extends Component {
                   <a className="dropdown-item" href="" onClick = {this.goToSellerLogin}>Pet Owner</a>
                   <a className="dropdown-item" href="" onClick = {this.goToAdvertLogin}>Advertiser</a>
                 </div>
-              </li>
-              <li className={`nav-item ${this.props.login}`}>
-                <a className="nav-link" href="" onClick = {this.goToLogin}>Log in</a>
               </li>
               <li className={`nav-item ${this.props.about}`}>
                 <a className="nav-link" href="" onClick = {this.goToAbout}>About Us</a>
