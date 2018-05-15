@@ -122,11 +122,11 @@ export class Uploads2 extends Component {
           <div className="row">
             <div className="col">
               <label htmlFor="inputEmail4">Product Name</label>
-              <input onChange={this.handleNameChange} type="text" className="form-control" name="petName"  placeholder="Name of product" required/>
+              <input onChange={this.handleNameChange} type="text" className="form-control" name="itemName"  placeholder="Name of product" required/>
             </div>
             <div className="col">
             <label htmlFor="inputEmail4">PRODUCT CONDITION</label>
-              <input onChange={this.handleConditionChange} type="number" className="form-control" name="age"  placeholder="eg. New, Used, Old etc" required/>
+              <input onChange={this.handleConditionChange} type="number" className="form-control" name="itemCondition"  placeholder="eg. New, Used, Old etc" required/>
             </div>
           </div><br />
         <div className="row">
