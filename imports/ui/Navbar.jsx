@@ -47,13 +47,18 @@ export default class Navbar extends Component {
     route.go("/contactus")
   }
 
-  // goToAbout = () => {
-  //   route.go("/aboutus")
-  // }
+  goToAbout = () => {
+    route.go("/aboutus")
+  }
 
-  goToLogin = () => {
+  goToSellerLogin = () => {
     route.go("/login")
   }
+
+  goToAdvertLogin = () => {
+    route.go("/login")
+  }
+
 
   render() {
     return (
@@ -100,12 +105,19 @@ export default class Navbar extends Component {
               <li className={`nav-item ${this.props.contact}`}>
                 <a className="nav-link" href="" onClick = {this.goToContact}>Contact Us</a>
               </li>
+              <li className={`nav-item dropdown ${this.props.getInvolved}`}>
+                <a className="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Log In</a>
+                <div className="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                  <a className="dropdown-item" href="" onClick = {this.goToSellerLogin}>Pet Owner</a>
+                  <a className="dropdown-item" href="" onClick = {this.goToAdvertLogin}>Advertiser</a>
+                </div>
+              </li>
               <li className={`nav-item ${this.props.login}`}>
                 <a className="nav-link" href="" onClick = {this.goToLogin}>Log in</a>
               </li>
-              {/* <li className={`nav-item ${this.props.about}`}>
+              <li className={`nav-item ${this.props.about}`}>
                 <a className="nav-link" href="" onClick = {this.goToAbout}>About Us</a>
-              </li> */}
+              </li>
             </ul>
           </div>
         </nav>
