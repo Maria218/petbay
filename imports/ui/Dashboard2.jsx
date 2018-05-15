@@ -1,22 +1,22 @@
 import React, { Component } from 'react';
 import route from '/imports/routing/router.js';
-import Pets from '../api/profiles/collections.js';
-import {Uploads} from '/imports/ui/Upload.jsx';
+import Items from '../api/advertiser/collections.js';
+import {Uploads2} from '/imports/ui/Upload2.jsx';
 import {withTracker} from 'meteor/react-meteor-data';
 import { Meteor } from 'meteor/meteor';
 import { Accounts } from 'meteor/accounts-base';
 import { Mongo } from 'meteor/mongo';
 
-export class Dashboard extends Component {
+export class Dashboard2 extends Component {
 
   logUserOut = (e) => {
     e.preventDefault();
     Meteor.logout();
-    route.go("/login");
+    route.go("/login2");
   }
 
   goToUpload = () => {
-    route.go('/upload') // pathDef, params, queryParams
+    route.go('/upload2') // pathDef, params, queryParams
   }
 
   welcome = () => {
@@ -137,4 +137,4 @@ export default withTracker(() =>{
     pets : Pets.find({ createdBy: currentUserId }).fetch(),
   }
 
-})(Dashboard);
+})(Dashboard2);

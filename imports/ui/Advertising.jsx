@@ -48,7 +48,7 @@ export default class Homing extends Component {
      },
    }
    Accounts.createUser(user,error=>{
-     error ? console.log(error.reason) : console.log("Account Created Successfully");
+     error ? alert(error.reason) : alert("Account Created Successfully");
    }) ;
 
   route.go('/dashboard2');
