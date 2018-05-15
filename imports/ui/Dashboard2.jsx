@@ -27,24 +27,20 @@ export class Dashboard2 extends Component {
   }
 
   deleteProfile = (e, id) => {
-    Meteor.call('pets.delete', id);
+    Meteor.call('items.delete', id);
   }
 
-  getAllPets=()=>{
-    const pets = this.props.pets;
-    return pets.map((pet) => {
+  getAllItems=()=>{
+    const items = this.props.s;
+    return items.map((item) => {
       return (
-        <div key = {pet._id} className="card border-primary">
-          <img className="card-img-top" src={pet.image} style={{width: 100 + "%"}} alt="Card image cap"/>
+        <div key = {item._id} className="card border-primary">
+          <img className="card-img-top" src={item.image} style={{width: 100 + "%"}} alt="Card image cap"/>
           <div className="card-body">
-            <h5 className="card-title"><strong>Name:</strong> {pet.petName}</h5>
-            <h6 className="card-subtitle mb-2"><strong>Age:</strong> {pet.age}</h6>
-            <h6 className="card-subtitle mb-2"><strong>Gender:</strong> {pet.gender}</h6>
-            <h6 className="card-subtitle mb-2"><strong>Breed:</strong> {pet.breed}</h6>
-            <h6 className="card-subtitle mb-2"><strong>Health:</strong> {pet.health}</h6>
-            <h6 className="card-subtitle mb-2"><strong>Price:</strong> {pet.price}</h6>
-            <h6 className="card-subtitle mb-2"><strong>Location:</strong> {pet.location}</h6>
-            <p className="card-text"><strong>Description:</strong> {pet.description}</p>
+            <h5 className="card-title"><strong>Product Name:</strong> {item.itemName}</h5>
+            <h6 className="card-subtitle mb-2"><strong>Condition:</strong> {item.itemCondition}</h6>
+            <h6 className="card-subtitle mb-2"><strong>Price:</strong>K {item.price}</h6>
+            <p className="card-text"><strong>Description:</strong> {item.description}</p>
             <a href="" className="btn btn-primary edit" onClick = {this.editProfile}>Edit <i className="fa fa-edit"></i></a>
             <a href="" className="btn btn-danger delete" data-toggle="modal" data-target="#exampleModal" onClick = {this.warning}>Delete <i className="fa fa-trash"></i></a>
 
@@ -52,7 +48,7 @@ export class Dashboard2 extends Component {
               <div className="modal-dialog" role="document">
                 <div className="modal-content">
                   <div className="modal-header">
-                    <h5 className="modal-title" id="exampleModalLabel">Delete Pet</h5>
+                    <h5 className="modal-title" id="exampleModalLabel">Delete Item</h5>
                     <button type="button" className="close" data-dismiss="modal" aria-label="Close">
                       <span aria-hidden="true">&times;</span>
                     </button>
@@ -121,7 +117,7 @@ export class Dashboard2 extends Component {
 
         <div className="container">
           <div className="card-columns">
-              {this.getAllPets()}
+              {this.getAllItems()}
           </div>
         </div>
 
@@ -131,10 +127,10 @@ export class Dashboard2 extends Component {
 }
 
 export default withTracker(() =>{
-  Meteor.subscribe('pets')
+  Meteor.subscribe('items')
   const currentUserId = Meteor.userId();
   return{
-    pets : Pets.find({ createdBy: currentUserId }).fetch(),
+    items : Items.find({ createdBy: currentUserId }).fetch(),
   }
 
 })(Dashboard2);
