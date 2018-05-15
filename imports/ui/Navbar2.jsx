@@ -3,6 +3,12 @@ import route from '/imports/routing/router.js';
 
 export default class Navbar2 extends Component {
 
+  logUserOut = (e) => {
+    e.preventDefault();
+    Meteor.logout();
+    route.go("/login");
+  }
+
   goHome = () => {
     route.go('/');
   }
@@ -47,11 +53,15 @@ export default class Navbar2 extends Component {
     route.go("/contactus")
   }
 
-  // goToAbout = () => {
-  //   route.go("/aboutus")
-  // }
+  goToAbout = () => {
+    route.go("/aboutus")
+  }
 
-  goToLogin = () => {
+  goToSellerLogin = () => {
+    route.go("/login")
+  }
+
+  goToAdvertLogin = () => {
     route.go("/login")
   }
 
@@ -85,11 +95,11 @@ export default class Navbar2 extends Component {
                 </div>
               </li>
               <li className={`nav-item ${this.props.homePet}`}>
-                <a className="nav-link" href="" onClick = {this.goToDashboard}>Home a Pet</a>
+                <a className="nav-link" href="" onClick = {this.goToDashboard}>Dashboard</a>
               </li>
-              <li className={`nav-item ${this.props.advert}`}>
+              {/* <li className={`nav-item ${this.props.advert}`}>
                 <a className="nav-link" href="" onClick = {this.goToAdvertise}>Advertise</a>
-              </li>
+              </li> */}
               <li className={`nav-item dropdown ${this.props.getInvolved}`}>
                 <a className="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Get Involved</a>
                 <div className="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
@@ -100,12 +110,12 @@ export default class Navbar2 extends Component {
               <li className={`nav-item ${this.props.contact}`}>
                 <a className="nav-link" href="" onClick = {this.goToContact}>Contact Us</a>
               </li>
-              <li className={`nav-item ${this.props.login}`}>
-                <a className="nav-link" href="" onClick = {this.goToLogin}>Log in</a>
-              </li>
-              {/* <li className={`nav-item ${this.props.about}`}>
+              <li className={`nav-item ${this.props.about}`}>
                 <a className="nav-link" href="" onClick = {this.goToAbout}>About Us</a>
-              </li> */}
+              </li>
+              <li className="nav-item">
+                <a className="nav-link" href="" onClick={this.logUserOut}>Log Out</a>
+              </li>
             </ul>
           </div>
         </nav>

@@ -5,7 +5,7 @@ import route from '/imports/routing/router.js';
 import { withTracker } from 'meteor/react-meteor-data';
 import Navbar from '/imports/ui/Navbar.jsx';
 import Footer from '/imports/ui/Footer.jsx';
-import Dashboard from '/imports/ui/Dashboard.jsx';
+import Dashboard2 from '/imports/ui/Dashboard2.jsx';
 
 export default class LogIn2 extends Component {
     // bind this function to the form to prevent it from reloading the page
@@ -20,7 +20,7 @@ export default class LogIn2 extends Component {
         const password = target.password.value;
 
         Meteor.loginWithPassword(email, password, err => {
-          err ? console.log(err.reason) : route.go('/dashboard');
+          err ? console.log(err.reason) : route.go('/dashboard2');
         })
     }
 
