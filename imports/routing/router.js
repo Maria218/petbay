@@ -12,11 +12,11 @@ import Login from '/imports/ui/LogIn.jsx';
 
 const history = createBrowserHistory();
 const unauthenticatedPages = [];
-const authenticatedPages = ['/dashboard', '/upload'];
+const authenticatedPages = ['/dashboard', '/dashboard2', '/upload', '/upload2'];
 
 const publicPage = () => {
     if (Meteor.userId()) {
-        history.replace('/dashboard');
+        history.replace('/dashboard', '/dashboard2');
     }
 };
 
@@ -32,6 +32,7 @@ export const routes = (
           <Route exact path='/' component= {Home} onEnter={publicPage}/>
           <Route exact path='/upload' component={Uploads} onEnter={publicPage}/>
           <Route exact path='/dashboard' render={ () => <Home greet='User'/> } onEnter={privatePage} />
+          <Route exact path='/dashboard2' render={ () => <Home greet='User'/> } onEnter={privatePage} />
           <Route component={Home}/>
         </Switch>
     </Router>
@@ -44,7 +45,7 @@ export const onAuthChange = (authenticated) => {
     const isAuthenticatedPage = authenticatedPages.includes(path);
     if (authenticated) {   // pages: /signup and /
         console.log(`Authenticated user routed to the path dashboard`);
-        history.replace('/dashboard');
+        history.replace();
     } else if (!authenticated) {
         console.log(`Unauthenticated user routed to the path /`);
         history.replace('/');

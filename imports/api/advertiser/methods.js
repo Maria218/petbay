@@ -2,19 +2,19 @@ import {Meteor} from 'meteor/meteor';
 import Items from './collections.js';
 
 Meteor.methods({
-  'items.create': (pet)=>{
-    Items.insert(pet);
+  'items.create': (item)=>{
+    Items.insert(item);
   }
 })
 
 Meteor.methods({
-  'items.delete': (item)=> Items.remove(pet)
+  'items.delete': (item)=> Items.remove(item)
 });
 
 Meteor.methods({
   'items.edit': (params) => {
     const item = Items.findOne({_id: params.id });
-    Items.update(pet._id, {
+    Items.update(item._id, {
       $set: {
         title: params.title
        }

@@ -5,7 +5,7 @@ import route from '/imports/routing/router.js';
 import Navbar from '/imports/ui/Navbar.jsx';
 import Footer from '/imports/ui/Footer.jsx';
 
-export default class Homing extends Component {
+export default class Advertising extends Component {
 
   constructor(props){
     super(props);
@@ -16,7 +16,7 @@ export default class Homing extends Component {
     }
   }
 
-  getUserData =(e) =>{
+  getUserData2 =(e) =>{
     e.preventDefault();
     const {target} = e;
     const name = target.name.value;
@@ -58,14 +58,14 @@ export default class Homing extends Component {
   render(){
     return(
       <div>
-        <Navbar homePet={'active'}/><br/>
+        <Navbar advert={'active'}/><br/>
         <div className="container">
         <div className="row justify-content-center">
         <div className="col-md-4">
         <div className="text-center">
         <h4>Sign Up To Continue</h4>
         </div>
-          <form onSubmit = {this.getUserData} className="needs-validation">
+          <form onSubmit = {this.getUserData2} className="needs-validation">
               <div className="form-group">
                   <label className="col-form-label" htmlFor="formGroupExampleInput">Individual or Organization Name</label>
                   <input type="text" className="form-control" name="name" id="formGroupExampleInput" placeholder="Enter Name" required />

@@ -31,7 +31,7 @@ export class Dashboard2 extends Component {
   }
 
   getAllItems=()=>{
-    const items = this.props.s;
+    const items = this.props.items;
     return items.map((item) => {
       return (
         <div key = {item._id} className="card border-primary">
