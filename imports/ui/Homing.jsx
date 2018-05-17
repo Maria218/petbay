@@ -31,7 +31,7 @@ export default class Homing extends Component {
      })
      return;
    };
-   if(password.length <=6){
+   if(password.length <= 6){
      this.setState({
        error2: "Password too short"
      })
@@ -58,39 +58,53 @@ export default class Homing extends Component {
   render(){
     return(
       <div>
-        <Navbar homePet={'active'}/><br/>
+        <Navbar homePet={'active'}/><br />
         <div className="container">
         <div className="row justify-content-center">
         <div className="col-md-4">
         <div className="text-center">
         <h4>Sign Up To Continue</h4>
         </div>
-          <form onSubmit = {this.getUserData} className="needs-validation">
+          <form onSubmit = {this.getUserData} className="needs-validation" novalidate>
               <div className="form-group">
                   <label className="col-form-label" htmlFor="formGroupExampleInput">Individual or Organization Name</label>
                   <input type="text" className="form-control" name="name" id="formGroupExampleInput" placeholder="Enter Name" required />
+                  <div className="invalid-feedback">
+                    Please provide a valid name.
+                  </div>
               </div>
               <div className="form-group">
                   <label className="col-form-label" htmlFor="formGroupExampleInput2">Email Address</label>
                   <input type="email" className="form-control" name="email" id="formGroupExampleInput2" placeholder="Enter Email Address" required/>
+                  <div className="invalid-feedback">
+                    Please provide a valid email address.
+                  </div>
               </div>
               <div className="form-group">
                   <label className="col-form-label" htmlFor="formGroupExampleInput2">Contact Number</label>
                   <input type="number" className="form-control" name="phone" id="formGroupExampleInput2" placeholder="Enter Phone Number" required/>
+                  <div className="invalid-feedback">
+                    Please provide a phone number.
+                  </div>
               </div>
               <div className="form-group">
                   <label className="col-form-label" htmlFor="formGroupExampleInput2">Password</label>
                   <input type="password" className="form-control" name="password" id="formGroupExampleInput2" placeholder="Choose Password"  required/>
-                  <p style={{color:"red"}}>{this.state.error2}</p>
+                  {/* <p style={{color:"red"}}>{this.state.error2}</p> */}
+                  <div className="invalid-feedback">{this.state.error2}</div>
               </div>
               <div className="form-group">
                   <label className="col-form-label" htmlFor="formGroupExampleInput2">Confirm Password</label>
-                  <input type="password" className="form-control" name="password2" id="formGroupExampleInput2" placeholder="Enter Password Again"required/>
-                  <p style={{color:"red"}}>{this.state.error}</p>
+                  <input type="password" className="form-control" name="password2" id="formGroupExampleInput2" placeholder="Enter Password Again" required/>
+                  {/* <p style={{color:"red"}}>{this.state.error}</p> */}
+                  <div className="invalid-feedback">{this.state.error}</div>
               </div>
               <div className="form-group">
                   <label className="col-form-label" htmlFor="formGroupExampleInput2">Location</label>
                   <input type="text" className="form-control" name="location" id="formGroupExampleInput2" placeholder="Enter Town Name" required/>
+                  <div className="invalid-feedback">
+                    Please provide a location
+                  </div>
               </div><br/>
               <div className="text-center">
                 <button type="submit" className="btn btn-primary">Sign Up</button>

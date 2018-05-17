@@ -5,7 +5,6 @@ import { withTracker } from 'meteor/react-meteor-data';
 import Navbar from '/imports/ui/Navbar.jsx';
 import Footer from '/imports/ui/Footer.jsx';
 
-
 export default class Dogs extends Component{
   render(){
     return(
@@ -108,7 +107,6 @@ export default class Dogs extends Component{
 
         <br /><br />
         <Footer />
-
     </div>
     )
 

@@ -28,7 +28,7 @@ export default class LogIn extends Component {
     render() {
         return (
             <div>
-                <Navbar login={'active'}/><br />
+              <Navbar login={'active'}/><br />
                 <div className="container">
                   <div className="row justify-content-center">
                       <div className="col-md-4">

@@ -1,7 +1,75 @@
 import React, { Component } from 'react';
 import route from '/imports/routing/router.js';
+import { Meteor } from 'meteor/meteor';
+import { Accounts } from 'meteor/accounts-base';
 
 export default class Navbar extends Component {
+  constructor(props){
+    super(props);
+
+    this.state = {
+        itemName : '',
+        route: ''
+    }
+}
+
+componentDidMount(){
+    //determine item to show on mount wether logout or or login
+    if (Meteor.userId.length !== 0){
+      this.setState({
+        itemName: 'Logout',
+        route: '/'
+      })
+      console.log(Meteor.userId());
+    }
+    else {
+      this.setState({
+        itemName: 'Login',
+        route: '/login'
+      })
+      console.log(Meteor.userId);
+    }
+}
+
+logUserOut = (e) => {
+  if(Meteor.userId.length !== 0){
+    // const currentpath = route.current.path;
+    this.setState({
+      itemName: 'Logout',
+    })
+    Meteor.logout();
+    // route.go("/login");
+  }
+  else{
+    this.setState({
+      itemName: 'Login',
+      route: '/login'
+    })
+  }
+}
+
+componentDidUpdate(){
+
+}
+
+// handleLR =(e)=>{
+//     if(Meteor.userId.length !== 0){
+//         const currentpath = route.current.path;
+//         this.setState({
+//             itemName: 'Logout',
+//             route: currentpath
+//         })
+//           e.preventDefault();
+//           Meteor.logout();
+//           // route.go('/login')
+//         // Meteor.logout();
+//     } else{
+//         this.setState({
+//             itemName: 'Login',
+//              route: '/login'
+//         })
+//     }
+// }
 
   goHome = () => {
     route.go('/');
@@ -105,15 +173,18 @@ export default class Navbar extends Component {
               <li className={`nav-item ${this.props.contact}`}>
                 <a className="nav-link" href="" onClick = {this.goToContact}>Contact Us</a>
               </li>
-              <li className={`nav-item dropdown ${this.props.getInvolved}`}>
+              {/* <li className={`nav-item dropdown ${this.props.login}`}>
                 <a className="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Log In</a>
                 <div className="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                   <a className="dropdown-item" href="" onClick = {this.goToSellerLogin}>Pet Owner</a>
                   <a className="dropdown-item" href="" onClick = {this.goToAdvertLogin}>Advertiser</a>
                 </div>
-              </li>
+              </li> */}
               <li className={`nav-item ${this.props.about}`}>
                 <a className="nav-link" href="" onClick = {this.goToAbout}>About Us</a>
+              </li>
+              <li className={`nav-item ${this.props.login}`}>
+                <a href={this.state.route} onClick={this.logUserOut} className="nav-link">{this.state.itemName}</a>
               </li>
             </ul>
           </div>

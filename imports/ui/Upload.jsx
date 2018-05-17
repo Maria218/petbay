@@ -4,15 +4,16 @@ import Pets from '../api/profiles/collections.js';
 import Cats from '/imports/ui/Cats.jsx';
 import {withTracker} from 'meteor/react-meteor-data';
 import {Dashboard} from '/imports/ui/Dashboard.jsx';
-import { FilesCollection } from 'meteor/ostrio:files';
-
-
+// import { FilesCollection } from 'meteor/ostrio:files';
+import FileUploadComponent from './uploadFile.jsx';
+import {UserFiles} from '../api/upload/collections.js';
+import { Session } from 'meteor/session';
 
 export class Uploads extends Component {
   constructor(props){
     super(props);
     this.state = {
-      image:'',
+      imageId:'',
       petName:'',
       age:'',
       gender:'',
@@ -26,6 +27,19 @@ export class Uploads extends Component {
       imagePreviewUrl: ''
     }
   }
+
+  // showImages(){
+  //   const mFiles = this.props.files;
+  //   return mFiles.map((file) => {
+  //     const link = UserFiles.findOne({_id:file._id}).link();
+  //     return (
+  //       <div key ={file._id}>
+  //         <p>{file.name}</p>
+  //         <img src={link} height="200" width="200"></img>
+  //       </div>
+  //     )
+  //   });
+  // }
 
   handleImageChange(e) {
     e.preventDefault();
@@ -44,10 +58,10 @@ export class Uploads extends Component {
   }
 
   handleSubmit=(e)=>{
-    e.preventDefault();
+    const attempt = Session.get('imageId');
     const currentUserId = Meteor.userId()
     const pet = {
-      // image:this.state.image,
+      imageId: attempt,
       petName:this.state.petName,
       age:this.state.age,
       gender:this.state.gender,
@@ -58,14 +72,13 @@ export class Uploads extends Component {
       price:this.state.price,
       description:this.state.description,
       createdAt: new Date(),
-      createdBy:currentUserId
-
+      createdBy:currentUserId,
     }
     Meteor.call('pets.create',pet);
     console.log('pet created')
     route.go('/dashboard');
+    e.preventDefault();
   }
-
 
   handleNameChange = (e) => {
     this.setState({
@@ -121,10 +134,7 @@ export class Uploads extends Component {
     })
   }
 
-
-
   render(){
-
     let {imagePreviewUrl} = this.state;
     let $imagePreview = null;
     if (imagePreviewUrl) {
@@ -156,17 +166,13 @@ export class Uploads extends Component {
           <h4 className="report">EDIT YOUR PET INFORMATION</h4>
          <div className="container">
 
+
           <form onSubmit={this.handleSubmit} className="upload">
+            <FileUploadComponent fileName = {this.state.petName} />
           <div className="imgPreview">
-          <div className="row">
-                {$imagePreview}
-          </div>
-         </div>
-         <div className="row">
-          <div className="col">
-              <label htmlFor="inputEmail4">Pet Image</label><br/>
-              <input className="fileInput" type="file" name="file" onChange={(e)=>this.handleImageChange(e)} />
-          </div>
+            {/* <div className="row">
+              {$imagePreview}
+            </div> */}
          </div>
           <div className="row">
             <div className="col">
@@ -240,9 +246,10 @@ export class Uploads extends Component {
 }
 export default withTracker(() =>{
   Meteor.subscribe('pets')
-
+  Meteor.subscribe('files.all');
   return{
     pets : Pets.find().fetch(),
+    files : UserFiles.find({}, {sort: {name: 1}}).fetch(),
   }
 
 })(Uploads);

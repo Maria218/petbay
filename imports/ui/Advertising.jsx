@@ -6,7 +6,6 @@ import Navbar from '/imports/ui/Navbar.jsx';
 import Footer from '/imports/ui/Footer.jsx';
 
 export default class Advertising extends Component {
-
   constructor(props){
     super(props);
     this.state = {

@@ -7,10 +7,11 @@ import Footer from '/imports/ui/Footer.jsx';
 
 
 export default class Cats extends Component{
+
     render(){
         return(
             <div className="">
-           <Navbar pets={'active'}/>
+              <Navbar pets={'active'}/>
             <br/>
             <p className="h1" style={{textAlign: "center"}}>PICK YOUR PET</p><br />
             <div className ="container">

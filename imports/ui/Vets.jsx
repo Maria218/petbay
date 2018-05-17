@@ -1,14 +1,25 @@
 import { Meteor } from 'meteor/meteor';
 import React, { Component } from 'react';
 import route from '/imports/routing/router.js';
+import Navbar2 from '/imports/ui/Navbar2.jsx';
 import Navbar from '/imports/ui/Navbar.jsx';
 import Footer from '/imports/ui/Footer.jsx';
 
 export default class Vets extends Component {
+
+  loggedOn = () => {
+    if (Meteor.user()){
+      return(<Navbar2 petCare={'active'}/>);
+    }
+    else {
+      return(<Navbar petCare={'active'}/>);
+    }
+  }
+
   render(){
     return(
       <div>
-        <Navbar petCare={'active'}/>
+        {this.loggedOn()}
         <br />
         <br />
         <h1 className="report">Pet Care</h1>

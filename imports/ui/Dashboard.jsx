@@ -1,11 +1,13 @@
 import React, { Component } from 'react';
 import route from '/imports/routing/router.js';
 import Pets from '../api/profiles/collections.js';
-import {Uploads} from '/imports/ui/Upload.jsx';
+import Uploads from '/imports/ui/Upload.jsx';
 import {withTracker} from 'meteor/react-meteor-data';
 import { Meteor } from 'meteor/meteor';
 import { Accounts } from 'meteor/accounts-base';
 import { Mongo } from 'meteor/mongo';
+import FileUploadComponent from './uploadFile.jsx';
+import {UserFiles} from '../api/upload/collections.js';
 
 export class Dashboard extends Component {
 
@@ -30,14 +32,47 @@ export class Dashboard extends Component {
     Meteor.call('pets.delete', id);
   }
 
+  // showImages(){
+  //   const mFiles = this.props.files;
+  //   return mFiles.map((file) => {
+  //     const link = UserFiles.findOne({_id:file._id}).link();
+  //     return (
+  //       <div key ={file._id}>
+  //         <p>{file.name}</p>
+  //         <img src={link} height="200" width="200"></img>
+  //       </div>
+  //     )
+  //   });
+  // }
+
+  // showImages(){
+  //   const mFiles = this.props.files;
+  //   return mFiles.map((file) => {
+  //     const link = UserFiles.findOne({_id:file._id}).link();
+  //     return (
+  //       <div key ={file._id}>
+  //         <p>{file.name}</p>
+  //         <img src={link} height="200" width="200"></img>
+  //       </div>
+  //     )
+  //   });
+  // }
+
   getAllPets=()=>{
     const pets = this.props.pets;
     return pets.map((pet) => {
+      const trial = pet.imageId;
+      console.log(trial);
+      const link = UserFiles.findOne({_id: trial}).link();
       return (
         <div key = {pet._id} className="card border-primary">
-          <img className="card-img-top" src={pet.image} style={{width: 100 + "%"}} alt="Card image cap"/>
+          {/* <div className="imagesContainer" >
+            {this.showImages()}
+          </div> */}
+          <img className="card-img-top" src={link} style={{width: 100 + "%",height:200 + "px"}} alt="Card image cap"/>
           <div className="card-body">
             <h5 className="card-title"><strong>Name:</strong> {pet.petName}</h5>
+            <h5 className="card-title"><strong>Id:</strong> {pet.imageId}</h5>
             <h6 className="card-subtitle mb-2"><strong>Age:</strong> {pet.age}</h6>
             <h6 className="card-subtitle mb-2"><strong>Gender:</strong> {pet.gender}</h6>
             <h6 className="card-subtitle mb-2"><strong>Breed:</strong> {pet.breed}</h6>
@@ -45,8 +80,7 @@ export class Dashboard extends Component {
             <h6 className="card-subtitle mb-2"><strong>Price:</strong> {pet.price}</h6>
             <h6 className="card-subtitle mb-2"><strong>Location:</strong> {pet.location}</h6>
             <p className="card-text"><strong>Description:</strong> {pet.description}</p>
-            <a href="" className="btn btn-primary edit" onClick = {this.editProfile}>Edit <i className="fa fa-edit"></i></a>
-            <a href="" className="btn btn-danger delete" data-toggle="modal" data-target="#exampleModal" onClick = {this.warning}>Delete <i className="fa fa-trash"></i></a>
+            <a href="" className="btn btn-primary edit" onClick = {this.editProfile}>Edit <i className="fa fa-edit"></i></a> <a href="" className="btn btn-danger delete" data-toggle="modal" data-target="#exampleModal" onClick = {this.warning}>Delete <i className="fa fa-trash"></i></a>
 
             <div className="modal fade" id="exampleModal" tabIndex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
               <div className="modal-dialog" role="document">
@@ -111,6 +145,16 @@ export class Dashboard extends Component {
         <h3 style={{textAlign:"right", paddingRight:10+"px"}}>Welcome, {this.welcome()}</h3>
 
       </div><br />
+      <div className="row">
+       <div className="col">
+           <label htmlFor="inputEmail4">Pet Image</label><br/>
+           {/* <input className="fileInput" type="file" name="file" onChange={(e)=>this.handleImageChange(e)} /> */}
+
+           {/* <div className="imagesContainer" >
+             {this.showImages()}
+           </div> */}
+       </div>
+      </div>
       <h2 className="report">Upload Pet Information</h2>
       <br />
         <div className="text-center">
@@ -118,10 +162,10 @@ export class Dashboard extends Component {
         </div>
         <br />
         <br />
-
+        {/* <FileUploadComponent fileName = {this.petName}/> */}
         <div className="container">
           <div className="card-columns">
-              {this.getAllPets()}
+            {this.getAllPets()}
           </div>
         </div>
 
@@ -131,10 +175,12 @@ export class Dashboard extends Component {
 }
 
 export default withTracker(() =>{
-  Meteor.subscribe('pets')
+  Meteor.subscribe('pets');
+  Meteor.subscribe('files.all');
   const currentUserId = Meteor.userId();
   return{
     pets : Pets.find({ createdBy: currentUserId }).fetch(),
+    files : UserFiles.find({ createdBy: currentUserId }, {sort: {name: 1}}).fetch(),
   }
 
 })(Dashboard);
