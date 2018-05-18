@@ -35,7 +35,7 @@ export class Uploads2 extends Component {
       createdAt: new Date(),
       createdBy:currentUserId
     }
-    Meteor.call('pets.create',item);
+    Meteor.call('items.create',item);
     console.log('item created')
     route.go('/dashboard');
     e.preventDefault();
