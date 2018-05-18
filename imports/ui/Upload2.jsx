@@ -24,18 +24,18 @@ export class Uploads2 extends Component {
 
 
   handleSubmit=(e)=>{
-    const attempt = Session.get('imageId');    
+    const attempt = Session.get('imageId');
     const currentUserId = Meteor.userId()
     const item = {
       imageId: attempt,
       itemName:this.state.itemName,
       itemCondition:this.state.itemCondition,
-      price:this.state.price,      
+      price:this.state.price,
       description:this.state.description,
       createdAt: new Date(),
       createdBy:currentUserId
     }
-    Meteor.call('items.create',item);
+    Meteor.call('pets.create',item);
     console.log('item created')
     route.go('/dashboard');
     e.preventDefault();
@@ -113,8 +113,13 @@ export class Uploads2 extends Component {
               <input onChange={this.handleNameChange} type="text" className="form-control" name="itemName"  placeholder="Name of product" required/>
             </div>
             <div className="col">
-            <label htmlFor="inputEmail4">PRODUCT CONDITION</label>
-              <input onChange={this.handleConditionChange} type="number" className="form-control" name="itemCondition"  placeholder="eg. New, Used, Old etc" required/>
+              <label className="mr-sm-2" htmlFor="inlineFormCustomSelect">PRODUCT CONDITION</label>
+              <select onChange={this.handleConditionChange} className="custom-select mr-sm-2" id="inlineFormCustomSelect" name="itemCondition" required>
+                <option defaultValue>Condition</option>
+                <option value="new">New</option>
+                <option value="used">Used, but still good</option>
+                <option value="old">Old</option>
+              </select>
             </div>
           </div><br />
         <div className="row">
