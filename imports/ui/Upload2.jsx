@@ -1,52 +1,45 @@
 import React, { Component } from 'react';
 import route from '/imports/routing/router.js';
-import Pets from '../api/profiles/collections.js';
+import Items from '../api/advertiser/collections.js';
 import {withTracker} from 'meteor/react-meteor-data';
-import {Dashboard2} from '/imports/ui/Dashboard2.jsx';
+import {Dashboard} from '/imports/ui/Dashboard2.jsx';
+import FileUploadComponent from './uploadFile.jsx';
+import {UserFiles} from '../api/upload/collections.js';
+import { Session } from 'meteor/session';
 
 export class Uploads2 extends Component {
   constructor(props){
     super(props);
     this.state = {
-      image:'',
+      imageId:'',
       itemName:'',
       itemCondition:'',
       description:'',
       price:'',
+      file: '',
       imagePreviewUrl: ''
     }
   }
 
-  handleImageChange(e) {
-    e.preventDefault();
 
-    let reader = new FileReader();
-    let file = e.target.files[0];
-
-    reader.onloadend = () => {
-      this.setState({
-        file: file,
-        imagePreviewUrl: reader.result
-      });
-    }
-
-    reader.readAsDataURL(file)
-  }
 
   handleSubmit=(e)=>{
-    e.preventDefault();
+    const attempt = Session.get('imageId');    
     const currentUserId = Meteor.userId()
-    const pet = {
-      // image:this.state.image,
+    const item = {
+      imageId: attempt,
       itemName:this.state.itemName,
       itemCondition:this.state.itemCondition,
+      price:this.state.price,      
       description:this.state.description,
       createdAt: new Date(),
       createdBy:currentUserId
     }
-    Meteor.call('pets.create',pet);
-    console.log('pet created')
+    Meteor.call('pets.create',item);
+    console.log('item created')
     route.go('/dashboard');
+    e.preventDefault();
+
   }
 
 
@@ -113,13 +106,8 @@ export class Uploads2 extends Component {
                 {$imagePreview}
           </div>
          </div>
+         <FileUploadComponent fileName = {this.state.itemName} />
          <div className="row">
-          <div className="col">
-              <label htmlFor="inputEmail4">Product Image</label><br/>
-              <input className="fileInput" type="file" name="file" onChange={(e)=>this.handleImageChange(e)} />
-          </div>
-         </div>
-          <div className="row">
             <div className="col">
               <label htmlFor="inputEmail4">Product Name</label>
               <input onChange={this.handleNameChange} type="text" className="form-control" name="itemName"  placeholder="Name of product" required/>
@@ -157,10 +145,10 @@ export class Uploads2 extends Component {
 
 }
 export default withTracker(() =>{
-  Meteor.subscribe('pets')
+  Meteor.subscribe('items')
 
   return{
-    pets : Pets.find().fetch(),
+    items : Items.find().fetch(),
   }
 
 })(Uploads2);

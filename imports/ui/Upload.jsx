@@ -28,34 +28,7 @@ export class Uploads extends Component {
     }
   }
 
-  // showImages(){
-  //   const mFiles = this.props.files;
-  //   return mFiles.map((file) => {
-  //     const link = UserFiles.findOne({_id:file._id}).link();
-  //     return (
-  //       <div key ={file._id}>
-  //         <p>{file.name}</p>
-  //         <img src={link} height="200" width="200"></img>
-  //       </div>
-  //     )
-  //   });
-  // }
-
-  // handleImageChange(e) {
-  //   e.preventDefault();
-  //
-  //   let reader = new FileReader();
-  //   let file = e.target.files[0];
-  //
-  //   reader.onloadend = () => {
-  //     this.setState({
-  //       file: file,
-  //       imagePreviewUrl: reader.result
-  //     });
-  //   }
-  //
-  //   reader.readAsDataURL(file)
-  // }
+ 
 
   handleSubmit=(e)=>{
     const attempt = Session.get('imageId');
@@ -170,9 +143,6 @@ export class Uploads extends Component {
           <form onSubmit={this.handleSubmit} className="upload">
             <FileUploadComponent fileName = {this.state.petName} />
           <div className="imgPreview">
-            {/* <div className="row">
-              {$imagePreview}
-            </div> */}
          </div>
           <div className="row">
             <div className="col">

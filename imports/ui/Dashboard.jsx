@@ -1,13 +1,15 @@
+import { Meteor } from 'meteor/meteor';
+import { Mongo } from 'meteor/mongo';
 import React, { Component } from 'react';
+import { Accounts } from 'meteor/accounts-base';
+import {withTracker} from 'meteor/react-meteor-data';
 import route from '/imports/routing/router.js';
 import Pets from '../api/profiles/collections.js';
-import Uploads from '/imports/ui/Upload.jsx';
-import {withTracker} from 'meteor/react-meteor-data';
-import { Meteor } from 'meteor/meteor';
-import { Accounts } from 'meteor/accounts-base';
-import { Mongo } from 'meteor/mongo';
-import FileUploadComponent from './uploadFile.jsx';
+import Items from '../api/advertiser/collections.js';
 import {UserFiles} from '../api/upload/collections.js';
+import Uploads from '/imports/ui/Upload.jsx';
+import Uploads2 from '/imports/ui/Upload2.jsx';
+import FileUploadComponent from './uploadFile.jsx';
 
 export class Dashboard extends Component {
 
@@ -19,6 +21,10 @@ export class Dashboard extends Component {
 
   goToUpload = () => {
     route.go('/upload') // pathDef, params, queryParams
+  }
+
+  goToUpload2 = () => {
+    route.go('/upload2') // pathDef, params, queryParams
   }
 
   welcome = () => {
@@ -159,6 +165,7 @@ export class Dashboard extends Component {
       <br />
         <div className="text-center">
         <button onClick={this.goToUpload}>Add A Pet</button>
+        <button onClick={this.goToUpload2}>Add Store Item</button>
         </div>
         <br />
         <br />
@@ -176,10 +183,12 @@ export class Dashboard extends Component {
 
 export default withTracker(() =>{
   Meteor.subscribe('pets');
+  Meteor.subscribe('items');
   Meteor.subscribe('files.all');
   const currentUserId = Meteor.userId();
   return{
     pets : Pets.find({ createdBy: currentUserId }).fetch(),
+    items : Items.find({ createdBy: currentUserId }).fetch(),
     files : UserFiles.find({ createdBy: currentUserId }, {sort: {name: 1}}).fetch(),
   }
 
