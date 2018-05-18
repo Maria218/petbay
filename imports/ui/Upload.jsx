@@ -31,6 +31,7 @@ export class Uploads extends Component {
  
 
   handleSubmit=(e)=>{
+    e.preventDefault();
     const attempt = Session.get('imageId');
     const currentUserId = Meteor.userId()
     const pet = {
@@ -50,7 +51,6 @@ export class Uploads extends Component {
     Meteor.call('pets.create',pet);
     console.log('pet created')
     route.go('/dashboard');
-    e.preventDefault();
   }
 
   handleNameChange = (e) => {

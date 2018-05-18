@@ -24,10 +24,10 @@ export class Uploads2 extends Component {
 
 
   handleSubmit=(e)=>{
-    const attempt = Session.get('imageId');
+    const attempt2 = Session.get('imageId');
     const currentUserId = Meteor.userId()
     const item = {
-      imageId: attempt,
+      imageId: attempt2,
       itemName:this.state.itemName,
       itemCondition:this.state.itemCondition,
       price:this.state.price,
@@ -35,7 +35,7 @@ export class Uploads2 extends Component {
       createdAt: new Date(),
       createdBy:currentUserId
     }
-    Meteor.call('pets.create',item);
+    Meteor.call('items.create',item);
     console.log('item created')
     route.go('/dashboard');
     e.preventDefault();
