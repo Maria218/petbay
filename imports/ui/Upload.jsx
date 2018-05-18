@@ -41,21 +41,21 @@ export class Uploads extends Component {
   //   });
   // }
 
-  handleImageChange(e) {
-    e.preventDefault();
-
-    let reader = new FileReader();
-    let file = e.target.files[0];
-
-    reader.onloadend = () => {
-      this.setState({
-        file: file,
-        imagePreviewUrl: reader.result
-      });
-    }
-
-    reader.readAsDataURL(file)
-  }
+  // handleImageChange(e) {
+  //   e.preventDefault();
+  //
+  //   let reader = new FileReader();
+  //   let file = e.target.files[0];
+  //
+  //   reader.onloadend = () => {
+  //     this.setState({
+  //       file: file,
+  //       imagePreviewUrl: reader.result
+  //     });
+  //   }
+  //
+  //   reader.readAsDataURL(file)
+  // }
 
   handleSubmit=(e)=>{
     const attempt = Session.get('imageId');

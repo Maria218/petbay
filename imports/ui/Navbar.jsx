@@ -6,39 +6,45 @@ import { Accounts } from 'meteor/accounts-base';
 export default class Navbar extends Component {
   constructor(props){
     super(props);
-
     this.state = {
         itemName : '',
-        route: ''
+        itemName2: '',
+        itemName3: '',
+        route: '',
+        route2: '',
     }
-}
+  }
 
 componentDidMount(){
     //determine item to show on mount wether logout or or login
-    if (Meteor.userId.length !== 0){
+    if (Meteor.userId()){
       this.setState({
         itemName: 'Logout',
-        route: '/'
+        itemName2: '',
+        itemName3:'Dashboard',
+        // route: '/',
+        route2: '/dashboard',
       })
       console.log(Meteor.userId());
     }
     else {
       this.setState({
         itemName: 'Login',
-        route: '/login'
+        itemName2: 'Home a Pet',
+        itemName3: 'Advertise',
       })
       console.log(Meteor.userId);
     }
 }
 
 logUserOut = (e) => {
-  if(Meteor.userId.length !== 0){
-    // const currentpath = route.current.path;
+  const currentpath = route.current.path;
+  if(Meteor.userId()){
     this.setState({
       itemName: 'Logout',
+      route: currentpath
     })
-    Meteor.logout();
-    // route.go("/login");
+    Meteor.logout()
   }
   else{
     this.setState({
@@ -47,29 +53,6 @@ logUserOut = (e) => {
     })
   }
 }
-
-componentDidUpdate(){
-
-}
-
-// handleLR =(e)=>{
-//     if(Meteor.userId.length !== 0){
-//         const currentpath = route.current.path;
-//         this.setState({
-//             itemName: 'Logout',
-//             route: currentpath
-//         })
-//           e.preventDefault();
-//           Meteor.logout();
-//           // route.go('/login')
-//         // Meteor.logout();
-//     } else{
-//         this.setState({
-//             itemName: 'Login',
-//              route: '/login'
-//         })
-//     }
-// }
 
   goHome = () => {
     route.go('/');
@@ -127,7 +110,6 @@ componentDidUpdate(){
     route.go("/login")
   }
 
-
   render() {
     return (
       <div>
@@ -158,10 +140,10 @@ componentDidUpdate(){
                 </div>
               </li>
               <li className={`nav-item ${this.props.homePet}`}>
-                <a className="nav-link" href="" onClick = {this.goToHoming}>Home a Pet</a>
+                <a className="nav-link" href="" onClick = {this.goToHoming}>{this.state.itemName2}</a>
               </li>
               <li className={`nav-item ${this.props.advert}`}>
-                <a className="nav-link" href="" onClick = {this.goToAdvertise}>Advertise</a>
+                <a className="nav-link" href={this.state.route2} onClick = {this.goToAdvertise}>{this.state.itemName3}</a>
               </li>
               <li className={`nav-item dropdown ${this.props.getInvolved}`}>
                 <a className="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Get Involved</a>
@@ -173,13 +155,6 @@ componentDidUpdate(){
               <li className={`nav-item ${this.props.contact}`}>
                 <a className="nav-link" href="" onClick = {this.goToContact}>Contact Us</a>
               </li>
-              {/* <li className={`nav-item dropdown ${this.props.login}`}>
-                <a className="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Log In</a>
-                <div className="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                  <a className="dropdown-item" href="" onClick = {this.goToSellerLogin}>Pet Owner</a>
-                  <a className="dropdown-item" href="" onClick = {this.goToAdvertLogin}>Advertiser</a>
-                </div>
-              </li> */}
               <li className={`nav-item ${this.props.about}`}>
                 <a className="nav-link" href="" onClick = {this.goToAbout}>About Us</a>
               </li>

@@ -5,11 +5,28 @@ import Navbar from './Navbar.jsx';
 import Footer from '/imports/ui/Footer.jsx';
 
 export default class Home extends Component {
+  
+  goToHoming = () => {
+    route.go("/homing")
+  }
+
   render(){
     return(
       <div>
         <Navbar home={'active'}/>
-        <img src="/images/homepage.jpg" />
+        <div className="holder">
+          <img src="/images/homepage.jpg" />
+          <div className = "signUpHere">
+            <br />
+            <br />
+            <h5>Want to sell your pet or put it up for adoption?</h5>
+            <h5>Want to sell your pet related goods?</h5>
+            <h5>Want to advertise your services?</h5>
+            <button className="btn btn-outline-light" onClick={this.goToHoming}>Sign up here!</button>
+            <br />
+            <br />
+          </div>
+        </div>
         <br />
         <br />
         <br />
