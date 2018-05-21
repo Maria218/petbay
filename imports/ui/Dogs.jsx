@@ -41,7 +41,7 @@ export class Dogs extends Component{
   render(){
     if (this.props.isDataReady) {
       return(
-        <div className="">
+        <div>
           <Navbar pets={'active'}/>
           <br/>
           <p className="h1" style={{textAlign: "center"}}>PICK YOUR PET</p><br />
@@ -80,5 +80,4 @@ export default withTracker(() =>{
     files : UserFiles.find({}, {sort: {name: 1}}).fetch(),
     isDataReady: isDataReady.ready(),
   }
-
 })(Dogs);

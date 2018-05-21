@@ -10,7 +10,7 @@ import {UserFiles} from '../api/upload/collections.js';
 import Uploads from '/imports/ui/Upload.jsx';
 import Uploads2 from '/imports/ui/Upload2.jsx';
 import FileUploadComponent from './uploadFile.jsx';
-import $ from 'jquery'
+import $ from 'jquery';
 
 export class Dashboard extends Component {
 
