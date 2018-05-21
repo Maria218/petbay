@@ -78,7 +78,7 @@ export class Dashboard extends Component {
             <h5 className="card-title"><strong>Product Name:</strong> {item.itemName}</h5>
             <h6 className="card-subtitle mb-2"><strong>Condition:</strong> {item.itemCondition}</h6>
             <h6 className="card-subtitle mb-2"><strong>Price:</strong>K {item.price}</h6>
-            <p className="card-text"><strong>Description:</strong> {item.description}</p>
+            <h6 className="card-subtitle mb-2"><strong>Description:</strong> {item.description}</h6>
             <a href="" className="btn btn-primary edit" onClick = {this.editProfile}>Edit <i className="fa fa-edit"></i></a> <a href="" className="btn btn-danger delete" data-toggle="modal" data-target="#exampleModal" onClick = {this.warning}>Delete <i className="fa fa-trash"></i></a>
 
             <div className="modal fade" id="exampleModal" tabIndex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -128,7 +128,7 @@ export class Dashboard extends Component {
             <h6 className="card-subtitle mb-2"><strong>Health:</strong> {pet.health}</h6>
             <h6 className="card-subtitle mb-2"><strong>Price:</strong> {pet.price}</h6>
             <h6 className="card-subtitle mb-2"><strong>Location:</strong> {pet.location}</h6>
-            <p className="card-text"><strong>Description:</strong> {pet.description}</p>
+            <h6 className="card-subtitle mb-2"><strong>Description:</strong> {pet.description}</h6>
             <a href="" className="btn btn-primary edit" onClick = {this.editProfile}>Edit <i className="fa fa-edit"></i></a> <a href="" className="btn btn-danger delete" data-toggle="modal" data-target="#exampleModal" onClick = {this.warning}>Delete <i className="fa fa-trash"></i></a>
 
             <div className="modal fade" id="exampleModal" tabIndex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
