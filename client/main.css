@@ -1,4 +1,5 @@
-@import url('https://fonts.googleapis.com/css?family=Courgette|Lato');
+@import url('https://fonts.googleapis.com/css?family=Cagliostro|Courgette|Dosis|Lato');
+
 /* CSS declarations go here */
 @media screen and (max-width: 970px){
   .navbar {
@@ -279,4 +280,15 @@ body {
   text-align: center;
   width: 100%;
   font-family: 'Courgette', cursive;
+}
+
+.aboutUs {
+  text-align: justify;
+  font-family: 'Dosis', sans-serif;
+  font-size: 22px;
+}
+
+.about-top {
+  text-align: center;
+  font-family: 'Cagliostro', sans-serif;
 }
