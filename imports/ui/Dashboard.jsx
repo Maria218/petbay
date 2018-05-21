@@ -10,8 +10,7 @@ import {UserFiles} from '../api/upload/collections.js';
 import Uploads from '/imports/ui/Upload.jsx';
 import Uploads2 from '/imports/ui/Upload2.jsx';
 import FileUploadComponent from './uploadFile.jsx';
-import $ from 'jquery';
-import Loader from 'react-loaders';
+import $ from 'jquery'
 
 export class Dashboard extends Component {
 
@@ -163,7 +162,6 @@ export class Dashboard extends Component {
 }
 
   render(){
-    let loader = <Loader type="ball-spin-fade-loader" />
     if (this.props.isDataReady) {
       return(
         <div>
@@ -219,13 +217,19 @@ export class Dashboard extends Component {
               {/* {this.switch()} */}
             </div>
           </div>
-
         </div>
       );
     }
     else {
       return (
-        Loading
+        <div className="text-center">
+          <br />
+          <br />
+          <br />
+          <br />
+          <img src="images/loader.svg" className="App-logo" alt="logo" />
+          <h3 className="loading">Please wait a moment</h3>
+        </div>
       )
     }
   }

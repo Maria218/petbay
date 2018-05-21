@@ -5,12 +5,15 @@ import { withTracker } from 'meteor/react-meteor-data';
 import Navbar from '/imports/ui/Navbar.jsx';
 import Footer from '/imports/ui/Footer.jsx';
 
-
 export default class AboutUs extends Component{
   render(){
     return(
       <div>
         <Navbar about={' active'}/>
+        <div>
+          <img src="/images/cat4.jpg" />
+          <h1 id="adopt">About the Team</h1>
+        </div>
         <div className="container" style={{marginTop:20+"px"}}>
         <div className="row justify-content-center">
         <div className="col-md-10">

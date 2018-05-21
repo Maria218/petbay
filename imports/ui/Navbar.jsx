@@ -177,7 +177,7 @@ export default class Navbar extends Component {
               <li className={`nav-item ${this.props.about}`}>
                 <a className="nav-link" href="" onClick = {this.goToAbout}>About Us</a>
               </li>
-              <li className={`nav-item ${this.props.about}`}>
+              <li className={`nav-item`}>
                 <a className="nav-link" href="" onClick = {this.goToDashboard}>Dashboard</a>
               </li>
               <li className={`nav-item`}>
