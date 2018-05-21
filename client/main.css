@@ -1,10 +1,40 @@
+@import url('https://fonts.googleapis.com/css?family=Courgette|Lato');
+@import 'loaders.css/src/animations/ball-spin-fade-loader.scss';
+
+.loader-hidden {
+  display: none;
+}
+.loader-active {
+  display: block;
+  background-color: green;
+}
+
 /* CSS declarations go here */
-.navbar {
-  background-color: #51E7F3;
+@media screen and (max-width: 970px){
+  .navbar {
+    background-color: #2DE8C1;
+    color: black;
+  }
+}
+
+@media screen and (min-width: 971px){
+  .navbar {
+    background-color: #2DE8C1;
+    height: 65px;
+    color: black;
+  }
 }
 
 .nav-link {
-  color: #47525E;
+  color: black;
+  font-family: 'Lato', sans-serif;
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 47px;
+}
+
+.nav-link:hover {
+  color: #227167;
   font-family: 'Lato', sans-serif;
   font-size: 18px;
   font-weight: 400;
@@ -12,12 +42,13 @@
 }
 
 .active {
-  background-color: #40A9BD;
+  background-color: #419987;
   text-align: center;
+  height: 65px;
 }
 
 .navbar-brand {
-  color: #47525E;
+  color: black;
   font-family: 'Lato', sans-serif;
   font-size: 20px;
   font-weight: 700;
@@ -38,8 +69,8 @@ body {
 }
 
 .top-middle {
-  font-family: 'Lato', sans-serif;
   font-weight: 600;
+  font-family: 'Lato', sans-serif;
   color: #47525E;
   font-size: 23px;
   text-align: center;
@@ -56,19 +87,28 @@ body {
 .h1 {
   font-family: 'Lato', sans-serif;
   font-weight: 400;
-  color: #47525E;
+  color: black;
 }
 
 .page-footer {
   background-color: #1c2331;
-  height: 370px;
+  max-width: 100%;
   color: #ffffff;
-  font-family: 'Lato', sans-serif;
+  font-family: 'Muli', sans-serif;
 }
 
-.align {
-  text-align: justify;
-  color: #ffffff;
+@media screen and (min-width: 771px){
+  .align{
+    text-align: justify;
+    color: #ffffff;
+  }
+}
+
+@media screen and (max-width: 770px){
+  .align{
+    text-align: center;
+    color: #ffffff;
+  }
 }
 
 .title {
@@ -99,10 +139,18 @@ body {
   margin-right: 100%;
 }
 
-.vertical {
-  border: none;
-  border-left: 1px solid #47525e;
-  height: 240px;
+@media screen and (min-width: 771px){
+  .vertical {
+    border: none;
+    border-left: 1px solid #47525e;
+    height: 240px;
+  }
+}
+
+@media screen and (max-width: 770px){
+  .vertical{
+    width: 200px;
+  }
 }
 
 .vertical2 {
@@ -141,12 +189,12 @@ body {
   font-weight: 400;
 }
 
-.contact-btn {
+/* .contact-btn {
   background-color: #4ae2de;
   color: black;
   width: 300px;
   border: none;
-}
+} */
 
 .care {
   text-align: justify;
@@ -160,35 +208,15 @@ body {
 .describe {
   text-align: center;
 }
-.imgau{
-  position: absolute;
-  top:0;
-  left:0;
-}
-.imgau1 {
-  border-radius: 50%;
-  width:400px;
-  height:400px;
-  top:400px;
-  left:400px;
-  position:relative;
-}
-.tint{
-  position:relative;
-  border-radius: 50%;
-  width: 200px;
-  height: 200px;
-  background:rgba(0, 0, 0, 0.5);
-}
 
 .holder {
   position: relative;
   width: 100%;
 }
 @media screen and (min-width: 501px) {
-  div.signUpHere {
+  .signUpHere {
     position: absolute;
-    font-family: 'Lato', sans-serif;
+    font-family: 'Courgette', cursive;
     font-weight: 400;
     font-size: 14px;
     bottom: 0;
@@ -200,9 +228,8 @@ body {
 }
 
 @media screen and (max-width: 500px){
-  div.signUpHere{
+  .signUpHere{
     position: absolute;
-    font-family: 'Lato', sans-serif;
     font-weight: 100;
     font-size: 1%;
     bottom: 0;
@@ -212,4 +239,36 @@ body {
     max-width: 100%;
     max-height: 100%;
   }
+
+  .btn-outline-light{
+    background: white;
+    color: black;
+  }
+}
+
+.btn-outline-primary{
+  border-color: #046652;
+  color: #046652;
+}
+
+.btn-outline-primary:hover{
+  border-color: #2DE8C1;
+  background-color: #007163;
+  color: #00F1D1;
+}
+
+.adding{
+  border-color: #2DE8C1;
+  background-color: #2DE8C1;
+  color: black;
+}
+
+.dash {
+  background-color: #00BEA5;
+  width:100%;
+  height:9em;
+}
+
+.hello {
+  text-align: center;
 }

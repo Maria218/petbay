@@ -49,9 +49,9 @@ export default class Volunteer extends Component {
               <button type="button" className="btn btn-outline-primary">Volunteer</button>
             </div>
           </div>
-          <div className="text-center">
+          {/* <div className="text-center">
             <i className="fa fa-angle-right fa-4x"></i>
-          </div>
+          </div> */}
         </div>
         <br />
         <br />

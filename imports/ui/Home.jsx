@@ -5,7 +5,7 @@ import Navbar from './Navbar.jsx';
 import Footer from '/imports/ui/Footer.jsx';
 
 export default class Home extends Component {
-  
+
   goToHoming = () => {
     route.go("/homing")
   }
@@ -13,6 +13,7 @@ export default class Home extends Component {
   render(){
     return(
       <div>
+
         <Navbar home={'active'}/>
         <div className="holder">
           <img src="/images/homepage.jpg" />

@@ -92,7 +92,7 @@ export default class ContactUs extends Component {
                   <textarea className="form-control" id="exampleFormControlTextarea1" placeholder="Enter Your Message" rows="3"></textarea>
               </div><br/>
               <div className="text-center">
-              <button type="button" className="btn btn-primary btn-lg contact-btn">Contact Us</button>
+              <button type="button" className="btn btn-primary btn-lg contact-btn adding">Contact Us</button>
               </div>
           </form><br/>
 

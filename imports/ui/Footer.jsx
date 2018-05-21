@@ -2,39 +2,75 @@ import React, { Component } from 'react';
 import route from '/imports/routing/router.js';
 
 export default class Footer extends Component {
+
+  goToSupplies = () => {
+    route.go("/petcare")
+  }
+
+  goToHoming = () => {
+    route.go("/homing")
+  }
+
+  goToAdvertise = () => {
+    route.go("/advertising")
+  }
+
+  goToVolunteer = () => {
+    route.go("/volunteer")
+  }
+
+  goToReportStray = () => {
+    route.go("/report")
+  }
+
+  goToVets = () => {
+    route.go("/vets")
+  }
+
   render(){
     return(
       <div>
+        {/* Footer */}
         <footer className="page-footer">
           <br />
-          <div className="container">
-            <div className="row">
+          {/* Footer Links */}
+
+          <div className="container mt-5 mb-4 text-center text-md-left">
+            <div className="row mt-3">
+
+              {/* Column 1 */}
               <div className="col-md-3 col-lg-4 col-xl-3 mb-4">
                 <h5 className="title">PET CONNECTIONS</h5>
-                <hr className="deep-purple1" />
+                <hr className="deep-purple1 accent-2 mb-4 mt-0 d-inline-block mx-auto" />
                 <p className="align">We are a site for all things pet! Connect to veterinary services, adoption centres, pet care information and all your furry friends on our platform today.</p>
               </div><hr className="vertical"/>
+
+              {/* Column 2 */}
               <div className="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
                 <h5 className="title">LINKS</h5>
-                <hr className="deep-purple2" />
-                <p><a href="/pet-things" className="align"> Pet Supplies</a></p>
-                <p><a href="/sell" className="align">Home a Pet</a></p>
-                <p><a href="/advertise" className="align">Advertise</a></p>
-                <p><a href="/volunteer" className="align">Volunteer</a></p>
-                <p><a href="/report" className="align">Report a Stray</a></p>
-                <p><a href="/vets" className="align">Vet Services</a></p>
+                <hr className="deep-purple2 accent-2 mb-4 mt-0 d-inline-block mx-auto" />
+                <p><a href="" className="align" onClick={this.goToSupplies}> Pet Supplies</a></p>
+                <p><a href="" className="align" onClick={this.goToHoming}>Home a Pet</a></p>
+                <p><a href="" className="align" onClick={this.goToAdvertise}>Advertise</a></p>
+                <p><a href="" className="align" onClick={this.goToVolunteer}>Volunteer</a></p>
+                <p><a href="" className="align" onClick={this.goToReportStray}>Report a Stray</a></p>
+                <p><a href="" className="align" onClick={this.goToVets}>Vet Services</a></p>
               </div><hr className="vertical"/>
+
+              {/* Column 3 */}
               <div className="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4">
                 <h5 className="title">AFFILIATES</h5>
-                <hr className="deep-purple3" />
+                <hr className="deep-purple3 accent-2 mb-4 mt-0 d-inline-block mx-auto" />
                 <p className="align">Lusaka Animal Welfare Society</p>
                 <p className="align">Adopt-a-Pet</p>
                 <p className="align">PetBay</p>
                 <p className="align">Pet Zone</p>
               </div><hr className="vertical"/>
+
+              {/* Column 4 */}
               <div className="col-md-4 col-lg-3 col-xl-3">
                 <h5 className="title">CONTACT</h5>
-                <hr className="deep-purple4" />
+                <hr className="deep-purple4 accent-2 mb-4 mt-0 d-inline-block mx-auto" />
                 <p className="align"><i className="fa fa-home"></i> Hackers Guild</p>
                 <p className="align"><i className="fa fa-envelope"></i> damianochintala@gmail.com</p>
                 {/* <p className="align"><i className="fa fa-envelope"></i> mariasitumbeko@gmail.com</p>
@@ -44,12 +80,41 @@ export default class Footer extends Component {
             </div>
           </div>
 
+          {/* /Footer Links */}
+
+          <hr />
+          {/* Social Media Buttons */}
+          <div className="text-center">
+            <ul className="list-unstyled list-inline">
+              <li className="list-inline-item">
+                <a className="btn-floating btn-sm btn-fb mx-1">
+                  <i className="fa fa-facebook"> </i>
+                </a>
+              </li>
+              <li className="list-inline-item">
+                <a className="btn-floating btn-sm btn-tw mx-1">
+                  <i className="fa fa-twitter"> </i>
+                </a>
+              </li>
+              <li className="list-inline-item">
+                <a className="btn-floating btn-sm btn-gplus mx-1">
+                  <i className="fa fa-github"></i>
+                </a>
+              </li>
+            </ul>
+          </div>
+          {/* /Social Media Links */}
+
+          {/* Copyright */}
+
           <div className="copyright">
             © 2018 Copyright:
             <a href="https://localhost:3000/">
               <strong className="align"> PetConnections.com</strong>
             </a>
           </div>
+          {/* /Copyright */}
+
         </footer>
       </div>
     )

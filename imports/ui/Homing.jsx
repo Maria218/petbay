@@ -63,7 +63,8 @@ export default class Homing extends Component {
         <div className="row justify-content-center">
         <div className="col-md-4">
         <div className="text-center">
-        <h4>Sign Up To Continue</h4>
+          <h4>Want to put a pet up for adoption or advertise your services?</h4>
+          <h4>Sign Up To Continue</h4>
         </div>
           <form onSubmit = {this.getUserData} className="needs-validation" novalidate>
               <div className="form-group">

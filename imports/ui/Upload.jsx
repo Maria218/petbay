@@ -28,7 +28,7 @@ export class Uploads extends Component {
     }
   }
 
- 
+
 
   handleSubmit=(e)=>{
     e.preventDefault();
@@ -138,8 +138,6 @@ export class Uploads extends Component {
           <br />
           <h4 className="report">EDIT YOUR PET INFORMATION</h4>
          <div className="container">
-
-
           <form onSubmit={this.handleSubmit} className="upload">
             <FileUploadComponent fileName = {this.state.petName} />
           <div className="imgPreview">

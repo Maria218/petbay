@@ -10,10 +10,9 @@ export default class AboutUs extends Component{
   render(){
     return(
       <div>
-        <Navbar about={' active'}/>
+        <Navbar about={'active'}/>
         <img src="/images/homepage.jpg" class="imgau"/>
-          <img src="/images/stray.jpg" class="imgau1"/>
-          <h1 class="pc">Pet Connections</h1>
+        <h1 class="pc">Meet the Pet Connection Team</h1>
           <br />
           <br />
           <br />

@@ -12,16 +12,16 @@ import Login from '/imports/ui/LogIn.jsx';
 
 const history = createBrowserHistory();
 const unauthenticatedPages = [];
-const authenticatedPages = ['/dashboard', '/dashboard2', '/upload', '/upload2'];
+const authenticatedPages = ['/dashboard', '/upload', '/upload2'];
 
 const publicPage = () => {
     if (Meteor.userId()) {
-        history.replace('/dashboard', '/dashboard2');
+        history.replace('/dashboard');
     }
 };
 
 const privatePage = () => {
-    if(! Meteor.userId()) {
+    if(!Meteor.userId()) {
        history.replace('/');
     }
 };
@@ -30,9 +30,8 @@ export const routes = (
     <Router history = {history}>
         <Switch>
           <Route exact path='/' component= {Home} onEnter={publicPage}/>
-          <Route exact path='/upload' component={Uploads} onEnter={publicPage}/>
+          <Route exact path='/upload' component={Uploads} onEnter={privatePage}/>
           <Route exact path='/dashboard' render={ () => <Home greet='User'/> } onEnter={privatePage} />
-          <Route exact path='/dashboard2' render={ () => <Home greet='User'/> } onEnter={privatePage} />
           <Route component={Home}/>
         </Switch>
     </Router>
