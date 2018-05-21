@@ -157,8 +157,8 @@ export class Uploads extends Component {
           <label className="mr-sm-2" htmlFor="inlineFormCustomSelect">Pet Gender</label>
           <select onChange={this.handleGenderChange} className="custom-select mr-sm-2" id="inlineFormCustomSelect" name="gender"  required>
             <option defaultValue>Select Gender</option>
-            <option value="female">female</option>
-            <option value="male">male</option>
+            <option value="female">Female</option>
+            <option value="male">Male</option>
           </select>
           </div>
           <div className="col">
