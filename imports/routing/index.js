@@ -12,6 +12,7 @@ import {ContactUs} from '/imports/ui/ContactUs.jsx';
 import AboutUs from '/imports/ui/AboutUs.jsx';
 import LogIn from '/imports/ui/LogIn.jsx';
 import Dashboard from '/imports/ui/Dashboard.jsx';
+import Dashboard2 from '/imports/ui/Dashboard2.jsx';
 import Uploads from '/imports/ui/Upload.jsx';
 import Uploads2 from '/imports/ui/Upload2.jsx';
 
@@ -28,5 +29,7 @@ route('/contactus', ContactUs);
 route('/aboutus', AboutUs)
 route('/login', LogIn);
 route('/dashboard', Dashboard);
+route('/dashboard2', Dashboard2);
+
 route('/upload', Uploads);
 route('/upload2', Uploads2);

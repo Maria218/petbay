@@ -13,6 +13,7 @@ import Uploads from '/imports/ui/Upload.jsx';
 import Uploads2 from '/imports/ui/Upload2.jsx';
 import FileUploadComponent from './uploadFile.jsx';
 import $ from 'jquery';
+import {moment} from 'moment';
 
 export class Dashboard extends Component {
 
@@ -109,7 +110,7 @@ export class Dashboard extends Component {
 
           </div>
           <div className="card-footer">
-            <small className="text-muted">Posted 3 mins ago</small>
+            <small className="text-muted">Posted: { pet.createdAt ?  moment(pet.createdAt).formNow() : 'No time ....'}</small>
           </div>
         </div>
       )
@@ -159,7 +160,7 @@ export class Dashboard extends Component {
 
           </div>
           <div className="card-footer">
-            <small className="text-muted">Posted 3 mins ago</small>
+            <small className="text-muted">{ pet.createdAt ?  moment(pet.createdAt).formNow() : 'No time ....'}</small>
           </div>
         </div>
       )
