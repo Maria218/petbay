@@ -13,7 +13,6 @@ import Uploads from '/imports/ui/Upload.jsx';
 import Uploads2 from '/imports/ui/Upload2.jsx';
 import FileUploadComponent from './uploadFile.jsx';
 import $ from 'jquery';
-import {moment} from 'moment';
 
 export class Dashboard extends Component {
 
@@ -22,26 +21,20 @@ export class Dashboard extends Component {
   }
 
   // componentDidMount(){
-  //   if (id = "petDash") {
-  //     console.log("Well, that was a flop")
-  //   }
-  //   else if (id = "itemDash") {
-  //     console.log("Holy cow, this actually worked!")
-  //   }
+  //   $('showPets').hide();
   // }
 
-  // switch = () => {
-  //   const box = document.getElementById("box");
-  //   const petDash = document.getElementById("petDash");
-  //   const itemDash = document.getElementById("itemDash");
-  //
-  //   petDash.onClick = () => {
-  //     box = this.getAllPets()
-  //   }
-  //   itemDash.onClick = () => {
-  //     box = this.getAllItems()
-  //   }
-  // }
+  showPets = () => {
+    $('#box2').hide();
+    $('#box1').show();
+    console.log("This button works");
+  }
+
+  showItems = () => {
+    $('#box1').hide();
+    $('#box2').show();
+    console.log("This button doesn't");
+  }
 
   logUserOut = (e) => {
     e.preventDefault();
@@ -110,7 +103,7 @@ export class Dashboard extends Component {
 
           </div>
           <div className="card-footer">
-            <small className="text-muted">Posted: { pet.createdAt ?  moment(pet.createdAt).formNow() : 'No time ....'}</small>
+            <small className="text-muted">Posted 3 mins ago</small>
           </div>
         </div>
       )
@@ -160,7 +153,7 @@ export class Dashboard extends Component {
 
           </div>
           <div className="card-footer">
-            <small className="text-muted">{ pet.createdAt ?  moment(pet.createdAt).formNow() : 'No time ....'}</small>
+            <small className="text-muted">Posted 3 mins ago</small>
           </div>
         </div>
       )
@@ -192,6 +185,9 @@ export class Dashboard extends Component {
                     <a className="dropdown-item" href="/birds">Birds</a>
                   </div>
                 </li>
+                <li className="nav-item">
+                  <a className="nav-link" href="/petcare">Pet Supplies<span className="sr-only">(current)</span></a>
+                </li>
                   <li className="nav-item">
                     <a className="nav-link" href="" onClick={this.logUserOut}>Log Out</a>
                   </li>
@@ -201,9 +197,8 @@ export class Dashboard extends Component {
             <div className="dash">
               <br />
               <br />
-              <h3 className="hello">Welcome {this.welcome()}</h3>
+              <h3 className="hello"  style={{fontFamily: "Courgette", fontSize: 37 + "px"}}>Welcome, {this.welcome()}</h3>
             </div><br />
-
             <h2 className="report">Upload Your Merchandise</h2>
             <br />
             <div className="text-center">
@@ -211,18 +206,25 @@ export class Dashboard extends Component {
             </div>
             <br />
             <br />
-            {/* <div className="text-center">
-              <button id="petDash">Pet Uploads</button>
-              <button id="itemDash">Item Uploads</button>
-            </div> */}
+            <hr />
             <br />
             <br />
-            {/* <FileUploadComponent fileName = {this.petName}/> */}
+            <div className="text-center" style={{fontFamily: "Courgette"}}>
+              <h2>Your Uploads</h2>
+            </div>
+            <br />
+            <br />
+            <div className="text-center uploads">
+              <button className="btn btn-primary btn-lg adding petUpload justify-content-start" onClick={this.showPets}>Pet Uploads</button> <button className="btn btn-primary btn-lg adding itemUpload justify-content-end" onClick={this.showItems}>Item Uploads</button>
+            </div>
+            <br />
+            <br />
             <div className="container">
-              <div id="box" className="card-columns">
+              <div id="box1" className="card-columns">
                 {this.getAllPets()}
+              </div>
+              <div id="box2" className="card-columns">
                 {this.getAllItems()}
-                {/* {this.switch()} */}
               </div>
             </div>
           </div>
@@ -245,11 +247,9 @@ export class Dashboard extends Component {
       return (
         <div>
           <Navbar />
-
           <div className="text-center" style={{marginTop: 5 + "%", marginBottom: 5 + "%", fontFamily: "Courgette"}}>
-            <h1><i class="fa fa-paw"></i> Please, <a href="" onClick={this.goToLogin}> login </a> to continue <i class="fa fa-paw"></i></h1>
+            <h1><i className="fa fa-paw"></i> Please, <a href="" onClick={this.goToLogin}> login here </a> to continue <i className="fa fa-paw"></i></h1>
           </div>
-
           <Footer />
         </div>
       )
@@ -264,7 +264,7 @@ export default withTracker(() =>{
   const currentUserId = Meteor.userId();
   return{
     pets : Pets.find({ createdBy: currentUserId}).fetch(),
-    items : Items.find({ createdBy: currentUserId, paid: true }).fetch(),
+    items : Items.find({ createdBy: currentUserId }).fetch(),
     files : UserFiles.find({createdBy: currentUserId}, {sort: {name: 1}}).fetch(),
     isDataReady: isDataReady.ready(),
   }
