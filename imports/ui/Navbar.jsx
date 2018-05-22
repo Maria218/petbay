@@ -115,9 +115,6 @@ export default class Navbar extends Component {
               <li className={`nav-item ${this.props.homePet}`}>
                 <a className="nav-link" href="" onClick = {this.goToHoming}>Home a Pet</a>
               </li>
-              <li className={`nav-item ${this.props.advert}`}>
-                <a className="nav-link" href="" onClick = {this.goToHoming}>Advertise</a>
-              </li>
               <li className={`nav-item dropdown ${this.props.getInvolved}`}>
                 <a className="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Get Involved</a>
                 <div className="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
@@ -186,9 +183,6 @@ export default class Navbar extends Component {
             </ul>
           </div>
         </nav>
-
-
-
       </div>
     );
   }

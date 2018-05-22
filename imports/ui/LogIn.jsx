@@ -7,7 +7,6 @@ import Navbar from '/imports/ui/Navbar.jsx';
 import Footer from '/imports/ui/Footer.jsx';
 import Dashboard from '/imports/ui/Dashboard.jsx';
 
-
 export default class LogIn extends Component {
     // bind this function to the form to prevent it from reloading the page
     constructor(props){
@@ -21,7 +20,12 @@ export default class LogIn extends Component {
         const password = target.password.value;
 
         Meteor.loginWithPassword(email, password, err => {
-          err ? console.log(err.reason) : route.go('/dashboard');
+          if (email === "admin@master.com" && password === "master1") {
+            route.go('/')
+          }
+          else {
+            err ? alert(err.reason) : route.go('/dashboard');
+          }
         })
     }
 
