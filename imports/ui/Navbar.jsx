@@ -7,6 +7,10 @@ import $ from 'jquery';
 export default class Navbar extends Component {
 
   componentDidMount(){
+    this.navChange()
+  }
+
+  navChange = () => {
     if (Meteor.userId()) {
       $('#loggedOut').hide();
       $('#loggedIn').show();
@@ -22,9 +26,10 @@ export default class Navbar extends Component {
   logUserOut = (e) => {
     e.preventDefault();
     console.log('you are now logged out');
-    Meteor.logout();
-    route.go('/')
-    window.location.reload()
+    Meteor.logout(err => {
+      this.navChange();
+      console.log("User ID: ", Meteor.userId());
+    });
   }
 
   goHome = () => {
@@ -88,11 +93,11 @@ export default class Navbar extends Component {
       <div>
         <nav className="navbar navbar-expand-lg navbar-light" id="loggedOut">
           <span className="navbar-brand mb-0 h1"><img onClick = {this.goHome} src="images/logo.png" alt="" />Pet Connections</span>
-          <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent1" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span className="navbar-toggler-icon"></span>
           </button>
 
-          <div className="collapse navbar-collapse" id="navbarSupportedContent">
+          <div className="collapse navbar-collapse" id="navbarSupportedContent1">
             <ul className="navbar-nav ml-auto">
               <li className={`nav-item ${this.props.home}`} >
                 <a className="nav-link" href="" onClick = {this.goHome}>Home <span className="sr-only">(current)</span></a>
@@ -137,11 +142,11 @@ export default class Navbar extends Component {
 
         <nav className="navbar navbar-expand-lg navbar-light" id="loggedIn">
           <span className="navbar-brand mb-0 h1"><img onClick = {this.goHome} src="images/logo.png" alt="" />Pet Connections</span>
-          <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent2" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span className="navbar-toggler-icon"></span>
           </button>
 
-          <div className="collapse navbar-collapse" id="navbarSupportedContent">
+          <div className="collapse navbar-collapse" id="navbarSupportedContent2">
             <ul className="navbar-nav ml-auto">
               <li className={`nav-item ${this.props.home}`} >
                 <a className="nav-link" href="" onClick = {this.goHome}>Home <span className="sr-only">(current)</span></a>

@@ -29,6 +29,7 @@ export class Birds extends Component{
             <h6 className="card-subtitle mb-2"><strong>Location:</strong> {pet.location}</h6>
             <h6 className="card-subtitle mb-2"><strong>Description:</strong> {pet.description}</h6>
           </div>
+          <button><a href="/profile">Buy</a></button>
           <div className="card-footer">
             <small className="text-muted">Posted 3 mins ago</small>
           </div>

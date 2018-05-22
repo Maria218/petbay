@@ -12,6 +12,10 @@ export default class Homing extends Component {
     this.state = {
       error :"",
       error2 :"",
+      name: "",
+      email: "",
+      phone: "",
+      location: "",
     }
   }
 
@@ -46,10 +50,43 @@ export default class Homing extends Component {
        createdAt: new Date()
      },
    }
+
+   const detail = {
+     name: this.state.name,
+     email: this.state.email,
+     phone: this.state.phone,
+     location: this.state.location
+   }
+   Meteor.call('details.create',detail);
+
    Accounts.createUser(user,error=>{
      error ? alert(error.reason) : console.log("Account Created Successfully");
    }) ;
   route.go('/dashboard');
+  }
+
+  handleLocationChange = (e) => {
+    this.setState({
+      location: e.target.value
+    })
+  }
+
+  handleNameChange = (e) => {
+    this.setState({
+      name: e.target.value
+    })
+  }
+
+  handlePhoneChange = (e) => {
+    this.setState({
+      phone: e.target.value
+    })
+  }
+
+  handleEmailChange = (e) => {
+    this.setState({
+      email: e.target.value
+    })
   }
 
   render(){
@@ -69,21 +106,21 @@ export default class Homing extends Component {
               <form onSubmit = {this.getUserData} className="needs-validation" novalidate>
                 <div className="form-group">
                   <label className="col-form-label" htmlFor="formGroupExampleInput">Individual or Organization Name</label>
-                  <input type="text" className="form-control" name="name" id="formGroupExampleInput" placeholder="Enter Name" required />
+                  <input onChange={this.handleNameChange} type="text" className="form-control" name="name" id="formGroupExampleInput" placeholder="Enter Name" required />
                   <div className="invalid-feedback">
                     Please provide a valid name.
                   </div>
                 </div>
                 <div className="form-group">
                     <label className="col-form-label" htmlFor="formGroupExampleInput2">Email Address</label>
-                    <input type="email" className="form-control" name="email" id="formGroupExampleInput2" placeholder="Enter Email Address" required/>
+                    <input onChange={this.handleEmailChange} type="email" className="form-control" name="email" id="formGroupExampleInput2" placeholder="Enter Email Address" required/>
                     <div className="invalid-feedback">
                       Please provide a valid email address.
                     </div>
                   </div>
                   <div className="form-group">
                     <label className="col-form-label" htmlFor="formGroupExampleInput2">Contact Number</label>
-                    <input type="number" className="form-control" name="phone" id="formGroupExampleInput2" placeholder="Enter Phone Number" required/>
+                    <input onChange={this.handlePhoneChange} type="number" className="form-control" name="phone" id="formGroupExampleInput2" placeholder="Enter Phone Number" required/>
                     <div className="invalid-feedback">
                       Please provide a phone number.
                     </div>
@@ -102,7 +139,7 @@ export default class Homing extends Component {
                   </div>
                   <div className="form-group">
                     <label className="col-form-label" htmlFor="formGroupExampleInput2">Location</label>
-                    <input type="text" className="form-control" name="location" id="formGroupExampleInput2" placeholder="Enter Town Name" required/>
+                    <input onChange={this.handleLocationChange} type="text" className="form-control" name="location" id="formGroupExampleInput2" placeholder="Enter Town Name" required/>
                     <div className="invalid-feedback">
                       Please provide a location
                     </div>

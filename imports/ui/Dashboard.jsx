@@ -20,10 +20,6 @@ export class Dashboard extends Component {
     route.go("/login")
   }
 
-  // componentDidMount(){
-  //   $('showPets').hide();
-  // }
-
   showPets = () => {
     $('#box2').hide();
     $('#box1').show();
