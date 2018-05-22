@@ -20,18 +20,6 @@ export default class Volunteer extends Component {
               <img src="images/adoptioncenter.jpg" />
             </div>
             <div className="col-md-6">
-              <h5 className="top-middle">PetBay</h5>
-              <p className="bottom-middle">A pet store with a vision to give every little critter in their store a family can never have too many helping hands. Get in contact with Pet Bay and volunteer with them today.</p>
-              <button type="button" className="btn btn-outline-primary">Volunteer</button>
-            </div>
-          </div>
-          <br />
-          <br />
-          <div className="row">
-            <div className="col-md-6">
-              <img src="images/adoptioncenter.jpg" />
-            </div>
-            <div className="col-md-6">
               <h5 className="top-middle">Lusaka Animal Welfare Society</h5>
               <p className="bottom-middle">This organisation has been running since 1993 helping different animals find forever homes and give pet owners information on how to take care of their pets. But they can't do all the work they do alone. Partner with them and offer your voluntary services either part or full time to help them continue their beautiful mission.</p>
               <button type="button" className="btn btn-outline-primary">Volunteer</button>
@@ -44,8 +32,20 @@ export default class Volunteer extends Component {
               <img src="images/adoptioncenter.jpg" />
             </div>
             <div className="col-md-6">
-              <h5 className="top-middle">Lorem ipsum dolor</h5>
-              <p className="bottom-middle">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla vestibulum mauris ut diam vulputate, nec scelerisque magna maximus.</p>
+              <h5 className="top-middle">Lusaka Kennel Club</h5>
+              <p className="bottom-middle">Need help training your dog? The Lusaka Kennel Club handles obedience and skills training for dogs of all kinds. They are located at the Lusaka Showgrounds and provide a hugely beneficial experience for both dog and owner. They need all the help they can get, so why don't you go and volunteer today?</p>
+              <button type="button" className="btn btn-outline-primary">Volunteer</button>
+            </div>
+          </div>
+          <br />
+          <br />
+          <div className="row">
+            <div className="col-md-6">
+              <img src="images/adoptioncenter.jpg" />
+            </div>
+            <div className="col-md-6">
+              <h5 className="top-middle">PetBay</h5>
+              <p className="bottom-middle">A pet store with a vision to give every little critter in their store a family can never have too many helping hands. Get in contact with Pet Bay and volunteer with them today.</p>
               <button type="button" className="btn btn-outline-primary">Volunteer</button>
             </div>
           </div>

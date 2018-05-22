@@ -87,18 +87,18 @@ export default class Footer extends Component {
           <div className="text-center">
             <ul className="list-unstyled list-inline">
               <li className="list-inline-item">
-                <a className="btn-floating btn-sm btn-fb mx-1">
-                  <i className="fa fa-facebook"> </i>
+                <a href="https://facebook.com" target="_blank" className="btn-floating btn-sm btn-fb mx-1">
+                  <i className="fa fa-facebook fa-lg" style={{color:"White"}}> </i>
                 </a>
               </li>
               <li className="list-inline-item">
-                <a className="btn-floating btn-sm btn-tw mx-1">
-                  <i className="fa fa-twitter"> </i>
+                <a href="https://twitter.com" target="_blank" className="btn-floating btn-sm btn-tw mx-1">
+                  <i className="fa fa-twitter fa-lg" style={{color:"White"}}> </i>
                 </a>
               </li>
               <li className="list-inline-item">
-                <a className="btn-floating btn-sm btn-gplus mx-1">
-                  <i className="fa fa-github"></i>
+                <a href="https://github.com/Maria218/petbay" target="_blank" className="btn-floating btn-sm btn-gplus mx-1">
+                  <i className="fa fa-github fa-lg" style={{color:"White"}}></i>
                 </a>
               </li>
             </ul>

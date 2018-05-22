@@ -34,12 +34,49 @@ export default class AboutUs extends Component{
           <img src="images/dman.png" style={{width:200+"px", height:200+"px" }} className="img-fluid rounded-circle" alt="Generic placeholder thumbnail"/>
           <h4>Damiano Chintala</h4>
           <h5 className="text-muted">Web Developer and Designer</h5>
+          <div className="text-center">
+            <ul className="list-unstyled list-inline">
+              <li className="list-inline-item">
+                <a href="https://facebook.com" target="_blank" className="btn-floating btn-sm btn-fb mx-1">
+                  <i className="fa fa-facebook fa-lg" style={{color:"Black"}}> </i>
+                </a>
+              </li>
+              <li className="list-inline-item">
+                <a href="https://www.linkedin.com/" target="_blank" className="btn-floating btn-sm btn-tw mx-1">
+                  <i className="fa fa-linkedin fa-lg" style={{color:"Black"}}> </i>
+                </a>
+              </li>
+              <li className="list-inline-item">
+                <a href="https://github.com/DamianoSilverhand" target="_blank" className="btn-floating btn-sm btn-gplus mx-1">
+                  <i className="fa fa-github fa-lg" style={{color:"Black"}}></i>
+                </a>
+              </li>
+            </ul>
+          </div>
         </div>
         <div className="col-md-6 col-sm-6 placeholder text-center" >
           <img src="images/cat6.jpg" style={{width:200+"px", height:200+"px" }}  className="img-fluid rounded-circle" alt="Generic placeholder thumbnail"/>
           <h4>Maria Situmbeko</h4>
           <h5 className="text-muted">Web Developer and Designer</h5>
-          <span className="text-muted">Something else</span>
+          <div className="text-center">
+            <ul className="list-unstyled list-inline">
+              <li className="list-inline-item">
+                <a href="https://facebook.com" target="_blank" className="btn-floating btn-sm btn-fb mx-1">
+                  <i className="fa fa-facebook fa-lg" style={{color:"Black"}}> </i>
+                </a>
+              </li>
+              <li className="list-inline-item">
+                <a href="https://www.linkedin.com/" target="_blank" className="btn-floating btn-sm btn-tw mx-1">
+                  <i className="fa fa-linkedin fa-lg" style={{color:"Black"}}> </i>
+                </a>
+              </li>
+              <li className="list-inline-item">
+                <a href="https://github.com/Maria218" target="_blank" className="btn-floating btn-sm btn-gplus mx-1">
+                  <i className="fa fa-github fa-lg" style={{color:"Black"}}></i>
+                </a>
+              </li>
+            </ul>
+          </div>
         </div>
       </section>
       <section className="row text-center placeholders" style={{marginTop:20+"px"}}>
@@ -47,13 +84,49 @@ export default class AboutUs extends Component{
           <img src="images/img.jpg" style={{width:200+"px", height:200+"px" }} className="img-fluid rounded-circle" alt="Generic placeholder thumbnail"/>
           <h4>Munnah Mwelwa</h4>
           <h5 className="text-muted">Web Developer and Data Architect</h5>
-          <div className="text-muted">Something else</div>
+          <div className="text-center">
+            <ul className="list-unstyled list-inline">
+              <li className="list-inline-item">
+                <a href="https://facebook.com" target="_blank" className="btn-floating btn-sm btn-fb mx-1">
+                  <i className="fa fa-facebook fa-lg" style={{color:"Black"}}> </i>
+                </a>
+              </li>
+              <li className="list-inline-item">
+                <a href="https://www.linkedin.com/" target="_blank" className="btn-floating btn-sm btn-tw mx-1">
+                  <i className="fa fa-linkedin fa-lg" style={{color:"Black"}}> </i>
+                </a>
+              </li>
+              <li className="list-inline-item">
+                <a href="https://github.com/MunnahStephanie" target="_blank" className="btn-floating btn-sm btn-gplus mx-1">
+                  <i className="fa fa-github fa-lg" style={{color:"Black"}}></i>
+                </a>
+              </li>
+            </ul>
+          </div>
         </div>
         <div className="col-md-6 col-sm-6 placeholder text-center">
           <img src="images/mary.jpg" style={{width:200+"px", height:200+"px" }} className="img-fluid rounded-circle" alt="Generic placeholder thumbnail"/>
           <h4>Mary Mulunda</h4>
           <h5 className="text-muted">Web Designer</h5>
-          <span className="text-muted">Something else</span>
+          <div className="text-center">
+            <ul className="list-unstyled list-inline">
+              <li className="list-inline-item">
+                <a href="https://facebook.com" target="_blank" className="btn-floating btn-sm btn-fb mx-1">
+                  <i className="fa fa-facebook fa-lg" style={{color:"Black"}}> </i>
+                </a>
+              </li>
+              <li className="list-inline-item">
+                <a href="https://www.linkedin.com/" target="_blank" className="btn-floating btn-sm btn-tw mx-1">
+                  <i className="fa fa-linkedin fa-lg" style={{color:"Black"}}> </i>
+                </a>
+              </li>
+              <li className="list-inline-item">
+                <a href="https://github.com/MaryMulunda" target="_blank" className="btn-floating btn-sm btn-gplus mx-1">
+                  <i className="fa fa-github fa-lg" style={{color:"Black"}}></i>
+                </a>
+              </li>
+            </ul>
+          </div>
         </div>
       </section>
         </div>

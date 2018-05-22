@@ -251,6 +251,7 @@ body {
 .adding:hover{
   background-color: #00BEA5;
   border-color: #00BEA5;
+  color: #000000;
 }
 
 .dash {

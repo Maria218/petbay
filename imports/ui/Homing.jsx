@@ -12,7 +12,6 @@ export default class Homing extends Component {
     this.state = {
       error :"",
       error2 :"",
-
     }
   }
 
@@ -57,70 +56,69 @@ export default class Homing extends Component {
     return(
       <div>
         <Navbar homePet={'active'}/>
-
-      <div className="container">
-        <div className="row justify-content-center">
-        <div className="col-md-4">
-          <img src="/images/pethom.jpeg" class="pethom"/>
-          </div>
-          <div className="col-md-4" class="spc">
-        <div className="text-center">
-          <h4>Want to put a pet up for adoption or advertise your services?</h4>
-          <h4>Sign Up To Continue</h4>
-        </div>
-          <form onSubmit = {this.getUserData} className="needs-validation" novalidate>
-              <div className="form-group">
+        <div className="container">
+          <div className="row justify-content-center">
+            <div className="col-md-4">
+              <img src="/images/pethom.jpeg" class="pethom"/>
+            </div>
+            <div className="col-md-4" class="spc">
+              <div className="text-center">
+                <h4>Want to put a pet up for adoption or advertise your services?</h4>
+                <h4>Sign Up To Continue</h4>
+              </div>
+              <form onSubmit = {this.getUserData} className="needs-validation" novalidate>
+                <div className="form-group">
                   <label className="col-form-label" htmlFor="formGroupExampleInput">Individual or Organization Name</label>
                   <input type="text" className="form-control" name="name" id="formGroupExampleInput" placeholder="Enter Name" required />
                   <div className="invalid-feedback">
                     Please provide a valid name.
                   </div>
-              </div>
-              <div className="form-group">
-                  <label className="col-form-label" htmlFor="formGroupExampleInput2">Email Address</label>
-                  <input type="email" className="form-control" name="email" id="formGroupExampleInput2" placeholder="Enter Email Address" required/>
-                  <div className="invalid-feedback">
-                    Please provide a valid email address.
+                </div>
+                <div className="form-group">
+                    <label className="col-form-label" htmlFor="formGroupExampleInput2">Email Address</label>
+                    <input type="email" className="form-control" name="email" id="formGroupExampleInput2" placeholder="Enter Email Address" required/>
+                    <div className="invalid-feedback">
+                      Please provide a valid email address.
+                    </div>
                   </div>
-              </div>
-              <div className="form-group">
-                  <label className="col-form-label" htmlFor="formGroupExampleInput2">Contact Number</label>
-                  <input type="number" className="form-control" name="phone" id="formGroupExampleInput2" placeholder="Enter Phone Number" required/>
-                  <div className="invalid-feedback">
-                    Please provide a phone number.
+                  <div className="form-group">
+                    <label className="col-form-label" htmlFor="formGroupExampleInput2">Contact Number</label>
+                    <input type="number" className="form-control" name="phone" id="formGroupExampleInput2" placeholder="Enter Phone Number" required/>
+                    <div className="invalid-feedback">
+                      Please provide a phone number.
+                    </div>
                   </div>
-              </div>
-              <div className="form-group">
-                  <label className="col-form-label" htmlFor="formGroupExampleInput2">Password</label>
-                  <input type="password" className="form-control" name="password" id="formGroupExampleInput2" placeholder="Choose Password"  required/>
+                  <div className="form-group">
+                    <label className="col-form-label" htmlFor="formGroupExampleInput2">Password</label>
+                    <input type="password" className="form-control" name="password" id="formGroupExampleInput2" placeholder="Choose Password" required/>
                   {/* <p style={{color:"red"}}>{this.state.error2}</p> */}
-                  <div className="invalid-feedback">{this.state.error2}</div>
-              </div>
-              <div className="form-group">
-                  <label className="col-form-label" htmlFor="formGroupExampleInput2">Confirm Password</label>
-                  <input type="password" className="form-control" name="password2" id="formGroupExampleInput2" placeholder="Enter Password Again" required/>
-                  {/* <p style={{color:"red"}}>{this.state.error}</p> */}
-                  <div className="invalid-feedback">{this.state.error}</div>
-              </div>
-              <div className="form-group">
-                  <label className="col-form-label" htmlFor="formGroupExampleInput2">Location</label>
-                  <input type="text" className="form-control" name="location" id="formGroupExampleInput2" placeholder="Enter Town Name" required/>
-                  <div className="invalid-feedback">
-                    Please provide a location
+                    <div className="invalid-feedback">{this.state.error2}</div>
                   </div>
-              </div><br/>
-              <div className="text-center">
-                <button type="submit" className="btn btn-primary">Sign Up</button>
+                  <div className="form-group">
+                    <label className="col-form-label" htmlFor="formGroupExampleInput2">Confirm Password</label>
+                    <input type="password" className="form-control" name="password2" id="formGroupExampleInput2" placeholder="Enter Password Again" required/>
+                  {/* <p style={{color:"red"}}>{this.state.error}</p> */}
+                    <div className="invalid-feedback">{this.state.error}</div>
+                  </div>
+                  <div className="form-group">
+                    <label className="col-form-label" htmlFor="formGroupExampleInput2">Location</label>
+                    <input type="text" className="form-control" name="location" id="formGroupExampleInput2" placeholder="Enter Town Name" required/>
+                    <div className="invalid-feedback">
+                      Please provide a location
+                    </div>
+                  </div><br/>
+                  <div className="text-center">
+                    <button type="submit" className="btn btn-primary adding">Sign Up</button>
+                  </div>
+                </form><br/>
+                <div className="text-center">
+                  <p>By Signing Up, You agree to our terms and conditions</p>
+                </div>
               </div>
-          </form><br/>
-          <div className="text-center">
-              <p>By Signing Up, You agree to our terms and conditions</p>
-          </div>
-      </div>
-      </div>
-      </div><br/>
-        <Footer />
-      </div>
-    )
+            </div>
+          </div><br/>
+          <Footer />
+        </div>
+      )
+    }
   }
-}

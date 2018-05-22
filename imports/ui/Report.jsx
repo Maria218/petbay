@@ -29,8 +29,9 @@ export default class Report extends Component {
           </div>
           <div>
            <p>Website: <span className="info">http://www.lawszambia.org</span></p>
-           <p>Address: <span className="info">Sadzu Road, Next to Levy Junction, Lusaka, Zambia.</span></p>
-           <p>Phone Number: <span className="info">+260 966 005 297</span></p>
+           <p>Address: <span className="info">Sadzu Road, Behind Levy Junction, Lusaka, Zambia.</span></p>
+           <p>Phone Number 1: <span className="info">+260 977 610 857, Jenny Gordon</span></p>
+           <p>Phone Number 2: <span className="info">+260 977 770 940, Liza Oparacha</span></p>
            <br />
            <br />
          </div>
