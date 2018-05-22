@@ -297,3 +297,36 @@ body {
   text-align: center;
   font-family: 'Cagliostro', sans-serif;
 }
+.pethom{
+  position: absolute;
+  top:350px;
+  left: 0;
+  width: 400px;
+  height:400px;
+}
+.spc{
+  position: relative;
+  top:0;
+}
+.dets{
+  color: #fff;
+
+}
+.ti{
+  color: #fff;
+}
+.box{
+ background: rgba(0,0,0,0.5);
+ height: 300px;
+ border-radius: 5%;
+ top:10px;
+ width: 400px;
+ position:relative;
+ }
+ .dog{
+ width:400px;
+ height:300px;
+ top:10px;
+ border-radius: 5%;
+ position: absolute;
+}

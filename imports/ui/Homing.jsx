@@ -56,10 +56,14 @@ export default class Homing extends Component {
   render(){
     return(
       <div>
-        <Navbar homePet={'active'}/><br />
-        <div className="container">
+        <Navbar homePet={'active'}/>
+
+      <div className="container">
         <div className="row justify-content-center">
         <div className="col-md-4">
+          <img src="/images/pethom.jpeg" class="pethom"/>
+          </div>
+          <div className="col-md-4" class="spc">
         <div className="text-center">
           <h4>Want to put a pet up for adoption or advertise your services?</h4>
           <h4>Sign Up To Continue</h4>
@@ -112,7 +116,6 @@ export default class Homing extends Component {
           <div className="text-center">
               <p>By Signing Up, You agree to our terms and conditions</p>
           </div>
-
       </div>
       </div>
       </div><br/>
