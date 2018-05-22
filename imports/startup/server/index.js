@@ -10,3 +10,8 @@ import '../../api/advertiser/server/publications.js';
 import '../../api/advertiser/methods.js';
 import '../../api/advertiser/collections.js';
 
+import '../../api/messages/server/publications.js';
+import '../../api/messages/methods.js';
+import '../../api/messages/collections.js';
+
+

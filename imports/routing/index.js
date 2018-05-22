@@ -8,7 +8,7 @@ import Volunteer from '/imports/ui/Volunteer.jsx';
 import Report from '/imports/ui/Report.jsx';
 import Vets from '/imports/ui/Vets.jsx';
 import Homing from '/imports/ui/Homing.jsx';
-import ContactUs from '/imports/ui/ContactUs.jsx';
+import {ContactUs} from '/imports/ui/ContactUs.jsx';
 import AboutUs from '/imports/ui/AboutUs.jsx';
 import LogIn from '/imports/ui/LogIn.jsx';
 import Dashboard from '/imports/ui/Dashboard.jsx';

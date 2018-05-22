@@ -1,56 +1,35 @@
 import { Meteor } from 'meteor/meteor';
 import React, { Component } from 'react';
+import {withTracker} from 'meteor/react-meteor-data';
 import route from '/imports/routing/router.js';
 import Navbar from '/imports/ui/Navbar.jsx';
 import Footer from '/imports/ui/Footer.jsx';
+import {Messages} from '../api/messages/collections.js';
 
-export default class ContactUs extends Component {
+
+export class ContactUs extends Component {
 
   constructor(props){
     super(props);
     this.state = {
-      error :"",
-      error2 :""
+      name :"",
+      email :"",
+      message :"",
 
     }
   }
-  getUserData =(e) =>{
+  sendMessage =(e) =>{
     e.preventDefault();
-    const {target} = e;
-    const name = target.name.value;
-    const email = target.email.value;
-    const phone = target.phone.value;
-    const password = target.password.value;
-    const password2 = target.password2.value;
-
-   if(password.trim()!==password2.trim()){
-     this.setState({
-       error: "Passwords do not match"
-     })
-     return;
-   };
-   if(password.length <=6
-   ){
-     this.setState({
-       error2: "Password too short"
-     })
-     return;
-   }
-   const user = {
-     email,
-     password,
-
-     profile: {
-       name,
-       phone,
-     },
-     createdAt: new Date()
-   }
-   Accounts.createUser(user,error=>{
-     error ? console.log(error.reason) : console.log("Account Created Successfully")
-   }) ;
-
-  route.go('/dashboard');
+    const currentUserId = Meteor.userId()
+    const message = {
+      name:this.state.name,
+      email:this.state.email,
+      message:this.state.message,
+      createdAt: new Date(),
+      createdBy:currentUserId
+    }
+    Meteor.call('messages.create',message);
+    route.go('/contactus');
   }
 
   render(){
@@ -66,35 +45,43 @@ export default class ContactUs extends Component {
         <div className="text-center">
         <h1 className="volunteer">Contact Us</h1>
         <div className="text-center">
-          <p>Get in contact with us whenever you'd like!</p>
+          <p>We would love to hear from you, <a href="" data-toggle="modal" data-target="#exampleModal">send us</a> feed back on any issue related to this site</p>
         </div>
         </div>
-          <form onSubmit = {this.getUserData} className="needs-validation">
-              <div className="form-group">
-                  <label className="col-form-label volunteer" htmlFor="formGroupExampleInput">Your Name</label>
-                  <input type="text" className="form-control" name="name" id="formGroupExampleInput" placeholder="Enter Name" required />
-              </div>
-              <div className="form-group">
-                  <label className="col-form-label volunteer" htmlFor="formGroupExampleInput2">Email Address</label>
-                  <input type="email" className="form-control" name="email" id="formGroupExampleInput2" placeholder="Enter Email Address" required/>
-              </div>
-              <div className="form-group">
-                  <label className="col-form-label volunteer" htmlFor="formGroupExampleInput2">Contact Number</label>
-                  <input type="number" className="form-control" name="phone" id="formGroupExampleInput2" placeholder="Enter Phone Number" required/>
-              </div>
-              <div className="form-group">
-                  <label className="col-form-label volunteer" htmlFor="formGroupExampleInput2">Password</label>
-                  <input type="password" className="form-control" name="password" id="formGroupExampleInput2" placeholder="Choose Password" required/>
-                  <p style={{color:"red"}}>{this.state.error2}</p>
-              </div>
-              <div className="form-group">
-                <label className="volunteer" for="exampleFormControlTextarea1">Your Message</label>
-                  <textarea className="form-control" id="exampleFormControlTextarea1" placeholder="Enter Your Message" rows="3"></textarea>
-              </div><br/>
-              <div className="text-center">
-              <button type="button" className="btn btn-primary btn-lg contact-btn adding">Contact Us</button>
-              </div>
-          </form><br/>
+
+        <div className="modal fade" id="exampleModal" tabIndex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div className="modal-dialog" role="document">
+          <div className="modal-content">
+            <div className="modal-header">
+              <h5 className="modal-title" id="exampleModalLabel">Enter Your Message</h5>
+              <button type="button" className="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div className="modal-body">
+            <form onSubmit = {this.sendMessage} className="needs-validation">
+            <div className="form-group">
+                <input type="text" className="form-control" name="name" id="formGroupExampleInput" placeholder="Enter Name" required />
+            </div>
+            <div className="form-group">
+                <input type="email" className="form-control" name="email" id="formGroupExampleInput2" placeholder="Enter Email Address" required/>
+            </div>
+            <div className="form-group">
+              <label className="volunteer" for="exampleFormControlTextarea1">Your Message</label>
+                <textarea className="form-control" id="exampleFormControlTextarea1" name="message" placeholder="Enter Your Message" rows="3"></textarea>
+            </div><br/>
+            <div className="text-center">
+            <button type="submit" className="btn btn-primary btn-lg contact-btn adding">Send</button>
+            </div>
+        </form><br/>
+        </div>
+        <div className="modal-footer">
+        <button type="button" className="btn btn-primary" data-dismiss="modal">Close</button>
+        <button type="button" className="btn btn-danger" data-dismiss="modal" onClick = {this.sendMessage}>Yes, delete</button>
+      </div>
+          </div>
+        </div>
+      </div>
 
       </div>
       </div>
@@ -105,3 +92,18 @@ export default class ContactUs extends Component {
     )
   }
 }
+
+export default withTracker(() =>{
+  Meteor.subscribe('messages');
+  Meteor.subscribe('items');
+  let isDataReady = Meteor.subscribe('files.all');
+  const currentUserId = Meteor.userId();
+  return{
+    pets : Pets.find({ createdBy: currentUserId }).fetch(),
+    messages : Messages.find().fetch(),
+    items : Items.find({ createdBy: currentUserId }).fetch(),
+    files : UserFiles.find({createdBy: currentUserId}, {sort: {name: 1}}).fetch(),
+    isDataReady: isDataReady.ready(),
+  }
+
+})(ContactUs);
