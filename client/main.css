@@ -248,6 +248,11 @@ body {
   color: black;
 }
 
+.adding:hover{
+  background-color: #00BEA5;
+  border-color: #00BEA5;
+}
+
 .dash {
   background-color: #00BEA5;
   width:100%;

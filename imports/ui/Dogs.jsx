@@ -76,7 +76,7 @@ export default withTracker(() =>{
   Meteor.subscribe('files.all');
   let isDataReady = Meteor.subscribe('files.all');
   return{
-    pets : Pets.find({}).fetch(),
+    pets : Pets.find({category: "dog"}).fetch(),
     files : UserFiles.find({}, {sort: {name: 1}}).fetch(),
     isDataReady: isDataReady.ready(),
   }

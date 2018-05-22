@@ -17,7 +17,8 @@ export class Uploads2 extends Component {
       description:'',
       price:'',
       file: '',
-      imagePreviewUrl: ''
+      imagePreviewUrl: '',
+      paid: ''
     }
   }
 
@@ -41,7 +42,8 @@ export class Uploads2 extends Component {
       price:this.state.price,
       description:this.state.description,
       createdAt: new Date(),
-      createdBy:currentUserId
+      createdBy:currentUserId,
+      paid: false
     }
     Meteor.call('items.create',item);
     console.log('item created')

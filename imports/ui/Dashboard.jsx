@@ -241,8 +241,8 @@ export default withTracker(() =>{
   let isDataReady = Meteor.subscribe('files.all');
   const currentUserId = Meteor.userId();
   return{
-    pets : Pets.find({ createdBy: currentUserId }).fetch(),
-    items : Items.find({ createdBy: currentUserId }).fetch(),
+    pets : Pets.find({ createdBy: currentUserId}).fetch(),
+    items : Items.find({ createdBy: currentUserId, paid: true }).fetch(),
     files : UserFiles.find({createdBy: currentUserId}, {sort: {name: 1}}).fetch(),
     isDataReady: isDataReady.ready(),
   }
