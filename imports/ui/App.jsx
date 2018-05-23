@@ -1,6 +1,4 @@
 import React, { Component } from 'react';
-import {moment} from 'moment';
-
 
 export default ({main, routeProps}) => {
   return(

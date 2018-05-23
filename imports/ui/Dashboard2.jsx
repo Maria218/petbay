@@ -13,7 +13,6 @@ import Uploads from '/imports/ui/Upload.jsx';
 import Uploads2 from '/imports/ui/Upload2.jsx';
 import FileUploadComponent from './uploadFile.jsx';
 import $ from 'jquery';
-import {moment} from 'moment';
 
 export class Dashboard2 extends Component {
 

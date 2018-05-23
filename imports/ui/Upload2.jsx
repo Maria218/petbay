@@ -40,7 +40,18 @@ export class Uploads2 extends Component {
     const sellerEmail2 = Session.get('profileEmail');
     const sellerPhone2 = Session.get('profilePhone');
     const sellerLocation2 = Session.get('profileLocation');
-    const currentUserId = Meteor.userId()
+    const currentUserId = Meteor.userId();
+    const detail = {
+      name: this.state.name,
+      email: this.state.email,
+      phone: this.state.phone,
+      location: this.state.location
+    }
+    Meteor.call('details.create',detail);
+    Session.set('profileName', detail.name);
+    Session.set('profileEmail', detail.email);
+    Session.set('profilePhone', detail.phone);
+    Session.set('profileLocation', detail.location);
     const item = {
       imageId: attempt2,
       owner: sellerName2,
