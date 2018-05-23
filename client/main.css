@@ -324,6 +324,7 @@ body {
  width: 400px;
  position:relative;
  }
+
  .dog{
  width:400px;
  height:300px;
@@ -335,6 +336,11 @@ body {
 .petUpload {
   margin-right: 30px;
 }
+
 .itemUpload {
   margin-left: 30px;
+}
+
+.poster {
+  color: #000000;
 }

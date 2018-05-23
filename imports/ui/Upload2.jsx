@@ -18,7 +18,11 @@ export class Uploads2 extends Component {
       price:'',
       file: '',
       imagePreviewUrl: '',
-      paid: ''
+      paid: '',
+      owner: '',
+      residence: '',
+      number: '',
+      email: '',
     }
   }
 
@@ -30,13 +34,19 @@ export class Uploads2 extends Component {
     route.go('/')
   }
 
-
-
   handleSubmit=(e)=>{
     const attempt2 = Session.get('imageId');
+    const sellerName2 = Session.get('profileName');
+    const sellerEmail2 = Session.get('profileEmail');
+    const sellerPhone2 = Session.get('profilePhone');
+    const sellerLocation2 = Session.get('profileLocation');
     const currentUserId = Meteor.userId()
     const item = {
       imageId: attempt2,
+      owner: sellerName2,
+      residence: sellerPhone2,
+      number: sellerLocation2,
+      email: sellerEmail2,
       itemName:this.state.itemName,
       itemCondition:this.state.itemCondition,
       price:this.state.price,
@@ -49,9 +59,7 @@ export class Uploads2 extends Component {
     console.log('item created')
     route.go('/dashboard');
     e.preventDefault();
-
   }
-
 
   handleNameChange = (e) => {
     this.setState({
@@ -78,7 +86,6 @@ export class Uploads2 extends Component {
   }
 
   render(){
-
     let {imagePreviewUrl} = this.state;
     let $imagePreview = null;
     if (imagePreviewUrl) {
@@ -157,13 +164,10 @@ export class Uploads2 extends Component {
         </div>
     );
   }
-
 }
 export default withTracker(() =>{
   Meteor.subscribe('items')
-
   return{
     items : Items.find().fetch(),
   }
-
 })(Uploads2);

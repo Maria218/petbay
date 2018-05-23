@@ -8,6 +8,11 @@ import Details from '../api/seller/collections.js';
 import { Mongo } from 'meteor/mongo';
 
 export class SellerProfile extends Component{
+
+  goBack = () => {
+    window.history.back();
+  }
+  
   getAllDetails=()=>{
     const details = this.props.details;
     return details.map((detail) => {
@@ -18,9 +23,6 @@ export class SellerProfile extends Component{
             <h6 className="card-subtitle mb-2"><strong>Email:</strong> {detail.email}</h6>
             <h6 className="card-subtitle mb-2"><strong>Phone Number:</strong> {detail.phone}</h6>
             <h6 className="card-subtitle mb-2"><strong>Location:</strong> {detail.location}</h6>
-          </div>
-          <div className="card-footer">
-            <small className="text-muted">Posted 3 mins ago</small>
           </div>
         </div>
       )
@@ -33,8 +35,14 @@ export class SellerProfile extends Component{
       return(
         <div>
           <Navbar pets={'active'}/>
-          <br/>
+          <br />
           <p className="h1" style={{textAlign: "center"}}>SELLER PROFILE</p><br />
+          <br />
+          <div className="text-center">
+            <button className="btn btn-primary adding" onClick={this.goBack}>Back</button>
+          </div>
+          <br />
+          <br />
           <div className ="container">
             <div className="card-columns">
               {this.getAllDetails()}

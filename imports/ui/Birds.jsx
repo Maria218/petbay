@@ -6,31 +6,14 @@ import Navbar from '/imports/ui/Navbar.jsx';
 import Footer from '/imports/ui/Footer.jsx';
 import Pets from '../api/profiles/collections.js';
 import {UserFiles} from '../api/upload/collections.js';
-import Homing from '/imports/ui/Homing.jsx';
 import Details from '../api/seller/collections.js';
 import FileUploadComponent from './uploadFile.jsx';
 import { Mongo } from 'meteor/mongo';
 
 export class Birds extends Component{
 
-  getAllDetails=()=>{
-    const details = this.props.details;
-    return details.map((detail) => {
-      return (
-        <div key = {detail._id} className="card border-primary">
-          <div className="card-body">
-            <h5 className="card-title"><strong>Name:</strong> {detail.name}</h5>
-            <h6 className="card-subtitle mb-2"><strong>Email:</strong> {detail.email}</h6>
-            <h6 className="card-subtitle mb-2"><strong>Phone Number:</strong> {detail.phone}</h6>
-            <h6 className="card-subtitle mb-2"><strong>Location:</strong> {detail.location}</h6>
-          </div>
-          <div className="card-footer">
-            <small className="text-muted">Posted 3 mins ago</small>
-          </div>
-        </div>
-      )
-    }
-  )
+  goToProfile = () => {
+    route.go('/profile');
   }
 
   getAllPets=()=>{
@@ -38,8 +21,11 @@ export class Birds extends Component{
     return pets.map((pet) => {
       const trial = pet.imageId;
       const link = UserFiles.findOne({_id: trial}).link();
-      const profile = pet.owner;
-      const sellerName = Details.findOne({name: profile})
+      const profileName = pet.owner;
+      const profileEmail = pet.email;
+      const profilePhone = pet.number;
+      const profileResidence = pet.residence;
+      const sellerName = Details.findOne({name: profileName, email: profileEmail, phone: profilePhone, location: profileResidence})
       return (
         <div key = {pet._id} className="card border-primary">
           <img className="card-img-top" src={link} style={{width: 100 + "%",height:200 + "px"}} alt="Card image cap"/>
@@ -53,9 +39,14 @@ export class Birds extends Component{
             <h6 className="card-subtitle mb-2"><strong>Location:</strong> {pet.location}</h6>
             <h6 className="card-subtitle mb-2"><strong>Description:</strong> {pet.description}</h6>
           </div>
-          <button><a href="/profile">Buy</a></button>
-          <div className="card-footer">
-            <small className="text-muted">Posted by {profile}</small>
+          <div className="card-footer poster">
+            <h5>Posted by: {profileName}</h5>
+            <h5>Email: {profileEmail}</h5>
+            <h5>Location: {profileResidence}</h5>
+            <h5>Number: {profilePhone}</h5>
+          </div>
+          <div className="text-center">
+            <button className="btn btn-primary btn-block adding" onClick={this.goToProfile}>Get Pet</button>
           </div>
         </div>
       )
@@ -75,7 +66,6 @@ export class Birds extends Component{
               {this.getAllPets()}
             </div>
           </div>
-
           <br /><br />
           <Footer />
         </div>

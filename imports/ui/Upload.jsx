@@ -27,17 +27,26 @@ export class Uploads extends Component {
       imagePreviewUrl: '',
       paid: '',
       owner: '',
+      residence: '',
+      number: '',
+      email: '',
     }
   }
 
   handleSubmit=(e)=>{
     e.preventDefault();
     const attempt = Session.get('imageId');
-    const seller = Session.get('profile');
+    const sellerName = Session.get('profileName');
+    const sellerEmail = Session.get('profileEmail');
+    const sellerPhone = Session.get('profilePhone');
+    const sellerLocation = Session.get('profileLocation');
     const currentUserId = Meteor.userId()
     const pet = {
       imageId: attempt,
-      owner: seller,
+      owner: sellerName,
+      residence: sellerPhone,
+      number: sellerLocation,
+      email: sellerEmail,
       petName:this.state.petName,
       age:this.state.age,
       gender:this.state.gender,
@@ -222,5 +231,4 @@ export default withTracker(() =>{
     pets : Pets.find().fetch(),
     files : UserFiles.find({}, {sort: {name: 1}}).fetch(),
   }
-
 })(Uploads);

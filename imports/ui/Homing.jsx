@@ -58,7 +58,10 @@ export default class Homing extends Component {
      location: this.state.location
    }
    Meteor.call('details.create',detail);
-   Session.set('profile', detail.name);
+   Session.set('profileName', detail.name);
+   Session.set('profileEmail', detail.email);
+   Session.set('profilePhone', detail.phone);
+   Session.set('profileLocation', detail.location);
    console.log(detail.name);
 
    Accounts.createUser(user,error=>{

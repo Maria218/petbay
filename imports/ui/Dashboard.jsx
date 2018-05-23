@@ -32,9 +32,24 @@ export class Dashboard extends Component {
     console.log("This button doesn't");
   }
 
+  navChange = () => {
+    if (Meteor.userId()) {
+      $('#loggedOut').hide();
+      $('#loggedIn').show();
+      console.log("you're now logged in")
+    }
+    else {
+      $('#loggedOut').show();
+      $('#loggedIn').hide();
+      console.log("you're now logged out")
+    }
+  }
+
   logUserOut = (e) => {
     e.preventDefault();
-    Meteor.logout();
+    Meteor.logout(err => {
+      this.navChange();
+    });
     route.go("/login");
   }
 
