@@ -21,28 +21,6 @@ export class Dashboard2 extends Component {
     route.go("/login")
   }
 
-  // componentDidMount(){
-  //   if (id = "petDash") {
-  //     console.log("Well, that was a flop")
-  //   }
-  //   else if (id = "itemDash") {
-  //     console.log("Holy cow, this actually worked!")
-  //   }
-  // }
-
-  // switch = () => {
-  //   const box = document.getElementById("box");
-  //   const petDash = document.getElementById("petDash");
-  //   const itemDash = document.getElementById("itemDash");
-  //
-  //   petDash.onClick = () => {
-  //     box = this.getAllPets()
-  //   }
-  //   itemDash.onClick = () => {
-  //     box = this.getAllItems()
-  //   }
-  // }
-
   logUserOut = (e) => {
     e.preventDefault();
     Meteor.logout();
@@ -173,128 +151,127 @@ export class Dashboard2 extends Component {
       if (this.props.isDataReady) {
         return(
           <div className="container-fluid">
-          <div className="row">
-          <nav className="col-md-2 d-none d-md-block bg-light sidebar">
-          <div className="sidebar-sticky">
-            <ul className="nav flex-column">
-              <li className="nav-item">
-                <a className="nav-link" href="#">
-                  <span data-feather="file"></span>
-                  Orders
-                </a>
-              </li>
-              <li className="nav-item">
-                <a className="nav-link" href="#">
-                  <span data-feather="shopping-cart"></span>
-                  Products
-                </a>
-              </li>
-              <li className="nav-item">
-                <a className="nav-link" href="#">
-                  <span data-feather="users"></span>
-                  Customers
-                </a>
-              </li>
-              <li className="nav-item">
-                <a className="nav-link" href="#">
-                  <span data-feather="bar-chart-2"></span>
-                  Reports
-                </a>
-              </li>
-              <li className="nav-item">
-                <a className="nav-link" href="#">
-                  <span data-feather="layers"></span>
-                  Integrations
-                </a>
-              </li>
-            </ul>
+            <div className="row">
+              {/* SideNav */}
+              <nav className="col-md-2 d-none d-md-block bg-light sidebar">
+                <div className="sidebar-sticky">
+                  <ul className="nav flex-column">
+                    <li className="nav-item">
+                      <a className="nav-link" href="#">
+                        <span data-feather="file"></span>
+                        Orders
+                      </a>
+                    </li>
+                    <li className="nav-item">
+                      <a className="nav-link" href="#">
+                        <span data-feather="shopping-cart"></span>
+                        Products
+                      </a>
+                    </li>
+                    <li className="nav-item">
+                      <a className="nav-link" href="#">
+                        <span data-feather="users"></span>
+                        Customers
+                      </a>
+                    </li>
+                    <li className="nav-item">
+                      <a className="nav-link" href="#">
+                        <span data-feather="bar-chart-2"></span>
+                        Reports
+                      </a>
+                    </li>
+                    <li className="nav-item">
+                      <a className="nav-link" href="#">
+                        <span data-feather="layers"></span>
+                        Integrations
+                      </a>
+                    </li>
+                  </ul>
 
-            <h6 className="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
-              <span>Saved reports</span>
-              <a className="d-flex align-items-center text-muted" href="#">
-                <span data-feather="plus-circle"></span>
-              </a>
-            </h6>
-            <ul className="nav flex-column mb-2">
-              <li className="nav-item">
-                <a className="nav-link" href="#">
-                  <span data-feather="file-text"></span>
-                  Current month
-                </a>
-              </li>
-              <li className="nav-item">
-                <a className="nav-link" href="#">
-                  <span data-feather="file-text"></span>
-                  Last quarter
-                </a>
-              </li>
-              <li className="nav-item">
-                <a className="nav-link" href="#">
-                  <span data-feather="file-text"></span>
-                  Social engagement
-                </a>
-              </li>
-              <li className="nav-item">
-                <a className="nav-link" href="#">
-                  <span data-feather="file-text"></span>
-                  Year-end sale
-                </a>
-              </li>
-            </ul>
-          </div>
-        </nav>
-        <div className="col-md-10" style={{marginLeft:15+"%"}}>
-                  <div className="">
-            <nav className="navbar navbar-expand-lg navbar-light">
-              <span className="navbar-brand mb-0 h1" href="#"><img src="images/logo.png" alt="" />Pet Connections</span>
-              <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                <span className="navbar-toggler-icon"></span>
-              </button>
+                  <h6 className="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
+                    <span>Saved reports</span>
+                    <a className="d-flex align-items-center text-muted" href="#">
+                      <span data-feather="plus-circle"></span>
+                    </a>
+                  </h6>
+                  <ul className="nav flex-column mb-2">
+                    <li className="nav-item">
+                      <a className="nav-link" href="#">
+                        <span data-feather="file-text"></span>
+                        Current month
+                      </a>
+                    </li>
+                    <li className="nav-item">
+                      <a className="nav-link" href="#">
+                        <span data-feather="file-text"></span>
+                        Last quarter
+                      </a>
+                    </li>
+                    <li className="nav-item">
+                      <a className="nav-link" href="#">
+                        <span data-feather="file-text"></span>
+                        Social engagement
+                      </a>
+                    </li>
+                    <li className="nav-item">
+                      <a className="nav-link" href="#">
+                        <span data-feather="file-text"></span>
+                        Year-end sale
+                      </a>
+                    </li>
+                  </ul>
+                </div>
+              </nav>
+              {/* SideNav */}
 
-              <div className="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul className="navbar-nav ml-auto">
-                  <li className="nav-item">
-                    <a className="nav-link" href="/">Home <span className="sr-only">(current)</span></a>
-                  </li>
-                  <li className="nav-item dropdown">
-                  <a className="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Pets</a>
-                  <div className="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                    <a className="dropdown-item" href="/dogs">Dogs</a>
-                    <a className="dropdown-item" href="/cats">Cats</a>
-                    <a className="dropdown-item" href="/birds">Birds</a>
+              {/* Dashboard */}
+              <div className="col-md-10">
+                <nav className="navbar navbar-expand-lg navbar-light">
+                  <span className="navbar-brand mb-0 h1" href="#"><img src="images/logo.png" alt="" />Pet Connections</span>
+                  <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span className="navbar-toggler-icon"></span>
+                  </button>
+
+                  <div className="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul className="navbar-nav ml-auto">
+                      <li className="nav-item">
+                        <a className="nav-link" href="/">Home <span className="sr-only">(current)</span></a>
+                      </li>
+                      <li className="nav-item dropdown">
+                        <a className="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Pets</a>
+                        <div className="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                          <a className="dropdown-item" href="/dogs">Dogs</a>
+                          <a className="dropdown-item" href="/cats">Cats</a>
+                          <a className="dropdown-item" href="/birds">Birds</a>
+                        </div>
+                      </li>
+                      <li className="nav-item">
+                        <a className="nav-link" href="" onClick={this.logUserOut}>Log Out</a>
+                      </li>
+                    </ul>
                   </div>
-                </li>
-                  <li className="nav-item">
-                    <a className="nav-link" href="" onClick={this.logUserOut}>Log Out</a>
-                  </li>
-                </ul>
-              </div>
-            </nav>
-            <div className="container">
+                </nav>
+                <h2 className="report">Upload Your Merchandise</h2>
+                <br />
+                <div className="text-center">
+                  <button type="button" className="btn btn-primary btn-lg adding" onClick={this.goToUpload}>Add A Pet</button> <button type="button" className="btn btn-primary btn-lg adding" onClick={this.goToUpload2}>Add Store Item</button>
+                </div>
+                <br />
+                <br />
+                <br />
+                <br />
 
-            <h2 className="report">Upload Your Merchandise</h2>
-            <br />
-            <div className="text-center">
-              <button type="button" className="btn btn-primary btn-lg adding" onClick={this.goToUpload}>Add A Pet</button> <button type="button" className="btn btn-primary btn-lg adding" onClick={this.goToUpload2}>Add Store Item</button>
-            </div>
-            <br />
-            <br />
-
-            <br />
-            <br />
-       
-            <div className="container">
-              <div id="box" className="card-columns">
-                {this.getAllPets()}
-                {this.getAllItems()}
-               
+                <div className="container">
+                  <div id="box" className="card-columns">
+                    {this.getAllPets()}
+                    {this.getAllItems()}
+                  </div>
+                </div>
               </div>
+              {/* Dashboard */}
+
             </div>
           </div>
-            </div>
-        </div>
-        </div>
-        </div>
         );
       }
       else {
@@ -314,11 +291,9 @@ export class Dashboard2 extends Component {
       return (
         <div>
           <Navbar />
-
           <div className="text-center" style={{marginTop: 5 + "%", marginBottom: 5 + "%", fontFamily: "Courgette"}}>
             <h1><i class="fa fa-paw"></i> Please, <a href="" onClick={this.goToLogin}> login </a> to continue <i class="fa fa-paw"></i></h1>
           </div>
-
           <Footer />
         </div>
       )
@@ -340,4 +315,3 @@ export default withTracker(() =>{
   }
 
 })(Dashboard2);
-
