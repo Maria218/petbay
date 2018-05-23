@@ -7,7 +7,6 @@ import Footer from '/imports/ui/Footer.jsx';
 import Pets from '../api/profiles/collections.js';
 import {UserFiles} from '../api/upload/collections.js';
 import FileUploadComponent from './uploadFile.jsx';
-import Details from '../api/seller/collections.js';
 import { Mongo } from 'meteor/mongo';
 
 export class Cats extends Component{
@@ -20,13 +19,8 @@ export class Cats extends Component{
     const pets = this.props.pets;
     return pets.map((pet) => {
       const trial = pet.imageId;
-      console.log(trial);
       const link = UserFiles.findOne({_id: trial}).link();
-      const profileName = pet.owner;
-      const profileEmail = pet.email;
-      const profilePhone = pet.number;
-      const profileResidence = pet.residence;
-      const sellerName = Details.findOne({name: profileName, email: profileEmail, phone: profilePhone, location: profileResidence})
+      console.log(trial);
       return (
         <div key = {pet._id} className="card border-primary">
           <img className="card-img-top" src={link} style={{width: 100 + "%",height:200 + "px"}} alt="Card image cap"/>
@@ -41,10 +35,10 @@ export class Cats extends Component{
             <h6 className="card-subtitle mb-2"><strong>Description:</strong> {pet.description}</h6>
           </div>
           <div className="card-footer poster">
-            <h5>Posted by: {profileName}</h5>
-            <h5>Email: {profileEmail}</h5>
-            <h5>Location: {profileResidence}</h5>
-            <h5>Number: {profilePhone}</h5>
+            <h5>Posted by: {pet.owner}</h5>
+            <h5>Email: {pet.email}</h5>
+            <h5>Location: {pet.residence}</h5>
+            <h5>Number: {pet.number}</h5>
           </div>
           <div className="text-center">
             <button className="btn btn-primary btn-block adding" onClick={this.goToProfile}>Get Pet</button>
@@ -91,12 +85,10 @@ export class Cats extends Component{
   export default withTracker(() =>{
     Meteor.subscribe('pets');
     Meteor.subscribe('files.all');
-    Meteor.subscribe('details');
     let isDataReady = Meteor.subscribe('files.all');
     return{
       pets : Pets.find({category: "cat"}).fetch(),
       files : UserFiles.find({}, {sort: {name: 1}}).fetch(),
-      details : Details.find().fetch(),
       isDataReady: isDataReady.ready(),
     }
   })(Cats);

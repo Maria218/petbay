@@ -25,6 +25,7 @@ export default class Homing extends Component {
     const name = target.name.value;
     const email = target.email.value;
     const phone = target.phone.value;
+    const location = target.location.value;
     const password = target.password.value;
     const password2 = target.password2.value;
 
@@ -47,6 +48,7 @@ export default class Homing extends Component {
      profile: {
        name,
        phone,
+       location,
        createdAt: new Date()
      },
    }
@@ -62,7 +64,6 @@ export default class Homing extends Component {
    Session.set('profileEmail', detail.email);
    Session.set('profilePhone', detail.phone);
    Session.set('profileLocation', detail.location);
-   console.log(detail.name);
 
    Accounts.createUser(user,error=>{
      error ? alert(error.reason) : console.log("Account Created Successfully");

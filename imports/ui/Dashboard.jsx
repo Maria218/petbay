@@ -126,7 +126,6 @@ export class Dashboard extends Component {
     const pets = this.props.pets;
     return pets.map((pet) => {
       const trial = pet.imageId;
-      console.log(trial);
       const link = UserFiles.findOne({_id: trial}).link();
       return (
         <div key = {pet._id} className="card border-primary">
