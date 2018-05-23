@@ -25,18 +25,19 @@ export class Uploads extends Component {
       category:'',
       file: '',
       imagePreviewUrl: '',
-      paid: ''
+      paid: '',
+      owner: '',
     }
   }
-
-
 
   handleSubmit=(e)=>{
     e.preventDefault();
     const attempt = Session.get('imageId');
+    const seller = Session.get('profile');
     const currentUserId = Meteor.userId()
     const pet = {
       imageId: attempt,
+      owner: seller,
       petName:this.state.petName,
       age:this.state.age,
       gender:this.state.gender,

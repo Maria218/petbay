@@ -58,6 +58,8 @@ export default class Homing extends Component {
      location: this.state.location
    }
    Meteor.call('details.create',detail);
+   Session.set('profile', detail.name);
+   console.log(detail.name);
 
    Accounts.createUser(user,error=>{
      error ? alert(error.reason) : console.log("Account Created Successfully");
@@ -96,9 +98,9 @@ export default class Homing extends Component {
         <div className="container">
           <div className="row justify-content-center">
             <div className="col-md-4">
-              <img src="/images/pethom.jpeg" class="pethom"/>
+              <img src="/images/pethom.jpeg" className="pethom"/>
             </div>
-            <div className="col-md-4" class="spc">
+            <div className="col-md-4" className="spc">
               <div className="text-center">
                 <h4>Want to put a pet up for adoption or advertise your services?</h4>
                 <h4>Sign Up To Continue</h4>

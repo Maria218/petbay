@@ -40,7 +40,6 @@ export class SellerProfile extends Component{
               {this.getAllDetails()}
             </div>
           </div>
-
           <br /><br />
           <Footer />
         </div>
