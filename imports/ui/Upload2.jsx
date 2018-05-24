@@ -145,7 +145,7 @@ export class Uploads2 extends Component {
           <div className="col-md-3"></div>
           <div className="col-md-6 form-group describe">
             <label htmlFor="exampleFormControlTextarea1">PRODUCT DESCRIPTION</label>
-            <textarea onChange={this.handleDescriptionChange} className="form-control" id="exampleFormControlTextarea1" name="description"  rows="5"></textarea>
+            <textarea onChange={this.handleDescriptionChange} className="form-control" id="exampleFormControlTextarea1" name="description" maxlength="200"  rows="5"></textarea>
           </div>
           <div className="col-md-3"></div>
         </div>
