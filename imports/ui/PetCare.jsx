@@ -37,7 +37,19 @@ export class PetCare extends Component {
             <h5>Number: {item.number}</h5>
           </div>
           <div className="text-center">
-            <button className="btn btn-primary btn-block adding" onClick={this.goToProfile}>Buy Item</button>
+            <button className="btn btn-primary btn-block adding" data-toggle="modal" data-target="#exampleModalCenter">Get Item</button>
+          </div>
+          <div className="modal fade" id="exampleModalCenter" tabIndex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+            <div className="modal-dialog modal-dialog-centered" role="document">
+              <div className="modal-content">
+                <div className="modal-body">
+                  Contact seller using details on the card
+                </div>
+                <div className="modal-footer">
+                  <button type="button" className="btn btn-secondary adding" data-dismiss="modal">Close</button>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       )
