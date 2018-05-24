@@ -22,7 +22,31 @@ export default class Volunteer extends Component {
             <div className="col-md-6">
               <h5 className="top-middle">Lusaka Animal Welfare Society</h5>
               <p className="bottom-middle">This organisation has been running since 1993 helping different animals find forever homes and give pet owners information on how to take care of their pets. But they can't do all the work they do alone. Partner with them and offer your voluntary services either part or full time to help them continue their beautiful mission.</p>
-              <button type="button" className="btn btn-outline-primary">Volunteer</button>
+              <div className="text-center">
+                <button className="btn btn-outline-primary adding" data-toggle="modal" data-target="#exampleModalCenter4">Volunteer</button>
+              </div>
+
+              {/* Modal */}
+              <div className="modal fade" id="exampleModalCenter4" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                <div className="modal-dialog modal-dialog-centered" role="document">
+                  <div className="modal-content">
+                    <div className="modal-header">
+                      <h5 className="modal-title" id="exampleModalCenterTitle">Lusaka Animal Welfare Society Details</h5>
+                      <button type="button" className="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                      </button>
+                    </div>
+                    <div class="modal-body">
+                      <strong>Address:</strong> Sadzu Road, Behind Levy Junction, Lusaka, Zambia <br />
+                      <strong>Phone Number 1:</strong> +260 977 610 857, Jenny Gordon <br />
+                      <strong>Phone Number 2:</strong> +260 977 770 940, Liza Oparacha
+                    </div>
+                    <div className="modal-footer">
+                      <button type="button" className="btn btn-secondary adding" data-dismiss="modal">Close</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
           <br />
@@ -34,7 +58,29 @@ export default class Volunteer extends Component {
             <div className="col-md-6">
               <h5 className="top-middle">Lusaka Kennel Club</h5>
               <p className="bottom-middle">Need help training your dog? The Lusaka Kennel Club handles obedience and skills training for dogs of all kinds. They are located at the Lusaka Showgrounds and provide a hugely beneficial experience for both dog and owner. They need all the help they can get, so why don't you go and volunteer today?</p>
-              <button type="button" className="btn btn-outline-primary">Volunteer</button>
+              <div className="text-center">
+                <button className="btn btn-outline-primary adding" data-toggle="modal" data-target="#exampleModalCenter3">Volunteer</button>
+              </div>
+
+              {/* Modal */}
+              <div className="modal fade" id="exampleModalCenter3" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                <div className="modal-dialog modal-dialog-centered" role="document">
+                  <div className="modal-content">
+                    <div className="modal-header">
+                      <h5 className="modal-title" id="exampleModalCenterTitle">Lusaka Kennel Club Details</h5>
+                      <button type="button" className="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                      </button>
+                    </div>
+                    <div class="modal-body">
+                      <strong>Address:</strong> Lusaka Showgrounds
+                    </div>
+                    <div className="modal-footer">
+                      <button type="button" className="btn btn-secondary adding" data-dismiss="modal">Close</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
           <br />
@@ -44,14 +90,34 @@ export default class Volunteer extends Component {
               <img src="images/adoptioncenter.jpg" />
             </div>
             <div className="col-md-6">
-              <h5 className="top-middle">PetBay</h5>
-              <p className="bottom-middle">A pet store with a vision to give every little critter in their store a family can never have too many helping hands. Get in contact with Pet Bay and volunteer with them today.</p>
-              <button type="button" className="btn btn-outline-primary">Volunteer</button>
+              <h5 className="top-middle">Spoiled Pets</h5>
+              <p className="bottom-middle">It is strongly recommended that your pet wears an identity tag so its family can easily be contacted should it ever stray away from home. What better place to find tags than Spoiled Pets? Spoiled Pets makes custom tags for your furry friends so why not go and help them out?</p>
+              <div className="text-center">
+                <button className="btn btn-outline-primary adding" data-toggle="modal" data-target="#exampleModalCenter2">Volunteer</button>
+              </div>
+
+              {/* Modal */}
+              <div className="modal fade" id="exampleModalCenter2" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                <div className="modal-dialog modal-dialog-centered" role="document">
+                  <div className="modal-content">
+                    <div className="modal-header">
+                      <h5 className="modal-title" id="exampleModalCenterTitle">Spoiled Pets Details</h5>
+                      <button type="button" className="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                      </button>
+                    </div>
+                    <div class="modal-body">
+                      <strong>Address:</strong> Next to Showgrounds Vet <br />
+                      <strong>Phone Number:</strong> +260 0977 772 622
+                    </div>
+                    <div className="modal-footer">
+                      <button type="button" className="btn btn-secondary adding" data-dismiss="modal">Close</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
-          {/* <div className="text-center">
-            <i className="fa fa-angle-right fa-4x"></i>
-          </div> */}
         </div>
         <br />
         <br />
