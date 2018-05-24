@@ -76,6 +76,10 @@ export class Dashboard extends Component {
     Meteor.call('items.delete', id);
   }
 
+  // editProfile = () => {
+  //   Pets.update({pet._id})
+  // }
+
   getAllItems=()=>{
     const items = this.props.items;
     return items.map((item) => {
@@ -90,7 +94,7 @@ export class Dashboard extends Component {
             <h6 className="card-subtitle mb-2"><strong>Condition:</strong> {item.itemCondition}</h6>
             <h6 className="card-subtitle mb-2"><strong>Price:</strong>K {item.price}</h6>
             <h6 className="card-subtitle mb-2"><strong>Description:</strong> {item.description}</h6>
-            <a href="" className="btn btn-primary edit" onClick = {this.editProfile}>Edit <i className="fa fa-edit"></i></a> <a href="" className="btn btn-danger delete" data-toggle="modal" data-target="#exampleModal" onClick = {this.warning}>Delete <i className="fa fa-trash"></i></a>
+            <a href="" className="btn btn-primary edit" onClick = {e => this.editItem(e, item._id)}>Edit <i className="fa fa-edit"></i></a> <a href="" className="btn btn-danger delete" data-toggle="modal" data-target="#exampleModal" onClick = {this.warning}>Delete <i className="fa fa-trash"></i></a>
 
             <div className="modal fade" id="exampleModal" tabIndex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
               <div className="modal-dialog" role="document">
@@ -125,7 +129,9 @@ export class Dashboard extends Component {
   getAllPets=()=>{
     const pets = this.props.pets;
     return pets.map((pet) => {
+      const edit = Pets.findOne({_id: pet._id});
       const trial = pet.imageId;
+      Pets.update()
       const link = UserFiles.findOne({_id: trial}).link();
       return (
         <div key = {pet._id} className="card border-primary">

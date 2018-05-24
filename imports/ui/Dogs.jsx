@@ -38,7 +38,7 @@ export class Dogs extends Component{
             <h5>Number: {pet.number}</h5>
           </div>
           <div className="text-center">
-            <button className="btn btn-primary btn-block adding" data-toggle="modal" data-target="#exampleModalCenter">Get {pet.owner}'s Pet</button>
+            <button className="btn btn-primary btn-block adding" data-toggle="modal" data-target="#exampleModalCenter">Get Pet</button>
           </div>
           <div className="modal fade" id="exampleModalCenter" tabIndex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
             <div className="modal-dialog modal-dialog-centered" role="document">
@@ -119,7 +119,7 @@ export default withTracker(() =>{
   Meteor.subscribe('files.all');
   let isDataReady = Meteor.subscribe('files.all');
   return{
-    pets : Pets.find({}).fetch(),
+    pets : Pets.find({category: "dog"}).fetch(),
     messages : Messages.find().fetch(),
     files : UserFiles.find({}, {sort: {name: 1}}).fetch(),
     isDataReady: isDataReady.ready(),
