@@ -36,28 +36,13 @@ export class Uploads2 extends Component {
 
   handleSubmit=(e)=>{
     const attempt2 = Session.get('imageId');
-    const sellerName2 = Session.get('profileName');
-    const sellerEmail2 = Session.get('profileEmail');
-    const sellerPhone2 = Session.get('profilePhone');
-    const sellerLocation2 = Session.get('profileLocation');
     const currentUserId = Meteor.userId();
-    const detail = {
-      name: this.state.name,
-      email: this.state.email,
-      phone: this.state.phone,
-      location: this.state.location
-    }
-    Meteor.call('details.create',detail);
-    Session.set('profileName', detail.name);
-    Session.set('profileEmail', detail.email);
-    Session.set('profilePhone', detail.phone);
-    Session.set('profileLocation', detail.location);
     const item = {
       imageId: attempt2,
-      owner: sellerName2,
-      residence: sellerPhone2,
-      number: sellerLocation2,
-      email: sellerEmail2,
+      owner: Meteor.user().profile.name,
+      residence: Meteor.user().profile.location,
+      number: Meteor.user().profile.phone,
+      email: Meteor.user().emails[0].address,
       itemName:this.state.itemName,
       itemCondition:this.state.itemCondition,
       price:this.state.price,

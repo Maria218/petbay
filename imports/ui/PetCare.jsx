@@ -6,7 +6,6 @@ import Navbar from '/imports/ui/Navbar.jsx';
 import Footer from '/imports/ui/Footer.jsx';
 import { withTracker } from 'meteor/react-meteor-data';
 import Items from '../api/advertiser/collections.js';
-import Details from '../api/seller/collections.js';
 import {UserFiles} from '../api/upload/collections.js';
 import FileUploadComponent from './uploadFile.jsx';
 
@@ -87,13 +86,11 @@ export class PetCare extends Component {
 
 export default withTracker(() =>{
   Meteor.subscribe('files.all');
-  Meteor.subscribe('details');
   Meteor.subscribe('items')
   let isDataReady = Meteor.subscribe('files.all');
   return{
     items : Items.find().fetch(),
     files : UserFiles.find({}, {sort: {name: 1}}).fetch(),
-    details : Details.find().fetch(),
     isDataReady: isDataReady.ready(),
   }
 })(PetCare);

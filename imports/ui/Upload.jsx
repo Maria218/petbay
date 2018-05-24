@@ -36,17 +36,13 @@ export class Uploads extends Component {
   handleSubmit=(e)=>{
     e.preventDefault();
     const attempt = Session.get('imageId');
-    const sellerName = Session.get('profileName');
-    const sellerEmail = Session.get('profileEmail');
-    const sellerPhone = Session.get('profilePhone');
-    const sellerLocation = Session.get('profileLocation');
     const currentUserId = Meteor.userId()
     const pet = {
       imageId: attempt,
-      owner: sellerName,
-      residence: sellerPhone,
-      number: sellerLocation,
-      email: sellerEmail,
+      owner: Meteor.user().profile.name,
+      residence: Meteor.user().profile.location,
+      number: Meteor.user().profile.phone,
+      email: Meteor.user().emails[0].address,
       petName:this.state.petName,
       age:this.state.age,
       gender:this.state.gender,
