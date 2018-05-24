@@ -6,7 +6,6 @@ import Navbar from '/imports/ui/Navbar.jsx';
 import Footer from '/imports/ui/Footer.jsx';
 import Pets from '../api/profiles/collections.js';
 import {UserFiles} from '../api/upload/collections.js';
-import Details from '../api/seller/collections.js';
 import FileUploadComponent from './uploadFile.jsx';
 import { Mongo } from 'meteor/mongo';
 

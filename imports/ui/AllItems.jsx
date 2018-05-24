@@ -6,7 +6,6 @@ import Navbar from '/imports/ui/Navbar.jsx';
 import Footer from '/imports/ui/Footer.jsx';
 import { withTracker } from 'meteor/react-meteor-data';
 import Items from '../api/advertiser/collections.js';
-import Details from '../api/seller/collections.js';
 import {UserFiles} from '../api/upload/collections.js';
 import FileUploadComponent from './uploadFile.jsx';
 
