@@ -336,12 +336,6 @@ renderComponent = ()=>{
             <br />
             <br />
             <div className="container">
-              <div id="box1" className="card-columns">
-                {this.getAllPets()}
-              </div>
-              <div id="box2" className="card-columns">
-                {this.getAllItems()}
-              </div>
               <div  className="from-props">
                 {this.renderComponent()}
               </div>
@@ -382,9 +376,9 @@ export default withTracker(() =>{
   let isDataReady = Meteor.subscribe('files.all');
   const currentUserId = Meteor.userId();
   return{
-    pets : Pets.find({ createdBy: currentUserId}).fetch(),
-    items : Items.find({ createdBy: currentUserId }).fetch(),
-    files : UserFiles.find({createdBy: currentUserId}, {sort: {name: 1}}).fetch(),
+    pets : Pets.find().fetch(),
+    items : Items.find().fetch(),
+    files : UserFiles.find({}, {sort: {name: 1}}).fetch(),
     isDataReady: isDataReady.ready(),
   }
 

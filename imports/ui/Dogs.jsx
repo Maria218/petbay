@@ -1,23 +1,26 @@
 import { Meteor } from 'meteor/meteor';
 import React, { Component } from 'react';
-import { Mongo } from 'meteor/mongo';
 import route from '/imports/routing/router.js';
 import { withTracker } from 'meteor/react-meteor-data';
 import Navbar from '/imports/ui/Navbar.jsx';
 import Footer from '/imports/ui/Footer.jsx';
-import Messages from '../api/messages/collections.js';
 import Pets from '../api/profiles/collections.js';
 import {UserFiles} from '../api/upload/collections.js';
 import FileUploadComponent from './uploadFile.jsx';
+import { Mongo } from 'meteor/mongo';
 
 export class Dogs extends Component{
+
+  goToProfile = () => {
+    route.go('/profile')
+  }
 
   getAllPets=()=>{
     const pets = this.props.pets;
     return pets.map((pet) => {
       const trial = pet.imageId;
-      console.log(trial);
       const link = UserFiles.findOne({_id: trial}).link();
+      console.log(trial);
       return (
         <div key = {pet._id} className="card border-primary">
           <img className="card-img-top" src={link} style={{width: 100 + "%",height:200 + "px"}} alt="Card image cap"/>
@@ -56,24 +59,8 @@ export class Dogs extends Component{
       )
     }
   )
-}
-
-getAllMessages=()=>{
-  const messages = this.props.messages;
-  return messages.map((message) => {
-      <div key = {message._id} className="card border-primary">
-        <div className="card-body">
-          <h5 className="card-title"><strong>Name:</strong> {message.name}</h5>
-          <h6 className="card-subtitle mb-2"><strong>Age:</strong> {message.email}</h6>
-          <h6 className="card-subtitle mb-2"><strong>Gender:</strong> {message.desc}</h6>
-        </div>
-        <div className="card-footer">
-          <small className="text-muted">Posted 3 mins ago</small>
-        </div>
-      </div>
   }
-)
-}
+
   render(){
     if (this.props.isDataReady) {
       return(
@@ -84,12 +71,6 @@ getAllMessages=()=>{
           <div className ="container">
             <div className="card-columns">
               {this.getAllPets()}
-              {this.getAllMessages()}
-            </div>
-          </div>
-          <div className ="container">
-            <div className="card-columns">
-              {this.getAllMessages()}
             </div>
           </div>
 
@@ -111,17 +92,15 @@ getAllMessages=()=>{
       )
     }
   }
-}
-
-export default withTracker(() =>{
-  Meteor.subscribe('pets');
-  Meteor.subscribe('messages');
-  Meteor.subscribe('files.all');
-  let isDataReady = Meteor.subscribe('files.all');
-  return{
-    pets : Pets.find({category:"dog"}).fetch(),
-    messages : Messages.find().fetch(),
-    files : UserFiles.find({}, {sort: {name: 1}}).fetch(),
-    isDataReady: isDataReady.ready(),
   }
-})(Dogs);
+
+  export default withTracker(() =>{
+    Meteor.subscribe('pets');
+    Meteor.subscribe('files.all');
+    let isDataReady = Meteor.subscribe('files.all');
+    return{
+      pets : Pets.find({category: "dog"}).fetch(),
+      files : UserFiles.find({}, {sort: {name: 1}}).fetch(),
+      isDataReady: isDataReady.ready(),
+    }
+  })(Dogs);

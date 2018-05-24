@@ -15,16 +15,12 @@ export class PaidItems extends Component {
     route.go('/profile')
   }
 
-  getAllItems=()=>{
+   getAllItems=()=>{
     const items = this.props.items;
     return items.map((item) => {
       const trial = item.imageId;
       console.log(trial);
       const link = UserFiles.findOne({_id: trial}).link();
-      const profileName = item.owner;
-      const profileEmail = item.email;
-      const profilePhone = item.number;
-      const profileResidence = item.residence;
       return (
         <div key = {item._id} className="card border-primary">
         <img className="card-img-top" src={link} style={{width: 100 + "%",height:200 + "px"}} alt="Card image cap"/>
@@ -35,10 +31,10 @@ export class PaidItems extends Component {
             <h6 className="card-subtitle mb-2"><strong>Description:</strong> {item.description}</h6>
           </div>
           <div className="card-footer poster">
-            <h5>Posted by: {profileName}</h5>
-            <h5>Email: {profileEmail}</h5>
-            <h5>Location: {profileResidence}</h5>
-            <h5>Number: {profilePhone}</h5>
+            <h5>Posted by: {item.owner}</h5>
+            <h5>Email: {item.email}</h5>
+            <h5>Location: {item.residence}</h5>
+            <h5>Number: {item.number}</h5>
           </div>
           <div className="text-center">
             <button className="btn btn-primary btn-block adding" onClick={this.goToProfile}>Buy Item</button>
@@ -63,7 +59,6 @@ export class PaidItems extends Component {
             </div>
           </div>
           <br /><br />
-          <Footer />
         </div>
       )
     }
@@ -83,14 +78,11 @@ export class PaidItems extends Component {
 }
 
 export default withTracker(() =>{
-  Meteor.subscribe('files.all');
-  Meteor.subscribe('details');
   Meteor.subscribe('items')
   let isDataReady = Meteor.subscribe('files.all');
   return{
-    items : Items.find({paid:'true'}).fetch(),
+    items : Items.find({paid:true}).fetch(),
     files : UserFiles.find({}, {sort: {name: 1}}).fetch(),
-    details : Details.find().fetch(),
     isDataReady: isDataReady.ready(),
   }
 })(PaidItems);
