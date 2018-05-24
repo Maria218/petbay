@@ -153,7 +153,7 @@ export class Uploads extends Component {
           <div className="row">
             <div className="col">
               <label htmlFor="inputEmail4">Pet Name</label>
-              <input onChange={this.handleNameChange} type="text" className="form-control" name="petName"  placeholder="Pet name" maxlength="100" required/>
+              <input onChange={this.handleNameChange} type="text" className="form-control" name="petName"  placeholder="Pet name" maxlength="20" required/>
             </div>
             <div className="col">
             <label htmlFor="inputEmail4">Pet Age</label>

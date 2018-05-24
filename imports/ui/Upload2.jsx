@@ -123,7 +123,7 @@ export class Uploads2 extends Component {
          <div className="row">
             <div className="col">
               <label htmlFor="inputEmail4">Product Name</label>
-              <input onChange={this.handleNameChange} type="text" className="form-control" name="itemName"  placeholder="Name of product" required/>
+              <input onChange={this.handleNameChange} type="text" className="form-control" name="itemName" maxlength="20" placeholder="Name of product" required/>
             </div>
             <div className="col">
               <label className="mr-sm-2" htmlFor="inlineFormCustomSelect">PRODUCT CONDITION</label>
