@@ -83,7 +83,7 @@ export class ContactUs extends Component {
               </div>
               <form onSubmit = {this.sendMessage} className="needs-validation">
                 <div className="form-group">
-                  <input onChange={this.handleNameChange} type="text" className="form-control" name="name" id="formGroupExampleInput" placeholder="Enter Name" required />
+                  <input onChange={this.handleNameChange} type="text" className="form-control" name="name" id="formGroupExampleInput" maxlength="20" placeholder="Enter Name" required />
                 </div>
                 <div className="form-group">
                   <input onChange={this.handleEmailChange} type="email" className="form-control" name="email" id="formGroupExampleInput2" placeholder="Enter Email Address" required/>
