@@ -53,18 +53,6 @@ export default class Homing extends Component {
      },
    }
 
-   const detail = {
-     name: this.state.name,
-     email: this.state.email,
-     phone: this.state.phone,
-     location: this.state.location
-   }
-   Meteor.call('details.create',detail);
-   Session.set('profileName', detail.name);
-   Session.set('profileEmail', detail.email);
-   Session.set('profilePhone', detail.phone);
-   Session.set('profileLocation', detail.location);
-
    Accounts.createUser(user,error=>{
      error ? alert(error.reason) : console.log("Account Created Successfully");
    }) ;
@@ -99,14 +87,15 @@ export default class Homing extends Component {
     return(
       <div>
         <Navbar homePet={'active'}/>
+        <br />
+        <br />
         <div className="container">
           <div className="row justify-content-center">
             <div className="col-md-4">
-              <img src="/images/pethom.jpeg" className="pethom"/>
+              <img src="/images/pethom2.jpg" className="pethom"/>
             </div>
-            <div className="col-md-4" className="spc">
+            <div className="col-md-8" className="spc">
               <div className="text-center">
-                <h4>Want to put a pet up for adoption or advertise your services?</h4>
                 <h4>Sign Up To Continue</h4>
               </div>
               <form onSubmit = {this.getUserData} className="needs-validation" novalidate>
@@ -150,6 +139,9 @@ export default class Homing extends Component {
                       Please provide a location
                     </div>
                   </div><br/>
+                  <div className="text-center">
+                    <p>NOTE: The information on this form will be used as a contact reference for anyone wanting to buy from you. <br />Please, put correct information about yourself</p>
+                  </div>
                   <div className="text-center">
                     <button type="submit" className="btn btn-primary adding">Sign Up</button>
                   </div>
