@@ -90,7 +90,7 @@ export class ContactUs extends Component {
                 </div>
                 <div className="form-group">
                   <label className="volunteer" for="exampleFormControlTextarea1">Your Message</label>
-                  <textarea onChange={this.handleDescChange} className="form-control" id="exampleFormControlTextarea1" name="desc" placeholder="Enter Your Message" rows="3"></textarea>
+                  <textarea onChange={this.handleDescChange} className="form-control" id="exampleFormControlTextarea1" name="desc" maxlength="200" placeholder="Enter Your Message" rows="3"></textarea>
                 </div><br/>
                 <div className="text-center">
                   <button type="submit" className="btn btn-primary btn-lg contact-btn adding">Send</button>
