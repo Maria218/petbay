@@ -25,7 +25,7 @@ export class Uploads extends Component {
       category:'',
       file: '',
       imagePreviewUrl: '',
-      paid: '',
+      paid: false,
       owner: '',
       residence: '',
       number: '',
@@ -54,7 +54,7 @@ export class Uploads extends Component {
       description:this.state.description,
       createdAt: new Date(),
       createdBy:currentUserId,
-      paid: true
+      paid: this.state.paid
     }
     Meteor.call('pets.create',pet);
     console.log('pet created')

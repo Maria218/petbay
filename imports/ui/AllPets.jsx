@@ -9,13 +9,15 @@ import {UserFiles} from '../api/upload/collections.js';
 import FileUploadComponent from './uploadFile.jsx';
 import { Mongo } from 'meteor/mongo';
 
-export class Dogs extends Component{
+
+
+export class AllPets extends Component{
 
   goToProfile = () => {
-    route.go('/profile')
+    route.go('/profile');
   }
 
-  getAllPets=()=>{
+getAllPets=()=>{
     const pets = this.props.pets;
     return pets.map((pet) => {
       const trial = pet.imageId;
@@ -41,7 +43,7 @@ export class Dogs extends Component{
             <h5>Number: {pet.number}</h5>
           </div>
           <div className="text-center">
-            <button className="btn btn-primary btn-block adding" data-toggle="modal" data-target="#exampleModalCenter">Get Pet</button>
+            <button className="btn btn-primary btn-block adding" data-toggle="modal" data-target="#exampleModalCenter">Get {pet.owner}'s Pet</button>
           </div>
           <div className="modal fade" id="exampleModalCenter" tabIndex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
             <div className="modal-dialog modal-dialog-centered" role="document">
@@ -65,17 +67,14 @@ export class Dogs extends Component{
     if (this.props.isDataReady) {
       return(
         <div>
-          <Navbar pets={'active'}/>
           <br/>
-          <p className="h1" style={{textAlign: "center"}}>PICK YOUR PET</p><br />
+          <p className="h1" style={{textAlign: "center"}}>All Pets</p><br />
           <div className ="container">
             <div className="card-columns">
               {this.getAllPets()}
             </div>
           </div>
-
           <br /><br />
-          <Footer />
         </div>
       )
     }
@@ -96,11 +95,10 @@ export class Dogs extends Component{
 
   export default withTracker(() =>{
     Meteor.subscribe('pets');
-    Meteor.subscribe('files.all');
     let isDataReady = Meteor.subscribe('files.all');
     return{
-      pets : Pets.find({category: "dog"}).fetch(),
+      pets : Pets.find().fetch(),
       files : UserFiles.find({}, {sort: {name: 1}}).fetch(),
       isDataReady: isDataReady.ready(),
     }
-  })(Dogs);
+  })(AllPets);
