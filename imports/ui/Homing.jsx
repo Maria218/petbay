@@ -115,7 +115,7 @@ export default class Homing extends Component {
                   </div>
                   <div className="form-group">
                     <label className="col-form-label" htmlFor="formGroupExampleInput2">Contact Number</label>
-                    <input onChange={this.handlePhoneChange} type="number" className="form-control" name="phone" id="formGroupExampleInput2" placeholder="Enter Phone Number" required/>
+                    <input onChange={this.handlePhoneChange} type="tel" className="form-control" name="phone" id="formGroupExampleInput2" placeholder="Enter Phone Number" required/>
                     <div className="invalid-feedback">
                       Please provide a phone number.
                     </div>

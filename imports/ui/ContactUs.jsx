@@ -28,7 +28,7 @@ export class ContactUs extends Component {
     Meteor.call('messages.create',message);
     console.log("Message sent");
     console.log(message);
-    route.go('/dogs');
+    route.go('/contactus');
   }
 
   // getAllMessages=()=>{
