@@ -11,29 +11,36 @@ import FileUploadComponent from './uploadFile.jsx';
 
 export class Feedback extends Component {
 
-  goToProfile = () => {
-    route.go('/profile')
-  }
 
   getAllMessages=()=>{
     const messages = this.props.messages;
-    return messages.map((message) => {
+    // console.log(JSON.stringify(messages))
+     return messages.map((message) => {
+      return ( 
         <div key = {message._id} className="card border-primary">
-          <div className="card-body">
-            <h5 className="card-title"><strong>Name:</strong> {message.name}</h5>
-            <h6 className="card-subtitle mb-2"><strong>Age:</strong> {message.email}</h6>
-            <h6 className="card-subtitle mb-2"><strong>Gender:</strong> {message.desc}</h6>
-          </div>
-          <div className="card-footer">
-            <small className="text-muted">Posted 3 mins ago</small>
+         <div className="card-body">
+         <div style={{backgroundColor:'',height: 5 +'em'}}>
+            <h5 className="card-title"><strong>Message From:</strong> {message.name}</h5>
+
+         </div>
+         <div>
+            <h6 className="card-subtitle mb-2"><strong>Contact Detail:</strong> {message.email}</h6>
+         </div>
+         <div>
+            <h6 className="card-subtitle mb-2"><strong>Message Details:</strong> {message.desc}</h6>
+         </div>
           </div>
         </div>
+        )
     }
   )
   }
 
   render() {
+  console.log(this.getAllMessages() + " This data is ready")
+
     if (this.props.isDataReady) {
+      console.log("Trying out")
       return (
         <div>
           <br />
