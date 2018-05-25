@@ -14,6 +14,7 @@ import Uploads2 from '/imports/ui/Upload2.jsx';
 import FileUploadComponent from './uploadFile.jsx';
 import $ from 'jquery';
 
+
 export class Dashboard extends Component {
 
   goToLogin = () => {

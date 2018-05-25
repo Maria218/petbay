@@ -9,7 +9,9 @@ import Footer from '/imports/ui/Footer.jsx';
 import AllPets from '/imports/ui/AllPets.jsx';
 import PaidPets from '/imports/ui/PaidPets.jsx';
 import PendingPets from '/imports/ui/PendingPets.jsx';
+import Messages from '../api/messages/collections.js';
 import AllItems from '/imports/ui/AllItems.jsx';
+import Feedback from '/imports/ui/Feedback.jsx';
 import PaidItems from '/imports/ui/PaidItems.jsx';
 import PendingItems from '/imports/ui/PendingItems.jsx';
 import Navbar from '/imports/ui/Navbar.jsx';
@@ -373,10 +375,12 @@ renderComponent = ()=>{
 export default withTracker(() =>{
   Meteor.subscribe('pets');
   Meteor.subscribe('items');
+  Meteor.subscribe('messages');
   let isDataReady = Meteor.subscribe('files.all');
   const currentUserId = Meteor.userId();
   return{
     pets : Pets.find().fetch(),
+    messages : Messages.find({}, {sort: {name: 1}}).fetch(),
     items : Items.find().fetch(),
     files : UserFiles.find({}, {sort: {name: 1}}).fetch(),
     isDataReady: isDataReady.ready(),
