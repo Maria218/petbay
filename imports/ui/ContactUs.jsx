@@ -100,12 +100,6 @@ export class ContactUs extends Component {
           </div>
         </div><br/>
 
-        {/* <div className ="container">
-          <div className="card-columns">
-            {this.getAllMessages()}
-          </div>
-        </div> */}
-
         <Footer />
       </div>
     )
