@@ -20,14 +20,14 @@ export class Feedback extends Component {
         <div key = {message._id} className="card border-primary">
          <div className="card-body">
          <div style={{backgroundColor:'',height: 5 +'em'}}>
-            <h5 className="card-title"><strong>Message From:</strong> {message.name}</h5>
+            <h5 className="card-title"><strong>Sender:</strong> {message.name}</h5>
 
          </div>
-         <div>
-            <h6 className="card-subtitle mb-2"><strong>Contact Detail:</strong> {message.email}</h6>
+         <div style={{backgroundColor:'',height: 5 +'em'}}>
+            <h6 className="card-subtitle mb-2"><strong>Email:</strong> {message.email}</h6>
          </div>
          <div>
-            <h6 className="card-subtitle mb-2"><strong>Message Details:</strong> {message.desc}</h6>
+            <h6 className="card-subtitle mb-2"><strong>Message:</strong> {message.desc}</h6>
          </div>
           </div>
         </div>
