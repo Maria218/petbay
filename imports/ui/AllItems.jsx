@@ -15,7 +15,11 @@ export class AllItems extends Component {
     route.go('/profile')
   }
 
-   getAllItems=()=>{
+    deleteItem = (e, id) => {
+    Meteor.call('items.delete', id);
+  }
+
+     getAllItems=()=>{
     const items = this.props.items;
     return items.map((item) => {
       const trial = item.imageId;
@@ -29,15 +33,34 @@ export class AllItems extends Component {
             <h6 className="card-subtitle mb-2"><strong>Condition:</strong> {item.itemCondition}</h6>
             <h6 className="card-subtitle mb-2"><strong>Price:</strong>K {item.price}</h6>
             <h6 className="card-subtitle mb-2"><strong>Description:</strong> {item.description}</h6>
+            <a href="" className="btn btn-primary edit" onClick = {e => this.editItem(e, item._id)}>Edit <i className="fa fa-edit"></i></a> <a href="" className="btn btn-danger delete" data-toggle="modal" data-target="#exampleModal" onClick = {this.warning}>Delete <i className="fa fa-trash"></i></a>
+
+            <div className="modal fade" id="exampleModal" tabIndex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+              <div className="modal-dialog" role="document">
+                <div className="modal-content">
+                  <div className="modal-header">
+                    <h5 className="modal-title" id="exampleModalLabel">Delete Item</h5>
+                    <button type="button" className="close" data-dismiss="modal" aria-label="Close">
+                      <span aria-hidden="true">&times;</span>
+                    </button>
+                  </div>
+                  <div className="modal-body">
+                    Are you sure you want to delete this file?
+                  </div>
+                  <div className="modal-footer">
+                    <button type="button" className="btn btn-primary" data-dismiss="modal">Close</button>
+                    <button type="button" className="btn btn-danger" data-dismiss="modal" onClick = {e => this.deleteItem(e, item._id)}>Yes, delete</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+
           </div>
           <div className="card-footer poster">
             <h5>Posted by: {item.owner}</h5>
             <h5>Email: {item.email}</h5>
             <h5>Location: {item.residence}</h5>
             <h5>Number: {item.number}</h5>
-          </div>
-          <div className="text-center">
-            <button className="btn btn-primary btn-block adding" onClick={this.goToProfile}>Buy Item</button>
           </div>
         </div>
       )
