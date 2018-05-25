@@ -57,7 +57,7 @@ export class Uploads extends Component {
       paid: this.state.paid
     }
     Meteor.call('pets.create',pet);
-    console.log('pet created')
+    alert('pet created')
     route.go('/dashboard');
   }
 

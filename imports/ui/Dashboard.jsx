@@ -12,25 +12,55 @@ import {UserFiles} from '../api/upload/collections.js';
 import Uploads from '/imports/ui/Upload.jsx';
 import Uploads2 from '/imports/ui/Upload2.jsx';
 import FileUploadComponent from './uploadFile.jsx';
+import UserPets from '/imports/ui/UserPets.jsx';
+import UserItems from '/imports/ui/UserItems.jsx';
 import $ from 'jquery';
 
 
 export class Dashboard extends Component {
 
+constructor(props){
+    super(props);
+    this.state={
+      view:"current"
+
+    }
+  }
+
+
+
+renderUserPets=()=>{
+  this.setState({
+    view:'userPets'
+  })
+}
+
+
+
+renderUserItems=()=>{
+  this.setState({
+    view:'userItems'
+  })
+}
+
+
+renderThisComponent = ()=>{
+
+    switch(this.state.view) {
+        case 'userPets':
+            return <UserPets />;
+            break;
+        case 'userItems':
+            return <UserItems />;
+            break;
+        default:
+            return <div style={{}}></div>;
+    }
+}
+
+
   goToLogin = () => {
     route.go("/login")
-  }
-
-  showPets = () => {
-    $('#box2').hide();
-    $('#box1').show();
-    console.log("This button works");
-  }
-
-  showItems = () => {
-    $('#box1').hide();
-    $('#box2').show();
-    console.log("This button doesn't");
   }
 
   navChange = () => {
@@ -68,116 +98,7 @@ export class Dashboard extends Component {
       return(name);
     }
   }
-
-  deleteProfile = (e, id) => {
-    Meteor.call('pets.delete', id);
-  }
-
-  deleteItem = (e, id) => {
-    Meteor.call('items.delete', id);
-  }
-
-  // editProfile = () => {
-  //   Pets.update({pet._id})
-  // }
-
-  getAllItems=()=>{
-    const items = this.props.items;
-    return items.map((item) => {
-      const trial = item.imageId;
-      console.log(trial);
-      const link = UserFiles.findOne({_id: trial}).link();
-      return (
-        <div key = {item._id} className="card border-primary">
-        <img className="card-img-top" src={link} style={{width: 100 + "%",height:200 + "px"}} alt="Card image cap"/>
-        <div className="card-body">
-            <h5 className="card-title"><strong>Product Name:</strong> {item.itemName}</h5>
-            <h6 className="card-subtitle mb-2"><strong>Condition:</strong> {item.itemCondition}</h6>
-            <h6 className="card-subtitle mb-2"><strong>Price:</strong>K {item.price}</h6>
-            <h6 className="card-subtitle mb-2"><strong>Description:</strong> {item.description}</h6>
-            <a href="" className="btn btn-primary edit" onClick = {e => this.editItem(e, item._id)}>Edit <i className="fa fa-edit"></i></a> <a href="" className="btn btn-danger delete" data-toggle="modal" data-target="#exampleModal" onClick = {this.warning}>Delete <i className="fa fa-trash"></i></a>
-
-            <div className="modal fade" id="exampleModal" tabIndex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-              <div className="modal-dialog" role="document">
-                <div className="modal-content">
-                  <div className="modal-header">
-                    <h5 className="modal-title" id="exampleModalLabel">Delete Item</h5>
-                    <button type="button" className="close" data-dismiss="modal" aria-label="Close">
-                      <span aria-hidden="true">&times;</span>
-                    </button>
-                  </div>
-                  <div className="modal-body">
-                    Are you sure you want to delete this file?
-                  </div>
-                  <div className="modal-footer">
-                    <button type="button" className="btn btn-primary" data-dismiss="modal">Close</button>
-                    <button type="button" className="btn btn-danger" data-dismiss="modal" onClick = {e => this.deleteItem(e, item._id)}>Yes, delete</button>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-          </div>
-          <div className="card-footer">
-            <small className="text-muted">Posted 3 mins ago</small>
-          </div>
-        </div>
-      )
-    }
-  )
-}
-
-  getAllPets=()=>{
-    const pets = this.props.pets;
-    return pets.map((pet) => {
-      const edit = Pets.findOne({_id: pet._id});
-      const trial = pet.imageId;
-      Pets.update()
-      const link = UserFiles.findOne({_id: trial}).link();
-      return (
-        <div key = {pet._id} className="card border-primary">
-          <img className="card-img-top" src={link} style={{width: 100 + "%",height:200 + "px"}} alt="Card image cap"/>
-          <div className="card-body">
-            <h5 className="card-title"><strong>Name:</strong> {pet.petName}</h5>
-            <h6 className="card-subtitle mb-2"><strong>Age:</strong> {pet.age}</h6>
-            <h6 className="card-subtitle mb-2"><strong>Gender:</strong> {pet.gender}</h6>
-            <h6 className="card-subtitle mb-2"><strong>Breed:</strong> {pet.breed}</h6>
-            <h6 className="card-subtitle mb-2"><strong>Health:</strong> {pet.health}</h6>
-            <h6 className="card-subtitle mb-2"><strong>Price:</strong> {pet.price}</h6>
-            <h6 className="card-subtitle mb-2"><strong>Location:</strong> {pet.location}</h6>
-            <h6 className="card-subtitle mb-2"><strong>Description:</strong> {pet.description}</h6>
-            <a href="" className="btn btn-primary edit" onClick = {this.editProfile}>Edit <i className="fa fa-edit"></i></a> <a href="" className="btn btn-danger delete" data-toggle="modal" data-target="#exampleModal" onClick = {this.warning}>Delete <i className="fa fa-trash"></i></a>
-
-            <div className="modal fade" id="exampleModal" tabIndex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-              <div className="modal-dialog" role="document">
-                <div className="modal-content">
-                  <div className="modal-header">
-                    <h5 className="modal-title" id="exampleModalLabel">Delete Pet</h5>
-                    <button type="button" className="close" data-dismiss="modal" aria-label="Close">
-                      <span aria-hidden="true">&times;</span>
-                    </button>
-                  </div>
-                  <div className="modal-body">
-                    Are you sure you want to delete this file?
-                  </div>
-                  <div className="modal-footer">
-                    <button type="button" className="btn btn-primary" data-dismiss="modal">Close</button>
-                    <button type="button" className="btn btn-danger" data-dismiss="modal" onClick = {e => this.deleteProfile(e, pet._id)}>Yes, delete</button>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-          </div>
-          <div className="card-footer">
-            <small className="text-muted">Posted 3 mins ago</small>
-          </div>
-        </div>
-      )
-    }
-  )
-}
-
+  
   render(){
     if (Meteor.user()) {
       if (this.props.isDataReady) {
@@ -226,22 +147,22 @@ export class Dashboard extends Component {
             <hr />
             <br />
             <br />
+            <div className="justify-content-center">
             <div className="text-center" style={{fontFamily: "Courgette"}}>
-              <h2>Your Uploads</h2>
+              <h2>Your Dashboard</h2>
             </div>
             <br />
             <br />
-            <div className="text-center uploads">
-              <button className="btn btn-primary btn-lg adding petUpload justify-content-start" onClick={this.showPets}>Pet Uploads</button> <button className="btn btn-primary btn-lg adding itemUpload justify-content-end" onClick={this.showItems}>Item Uploads</button>
+            <div className=" container justify-content-center btn-group">
+              <button className="btn btn-primary btn-lg adding " onClick={this.renderUserPets}>Your Pets</button>
+              <button className="btn btn-primary btn-lg adding " onClick={this.renderUserItems}>Your Items</button>
+            </div>
             </div>
             <br />
             <br />
             <div className="container">
-              <div id="box1" className="card-columns">
-                {this.getAllPets()}
-              </div>
-              <div id="box2" className="card-columns">
-                {this.getAllItems()}
+              <div  className="from-props">
+                {this.renderThisComponent()}
               </div>
             </div>
           </div>
