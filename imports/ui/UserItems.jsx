@@ -9,7 +9,7 @@ import Items from '../api/advertiser/collections.js';
 import {UserFiles} from '../api/upload/collections.js';
 import FileUploadComponent from './uploadFile.jsx';
 
-export class AllItems extends Component {
+export class UserItems extends Component {
 
   goToProfile = () => {
     route.go('/profile')
@@ -73,7 +73,7 @@ export class AllItems extends Component {
       return (
         <div>
           <br />
-          <p className="h1" style={{ textAlign: "center" }}>Store Items</p><br />
+          <p className="h1" style={{ textAlign: "center" }}>Uploaded Items</p><br />
           <br />
           <br />
           <div className="container">
@@ -103,9 +103,10 @@ export class AllItems extends Component {
 export default withTracker(() =>{
   Meteor.subscribe('items')
   let isDataReady = Meteor.subscribe('files.all');
+  const currentUserId = Meteor.userId();
   return{
-    items : Items.find().fetch(),
+    items : Items.find({ createdBy: currentUserId}).fetch(),
     files : UserFiles.find({}, {sort: {name: 1}}).fetch(),
     isDataReady: isDataReady.ready(),
   }
-})(AllItems);
+})(UserItems);

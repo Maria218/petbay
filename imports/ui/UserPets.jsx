@@ -11,7 +11,7 @@ import { Mongo } from 'meteor/mongo';
 
 
 
-export class AllPets extends Component{
+export class UserPets extends Component{
 
   deleteProfile = (e, id) => {
     Meteor.call('pets.delete', id);
@@ -77,7 +77,7 @@ export class AllPets extends Component{
       return(
         <div>
           <br/>
-          <p className="h1" style={{textAlign: "center"}}>All Pets</p><br />
+          <p className="h1" style={{textAlign: "center"}}>Pets</p><br />
           <div className ="container">
             <div className="card-columns">
               {this.getAllPets()}
@@ -105,9 +105,10 @@ export class AllPets extends Component{
   export default withTracker(() =>{
     Meteor.subscribe('pets');
     let isDataReady = Meteor.subscribe('files.all');
+    const currentUserId = Meteor.userId();
     return{
-      pets : Pets.find().fetch(),
+      pets : Pets.find({ createdBy: currentUserId}).fetch(),
       files : UserFiles.find({}, {sort: {name: 1}}).fetch(),
       isDataReady: isDataReady.ready(),
     }
-  })(AllPets);
+  })(UserPets);
