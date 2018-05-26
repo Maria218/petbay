@@ -28,6 +28,7 @@ export default class Navbar extends Component {
     console.log('you are now logged out');
     Meteor.logout(err => {
       this.navChange();
+      window.location.reload()
       console.log("User ID: ", Meteor.userId());
     });
   }

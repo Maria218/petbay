@@ -73,8 +73,8 @@ export default class Footer extends Component {
                 <hr className="deep-purple4 accent-2 mb-4 mt-0 d-inline-block mx-auto" />
                 <p className="align"><i className="fa fa-home"></i> Hackers Guild</p>
                 <p className="align"><i className="fa fa-envelope"></i> damianochintala@gmail.com</p>
-                {/* <p className="align"><i className="fa fa-envelope"></i> mariasitumbeko@gmail.com</p>
-                <p className="align"><i className="fa fa-envelope"></i> marymulunda@gmail.com</p> */}
+                <p className="align"><i className="fa fa-envelope"></i> mariasitumbeko@gmail.com</p>
+                <p className="align"><i className="fa fa-envelope"></i> marymulunda@gmail.com</p>
                 <p className="align"><i className="fa fa-phone"></i> 0123 456 789</p>
               </div>
             </div>

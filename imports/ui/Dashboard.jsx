@@ -11,6 +11,7 @@ import Items from '../api/advertiser/collections.js';
 import {UserFiles} from '../api/upload/collections.js';
 import Uploads from '/imports/ui/Upload.jsx';
 import Uploads2 from '/imports/ui/Upload2.jsx';
+import Dashboard2 from '/imports/ui/Dashboard2.jsx';
 import FileUploadComponent from './uploadFile.jsx';
 import $ from 'jquery';
 
@@ -180,71 +181,77 @@ export class Dashboard extends Component {
   render(){
     if (Meteor.user()) {
       if (this.props.isDataReady) {
-        return(
-          <div>
-            <nav className="navbar navbar-expand-lg navbar-light">
-              <span className="navbar-brand mb-0 h1" href="#"><img src="images/logo.png" alt="" />Pet Connections</span>
-              <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                <span className="navbar-toggler-icon"></span>
-              </button>
+        if (Meteor.user().emails[0].address === "admin@master.com") {
+          route.go('/dashboard2')
+        }
+        else {
+          return(
+            <div>
+              <nav className="navbar navbar-expand-lg navbar-light">
+                <span className="navbar-brand mb-0 h1" href="#"><img src="images/logo.png" alt="" />Pet Connections</span>
+                <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                  <span className="navbar-toggler-icon"></span>
+                </button>
 
-              <div className="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul className="navbar-nav ml-auto">
-                  <li className="nav-item">
-                    <a className="nav-link" href="/">Home <span className="sr-only">(current)</span></a>
+                <div className="collapse navbar-collapse" id="navbarSupportedContent">
+                  <ul className="navbar-nav ml-auto">
+                    <li className="nav-item">
+                      <a className="nav-link" href="/">Home <span className="sr-only">(current)</span></a>
+                    </li>
+                    <li className="nav-item dropdown">
+                    <a className="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Pets</a>
+                    <div className="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                      <a className="dropdown-item" href="/dogs">Dogs</a>
+                      <a className="dropdown-item" href="/cats">Cats</a>
+                      <a className="dropdown-item" href="/birds">Birds</a>
+                    </div>
                   </li>
-                  <li className="nav-item dropdown">
-                  <a className="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Pets</a>
-                  <div className="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                    <a className="dropdown-item" href="/dogs">Dogs</a>
-                    <a className="dropdown-item" href="/cats">Cats</a>
-                    <a className="dropdown-item" href="/birds">Birds</a>
-                  </div>
-                </li>
-                <li className="nav-item">
-                  <a className="nav-link" href="/petcare">Pet Supplies<span className="sr-only">(current)</span></a>
-                </li>
                   <li className="nav-item">
-                    <a className="nav-link" href="" onClick={this.logUserOut}>Log Out</a>
+                    <a className="nav-link" href="/petcare">Pet Supplies<span className="sr-only">(current)</span></a>
                   </li>
-                </ul>
+                    <li className="nav-item">
+                      <a className="nav-link" href="" onClick={this.logUserOut}>Log Out</a>
+                    </li>
+                  </ul>
+                </div>
+              </nav>
+              <div className="dash">
+                <br />
+                <br />
+                <h3 className="hello"  style={{fontFamily: "Courgette", fontSize: 37 + "px"}}>Welcome, {this.welcome()}</h3>
+              </div><br />
+              <h2 className="report">Upload Your Merchandise</h2>
+              <br />
+              <div className="text-center">
+                <button type="button" className="btn btn-primary btn-lg adding" onClick={this.goToUpload}>Add A Pet</button> <button type="button" className="btn btn-primary btn-lg adding" onClick={this.goToUpload2}>Add Store Item</button>
               </div>
-            </nav>
-            <div className="dash">
               <br />
               <br />
-              <h3 className="hello"  style={{fontFamily: "Courgette", fontSize: 37 + "px"}}>Welcome, {this.welcome()}</h3>
-            </div><br />
-            <h2 className="report">Upload Your Merchandise</h2>
-            <br />
-            <div className="text-center">
-              <button type="button" className="btn btn-primary btn-lg adding" onClick={this.goToUpload}>Add A Pet</button> <button type="button" className="btn btn-primary btn-lg adding" onClick={this.goToUpload2}>Add Store Item</button>
-            </div>
-            <br />
-            <br />
-            <hr />
-            <br />
-            <br />
-            <div className="text-center" style={{fontFamily: "Courgette"}}>
-              <h2>Your Uploads</h2>
-            </div>
-            <br />
-            <br />
-            <div className="text-center uploads">
-              <button className="btn btn-primary btn-lg adding petUpload justify-content-start" onClick={this.showPets}>Pet Uploads</button> <button className="btn btn-primary btn-lg adding itemUpload justify-content-end" onClick={this.showItems}>Item Uploads</button>
-            </div>
-            <br />
-            <br />
-            <div className="container">
-              <div id="box1" className="card-columns">
-                {this.getAllPets()}
+              <hr />
+              <br />
+              <br />
+              <div className="text-center" style={{fontFamily: "Courgette"}}>
+                <h2>Your Uploads</h2>
               </div>
-              <div id="box2" className="card-columns">
-                {this.getAllItems()}
+              <br />
+              <br />
+              <div className="text-center uploads">
+                <button className="btn btn-primary btn-lg adding petUpload justify-content-start" onClick={this.showPets}>Pet Uploads</button> <button className="btn btn-primary btn-lg adding itemUpload justify-content-end" onClick={this.showItems}>Item Uploads</button>
+              </div>
+              <br />
+              <br />
+              <div className="container">
+                <div id="box1" className="card-columns">
+                  {this.getAllPets()}
+                </div>
+                <div id="box2" className="card-columns">
+                  {this.getAllItems()}
+                </div>
               </div>
             </div>
-          </div>
-        );
+          );
+        }
+
       }
       else {
         return (
