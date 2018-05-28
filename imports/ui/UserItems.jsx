@@ -56,13 +56,6 @@ export class UserItems extends Component {
             </div>
 
           </div>
-          <div className="card-footer poster">
-            <h5>Posted by: {item.owner}</h5>
-            <h5>Email: {item.email}</h5>
-            <h5>Location: {item.residence}</h5>
-            <h5>Number: {item.number}</h5>
-          </div>
-        </div>
       )
     }
   )
