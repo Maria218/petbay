@@ -7,3 +7,7 @@ Meteor.methods({
     console.log("Done");
   }
 })
+
+Meteor.methods({
+  'messages.delete': (message)=> Messages.remove(message)
+});
