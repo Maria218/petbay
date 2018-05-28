@@ -98,21 +98,17 @@ export class ContactUs extends Component {
               <label className="volunteer" for="exampleFormControlTextarea1">Your Message</label>
                 <textarea className="form-control" id="exampleFormControlTextarea1" name="desc" onChange={this.handleDescChange}placeholder="Enter Your Message" rows="3"></textarea>
             </div><br/>
-            <div className="text-center">
-            <button type="submit" className="btn btn-primary btn-lg contact-btn adding">Send</button>
-            </div>
-        </form>
-        <br/>
-        </div>
         <div className="modal-footer">
         <button type="button" className="btn btn-primary" data-dismiss="modal">Close</button>
         <button type="button" className="btn btn-danger" data-dismiss="modal" onClick = {this.sendMessage}>Send</button>
       </div>
-          </div>
+        </form>
+        <br/>
         </div>
       </div>
-
-      </div>
+    </div>
+  </div>
+  </div>
           
           </div>
         </div><br/>
