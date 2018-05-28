@@ -44,7 +44,6 @@ export default class Homing extends Component {
    const user = {
      email,
      password,
-
      profile: {
        name,
        phone,

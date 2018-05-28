@@ -77,7 +77,7 @@ export class UserPets extends Component{
       return(
         <div>
           <br/>
-          <p className="h1" style={{textAlign: "center"}}>Pets</p><br />
+          <p className="h1" style={{textAlign: "center"}}>Uploaded Pets</p><br />
           <div className ="container">
             <div className="card-columns">
               {this.getAllPets()}

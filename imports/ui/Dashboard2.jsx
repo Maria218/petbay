@@ -7,6 +7,7 @@ import route from '/imports/routing/router.js';
 import Pets from '../api/profiles/collections.js';
 import Footer from '/imports/ui/Footer.jsx';
 import AllPets from '/imports/ui/AllPets.jsx';
+import AllUsers from '/imports/ui/AllUsers.jsx';
 import PaidPets from '/imports/ui/PaidPets.jsx';
 import PendingPets from '/imports/ui/PendingPets.jsx';
 import Messages from '../api/messages/collections.js';
@@ -154,7 +155,7 @@ renderComponent = ()=>{
       return(name);
     }
   }
-  
+
   render(){
     if (Meteor.user()) {
       if (this.props.isDataReady) {
@@ -209,7 +210,7 @@ renderComponent = ()=>{
               </div>
               <br />
               <br />
-              <div className=" container justify-content-center btn-group">
+              <div className=" container justify-content-end btn-group">
                 <button className="btn btn-primary btn-lg adding " onClick={this.renderUsers}>Users</button>
                 <button className="btn btn-primary btn-lg adding " onClick={this.renderUserFeedback}>User Feedback</button>
                 <button className="btn btn-primary btn-lg adding " onClick={this.renderAllPets}>All Pets</button>
@@ -218,8 +219,8 @@ renderComponent = ()=>{
                 <button className="btn btn-primary btn-lg adding " onClick={this.renderAllItems}>All Items</button>
                 <button className="btn btn-primary btn-lg adding " onClick={this.renderPaidItems}>Items Paid</button>
                 <button className="btn btn-primary btn-lg adding " onClick={this.renderUnPaidItems}>Items Pending</button>
-
               </div>
+              <br />
               <br />
               <br />
               <div className="container">

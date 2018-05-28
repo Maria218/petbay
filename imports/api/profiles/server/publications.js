@@ -9,3 +9,7 @@ Meteor.publish('pets',()=>{
 Meteor.publish('files.all', ()=>{
   return UserFiles.find().cursor;
 });
+
+// Meteor.publish('userData', () => {
+//   return Meteor.users.find();
+// });
