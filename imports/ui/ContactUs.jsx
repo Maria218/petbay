@@ -66,7 +66,7 @@ export class ContactUs extends Component {
           <h6 className="dets"><i className="fa fa-home"></i>| Plot no 20 Sianjalika Road, Woodlands,Lusaka, Zambia</h6>
           <h6 className="dets">| P.O box 38408</h6>
           <h6 className="dets"><i className="fa fa-envelope"></i>| damianochitala@gmail.com</h6>
-          <h6 className="dets">|+260 95 4041449</h6>
+          <h6 className="dets"><i className="fa fa-phone">|+260 95 4041449</h6>
           </div>
           </div>
       <div className="col-md-5">
