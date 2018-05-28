@@ -28,15 +28,11 @@ constructor(props){
     }
   }
 
-
-
 renderUserPets=()=>{
   this.setState({
     view:'userPets'
   })
 }
-
-
 
 renderUserItems=()=>{
   this.setState({
@@ -150,13 +146,6 @@ renderThisComponent = ()=>{
               </div>
               <br />
               <br />
-              {/* <h3 className="hello"  style={{fontFamily: "Courgette", fontSize: 37 + "px"}}>Welcome, {this.welcome()}</h3>
-            <br />
-            <h2 className="report">Upload Your Merchandise</h2>
-            <br />
-            <div className="text-center">
-              <button type="button" className="btn btn-primary btn-lg adding" onClick={this.goToUpload}>Add A Pet</button> <button type="button" className="btn btn-primary btn-lg adding" onClick={this.goToUpload2}>Add Store Item</button>
-            </div> */}
             <br />
             <br />
             <hr />

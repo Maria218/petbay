@@ -47,8 +47,7 @@ export default class Homing extends Component {
      profile: {
        name,
        phone,
-       location,
-       createdAt: new Date()
+       location
      },
    }
 

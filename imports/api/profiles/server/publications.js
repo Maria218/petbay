@@ -10,6 +10,6 @@ Meteor.publish('files.all', ()=>{
   return UserFiles.find().cursor;
 });
 
-// Meteor.publish('userData', () => {
-//   return Meteor.users.find();
-// });
+Meteor.publish('users', () => {
+  return Meteor.users.find({});
+});
