@@ -35,7 +35,7 @@ export default class LogIn extends Component {
         <Navbar login={'active'}/><br />
           <div className="container">
             <div className="row justify-content-center">
-              <div className="col-md-4">
+              <div className="col-md-4 stray">
                 <h4>Enter Your Details To Log In</h4>
                 <form onSubmit = {this.logUserIn}>
                   <div className="form-group">
@@ -48,7 +48,7 @@ export default class LogIn extends Component {
                     </div>
                     <br />
                     <div className="text-center">
-                      <button type="submit" className="btn btn-primary adding">Login</button>
+                      <button type="submit" className="btn btn-primary adding">Login<i class="fa fa-sign-in"></i></button>
                     </div>
                   </form>
                 <div>

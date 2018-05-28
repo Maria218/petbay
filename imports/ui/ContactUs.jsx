@@ -78,7 +78,7 @@ export class ContactUs extends Component {
       <div className="col-md-5">
         <div className="text-center">
         <h1 className="volunteer">Contact Us</h1>
-        <div className="text-center">
+        <div className="">
           <p>We would love to hear from you, contact us using the details provided or click <a href="" data-toggle="modal" data-target="#exampleModal">here</a>  to send us a direct message on any issue related to this site</p>
         </div>
         </div>
