@@ -62,7 +62,7 @@ export class ContactUs extends Component {
         <img src="/images/puppies.jpeg" class="dog"/>
         <div class="box">
           <h1 class="ti">Get In Touch</h1>
-          <h6 class="dets">| Pet Connections</h6>
+          <h6 class="dets"><i className="fa fa-home"></i>| Pet Connections</h6>
           <h6 class="dets">| Plot no 123 Sianjalika road,Lusaka, Zambia</h6>
           <h6 class="dets">| P.O box 38408</h6>
           <h6 class="dets">| damianochitala@gmail.com</h6>
