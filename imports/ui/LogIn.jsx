@@ -62,7 +62,7 @@ export default class LogIn extends Component {
             </div>
           </div>
           <div className="text-center">
-            <h6>If you don't have an account, please Sign Up <a href="" onClick={this.goToHoming}>here</a></h6>
+            <h6>If you don't have an account, please Sign Up <a href="" onClick={this.goToHoming}><strong>here</strong></a></h6>
           </div>        
         </div>
         <br />

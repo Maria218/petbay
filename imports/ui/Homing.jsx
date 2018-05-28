@@ -19,6 +19,10 @@ export default class Homing extends Component {
     }
   }
 
+    goToLogin = () => {
+    route.go("/login")
+  }
+
   getUserData =(e) =>{
     e.preventDefault();
     const {target} = e;
@@ -94,9 +98,12 @@ export default class Homing extends Component {
             </div>
             <div className="col-md-8" className="spc">
               <div className="text-center">
-                <h4>Sign Up To Continue</h4>
+                <h4>Sign UP To Continue</h4>
               </div>
-              <form onSubmit = {this.getUserData} className="needs-validation" novalidate>
+              <div className="text-center">
+               <h6>Already have have an account? Please login <a href="" onClick={this.goToLogin}><strong>here</strong></a></h6>
+             </div> 
+              <form onSubmit = {this.getUserData} className="needs-validation">
                 <div className="form-group">
                   <label className="col-form-label" htmlFor="formGroupExampleInput">Individual or Organization Name</label>
                   <input onChange={this.handleNameChange} type="text" className="form-control" name="name" id="formGroupExampleInput" placeholder="Enter Name" required />
@@ -121,13 +128,13 @@ export default class Homing extends Component {
                   <div className="form-group">
                     <label className="col-form-label" htmlFor="formGroupExampleInput2">Password</label>
                     <input type="password" className="form-control" name="password" id="formGroupExampleInput2" placeholder="Choose Password" required/>
-                  {/* <p style={{color:"red"}}>{this.state.error2}</p> */}
+                  <p style={{color:"red"}}>{this.state.error2}</p>
                     <div className="invalid-feedback">{this.state.error2}</div>
                   </div>
                   <div className="form-group">
                     <label className="col-form-label" htmlFor="formGroupExampleInput2">Confirm Password</label>
                     <input type="password" className="form-control" name="password2" id="formGroupExampleInput2" placeholder="Enter Password Again" required/>
-                  {/* <p style={{color:"red"}}>{this.state.error}</p> */}
+                  <p style={{color:"red"}}>{this.state.error}</p> *
                     <div className="invalid-feedback">{this.state.error}</div>
                   </div>
                   <div className="form-group">
