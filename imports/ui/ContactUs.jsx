@@ -58,10 +58,10 @@ export class ContactUs extends Component {
         <br />
         <div className="container">
           <div className="row justify-content-center">
-        <div className="col-md-6">
+        <div className="col-md-7">
         <img src="/images/puppies.jpeg" class="dog"/>
         <div class="box">
-          <h1 class="ti">Our Contact Details</h1>
+          <h1 class="ti">Get In Touch</h1>
           <h6 class="dets">| Pet Connections</h6>
           <h6 class="dets">| Plot no 123 Sianjalika road,Lusaka, Zambia</h6>
           <h6 class="dets">| P.O box 38408</h6>
@@ -69,27 +69,11 @@ export class ContactUs extends Component {
           <h6 class="dets">| 0123456789</h6>
           </div>
           </div>
-{/*              <form onSubmit = {this.sendMessage} className="needs-validation">
-                <div className="form-group">
-                  <input onChange={this.handleNameChange} type="text" className="form-control" name="name" id="formGroupExampleInput" maxlength="20" placeholder="Enter Name" required />
-                </div>
-                <div className="form-group">
-                  <input onChange={this.handleEmailChange} type="email" className="form-control" name="email" id="formGroupExampleInput2" placeholder="Enter Email Address" required/>
-                </div>
-                <div className="form-group">
-                  <label className="volunteer" for="exampleFormControlTextarea1">Your Message</label>
-                  <textarea onChange={this.handleDescChange} className="form-control" id="exampleFormControlTextarea1" name="desc" maxlength="200" placeholder="Enter Your Message" rows="3"></textarea>
-                </div><br/>
-                <div className="text-center">
-                  <button type="submit" className="btn btn-primary btn-lg contact-btn adding">Send</button>
-                </div>
-              </form><br/>*/}
-
-                      <div className="col-md-6">
+      <div className="col-md-5">
         <div className="text-center">
         <h1 className="volunteer">Contact Us</h1>
         <div className="text-center">
-          <p>We would love to hear from you, <a href="" data-toggle="modal" data-target="#exampleModal">send us</a> feed back on any issue related to this site</p>
+          <p>We would love to hear from you, contact us using the details provided or click <a href="" data-toggle="modal" data-target="#exampleModal">here</a>  to send us a direct message on any issue related to this site</p>
         </div>
         </div>
 
