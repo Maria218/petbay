@@ -56,6 +56,7 @@ export class UserItems extends Component {
             </div>
 
           </div>
+        </div>
       )
     }
   )
