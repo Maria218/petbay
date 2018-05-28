@@ -13,6 +13,10 @@ export default class LogIn extends Component {
       super(props)
     }
 
+      goToHoming = () => {
+    route.go("/homing")
+  }
+
     logUserIn = (e) => {
         e.preventDefault();
         const {target} = e;
@@ -55,10 +59,11 @@ export default class LogIn extends Component {
                       <button type="submit" className="btn btn-primary adding">Login <i class="fa fa-sign-in"></i></button>
                     </div>
                   </form>
-                <div>
-              </div>
             </div>
           </div>
+          <div className="text-center">
+            <h6>If you don't have an account, please Sign Up <a href="" onClick={this.goToHoming}>here</a></h6>
+          </div>        
         </div>
         <br />
         <Footer />
