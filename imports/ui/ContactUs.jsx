@@ -64,9 +64,9 @@ export class ContactUs extends Component {
         <br />
         <div className="container">
           <div className="row justify-content-center">
-        <div className="col-md-7">
+        <div className="col-md-7 col-sm-12">
         <img src="/images/oet.jpeg" className="dog"/>
-        <div className="box">
+        <div className="box" style={{fontWeight:"bold",paddingLeft:10+"px"}}>
           <h1 className="ti">Get In Touch</h1>
           <h6 className="dets">Pet Connections</h6>
           <h6 className="dets"><i className="fa fa-home"></i>|20 Sianjalika Road, Woodlands,Lusaka, Zambia</h6>
@@ -75,10 +75,10 @@ export class ContactUs extends Component {
           <h6 className="dets"><i className="fa fa-phone"></i>|+260 95 4041449</h6>
           </div>
           </div>
-      <div className="col-md-5">
-        <div className="text-center">
+      <div className="col-md-5 col-sm-12">
+        <div className="">
         <h1 className="volunteer">Contact Us</h1>
-        <div className="text-center">
+        <div className="" style={{fontSize:20+"px"}}>
           <p>We would love to hear from you, contact us using the details provided or click <a href="" data-toggle="modal" data-target="#exampleModal">here</a>  to send us a direct message on any issue related to this site</p>
         </div>
         </div>
@@ -117,9 +117,9 @@ export class ContactUs extends Component {
     </div>
   </div>
   </div>
-          
-          </div>
-        </div><br/>
+  </div>
+  </div>
+  <br/>
 
         <Footer />
       </div>

@@ -35,10 +35,6 @@ export class Cats extends Component{
             <h6 className="card-subtitle mb-2"><strong>Description:</strong> {pet.description}</h6>
           </div>
           <div className="card-footer poster">
-            <h5>Posted by: {pet.owner}</h5>
-            <h5>Email: {pet.email}</h5>
-            <h5>Location: {pet.residence}</h5>
-            <h5>Number: {pet.number}</h5>
           </div>
           <div className="text-center">
             <button className="btn btn-primary btn-block adding" data-toggle="modal" data-target="#exampleModalCenter">Get Pet</button>
@@ -46,8 +42,12 @@ export class Cats extends Component{
           <div className="modal fade" id="exampleModalCenter" tabIndex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
             <div className="modal-dialog modal-dialog-centered" role="document">
               <div className="modal-content">
-                <div className="modal-body">
-                  Contact seller using details on the card
+                <div className="modal-body poster">
+                <h4>Contact seller using the details below:</h4><br/>
+                 <h5>Seller Name: {pet.owner}</h5>
+                 <h5>Email: {pet.email}</h5>
+                 <h5>Number: {pet.number}</h5>
+                 <h5>Location: {pet.residence}</h5>
                 </div>
                 <div className="modal-footer">
                   <button type="button" className="btn btn-secondary adding" data-dismiss="modal">Close</button>

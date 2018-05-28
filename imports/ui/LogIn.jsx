@@ -13,6 +13,10 @@ export default class LogIn extends Component {
       super(props)
     }
 
+      goToHoming = () => {
+    route.go("/homing")
+  }
+
     logUserIn = (e) => {
         e.preventDefault();
         const {target} = e;
@@ -33,10 +37,14 @@ export default class LogIn extends Component {
     return (
       <div>
         <Navbar login={'active'}/><br />
-          <div className="container">
+          <div className="container">              
+              <div className="text-center">
+               <h4>Enter Your Login Details to Proceed</h4>
+              </div>
+
             <div className="row justify-content-center">
-              <div className="col-md-4">
-                <h4>Enter Your Details To Log In</h4>
+              <div className="col-md-4 stray text-center">
+                <h4><i className="fa fa-user-circle " style={{fontSize:48+"px",paddingTop:10+"px"}}></i></h4>
                 <form onSubmit = {this.logUserIn}>
                   <div className="form-group">
                     <label className="col-form-label" htmlFor="formGroupExampleInput">Email Address</label>
@@ -47,14 +55,15 @@ export default class LogIn extends Component {
                       <input type="password" className="form-control" name="password" id="formGroupExampleInput2" placeholder="Enter Password" required />
                     </div>
                     <br />
-                    <div className="text-center">
-                      <button type="submit" className="btn btn-primary adding">Login</button>
+                    <div className="text-center"  style={{fontSize:20+"px",paddingBottom:10+"px"}}>
+                      <button type="submit" className="btn btn-primary adding">Login <i class="fa fa-sign-in"></i></button>
                     </div>
                   </form>
-                <div>
-              </div>
             </div>
           </div>
+          <div className="text-center">
+            <h6>If you don't have an account, please Sign Up <a href="" onClick={this.goToHoming}><strong>here</strong></a></h6>
+          </div>        
         </div>
         <br />
         <Footer />
