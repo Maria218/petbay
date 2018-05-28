@@ -60,12 +60,6 @@ export class UserPets extends Component{
             </div>
 
           </div>
-          <div className="card-footer poster">
-            <h5>Posted by: {pet.owner}</h5>
-            <h5>Email: {pet.email}</h5>
-            <h5>Location: {pet.residence}</h5>
-            <h5>Number: {pet.number}</h5>
-          </div>
         </div>
       )
     }
