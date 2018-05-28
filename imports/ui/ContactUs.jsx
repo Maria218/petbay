@@ -50,6 +50,12 @@ export class ContactUs extends Component {
     })
   }
 
+   handlePhoneChange = (e) => {
+    this.setState({
+      phone: e.target.value
+    })
+  }
+
   render(){
     return(
       <div>
@@ -89,14 +95,16 @@ export class ContactUs extends Component {
             <div className="modal-body">
             <form onSubmit = {this.sendMessage} className="needs-validation">
             <div className="form-group">
-                <input type="text" className="form-control" onChange={this.handleNameChange} name="name" id="formGroupExampleInput" placeholder="Enter Name" required />
+                <input type="text" className="form-control" onChange={this.handleNameChange} name="name" id="formGroupExampleInput" placeholder="Your Name" required />
             </div>
             <div className="form-group">
-                <input type="email" className="form-control" name="email" onChange={this.handleEmailChange} id="formGroupExampleInput2" placeholder="Enter Email Address" required/>
+                <input type="email" className="form-control" name="email" onChange={this.handleEmailChange} id="formGroupExampleInput2" placeholder="Your Email Address" required/>
             </div>
             <div className="form-group">
-              <label className="volunteer" for="exampleFormControlTextarea1">Your Message</label>
-                <textarea className="form-control" id="exampleFormControlTextarea1" name="desc" onChange={this.handleDescChange}placeholder="Enter Your Message" rows="3"></textarea>
+                <input type="tel" className="form-control" name="phone" onChange={this.handlePhoneChange} id="formGroupExampleInput2" placeholder="Your Phone Number: Optional"/>
+            </div>
+            <div className="form-group">
+                <textarea className="form-control" id="exampleFormControlTextarea1" name="desc" onChange={this.handleDescChange}placeholder="Message" rows="3"></textarea>
             </div><br/>
         <div className="modal-footer">
         <button type="button" className="btn btn-primary" data-dismiss="modal">Close</button>
