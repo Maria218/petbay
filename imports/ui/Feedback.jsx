@@ -12,6 +12,11 @@ import FileUploadComponent from './uploadFile.jsx';
 export class Feedback extends Component {
 
 
+      deleteMessage = (e, id) => {
+    Meteor.call('messages.delete', id);
+  }
+
+
   getAllMessages=()=>{
     const messages = this.props.messages;
     // console.log(JSON.stringify(messages))
@@ -29,6 +34,26 @@ export class Feedback extends Component {
          <div>
             <h6 className="card-subtitle mb-2"><strong>Message:</strong> {message.desc}</h6>
          </div>
+           <a href="" className="btn btn-danger delete" data-toggle="modal" data-target="#exampleModal" onClick = {this.warning}>Delete <i className="fa fa-trash"></i></a>
+                     <div className="modal fade" id="exampleModal" tabIndex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+              <div className="modal-dialog" role="document">
+                <div className="modal-content">
+                  <div className="modal-header">
+                    <h5 className="modal-title" id="exampleModalLabel">Delete Item</h5>
+                    <button type="button" className="close" data-dismiss="modal" aria-label="Close">
+                      <span aria-hidden="true">&times;</span>
+                    </button>
+                  </div>
+                  <div className="modal-body">
+                    Are you sure you want to delete this file?
+                  </div>
+                  <div className="modal-footer">
+                    <button type="button" className="btn btn-primary" data-dismiss="modal">Close</button>
+                    <button type="button" className="btn btn-danger" data-dismiss="modal" onClick = {e => this.deleteMessage(e, message._id)}>Yes, delete</button>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
         )

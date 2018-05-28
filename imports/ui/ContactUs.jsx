@@ -31,22 +31,6 @@ export class ContactUs extends Component {
     route.go('/contactus');
   }
 
-  // getAllMessages=()=>{
-  //   const messages = this.props.messages;
-  //   return messages.map((message) => {
-  //       <div key = {message._id} className="card border-primary">
-  //         <div className="card-body">
-  //           <h5 className="card-title"><strong>Name:</strong> {message.name}</h5>
-  //           <h6 className="card-subtitle mb-2"><strong>Age:</strong> {message.email}</h6>
-  //           <h6 className="card-subtitle mb-2"><strong>Gender:</strong> {message.desc}</h6>
-  //         </div>
-  //         <div className="card-footer">
-  //           <small className="text-muted">Posted 3 mins ago</small>
-  //         </div>
-  //       </div>
-  //   }
-  // )
-  // }
 
   handleNameChange = (e) => {
     this.setState({
@@ -66,6 +50,12 @@ export class ContactUs extends Component {
     })
   }
 
+   handlePhoneChange = (e) => {
+    this.setState({
+      phone: e.target.value
+    })
+  }
+
   render(){
     return(
       <div>
@@ -74,29 +64,60 @@ export class ContactUs extends Component {
         <br />
         <div className="container">
           <div className="row justify-content-center">
-            <div className="col-md-6">
-              <div className="text-center">
-                <h1 className="volunteer">Contact Us</h1>
-                <div className="text-center">
-                  <p>We would love to hear from you, send us feed back on any issue related to this site</p>
-                </div>
-              </div>
-              <form onSubmit = {this.sendMessage} className="needs-validation">
-                <div className="form-group">
-                  <input onChange={this.handleNameChange} type="text" className="form-control" name="name" id="formGroupExampleInput" maxlength="20" placeholder="Enter Name" required />
-                </div>
-                <div className="form-group">
-                  <input onChange={this.handleEmailChange} type="email" className="form-control" name="email" id="formGroupExampleInput2" placeholder="Enter Email Address" required/>
-                </div>
-                <div className="form-group">
-                  <label className="volunteer" for="exampleFormControlTextarea1">Your Message</label>
-                  <textarea onChange={this.handleDescChange} className="form-control" id="exampleFormControlTextarea1" name="desc" maxlength="200" placeholder="Enter Your Message" rows="3"></textarea>
-                </div><br/>
-                <div className="text-center">
-                  <button type="submit" className="btn btn-primary btn-lg contact-btn adding">Send</button>
-                </div>
-              </form><br/>
+        <div className="col-md-7">
+        <img src="/images/oet.jpeg" className="dog"/>
+        <div className="box">
+          <h1 className="ti">Get In Touch</h1>
+          <h6 className="dets">Pet Connections</h6>
+          <h6 className="dets"><i className="fa fa-home"></i>|20 Sianjalika Road, Woodlands,Lusaka, Zambia</h6>
+          <h6 className="dets"><i className="fa fa-envelope"></i>| P.O box 38408</h6>
+          <h6 className="dets"><i className="fa fa-envelope"></i>| damianochitala@gmail.com</h6>
+          <h6 className="dets"><i className="fa fa-phone"></i>|+260 95 4041449</h6>
+          </div>
+          </div>
+      <div className="col-md-5">
+        <div className="text-center">
+        <h1 className="volunteer">Contact Us</h1>
+        <div className="text-center">
+          <p>We would love to hear from you, contact us using the details provided or click <a href="" data-toggle="modal" data-target="#exampleModal">here</a>  to send us a direct message on any issue related to this site</p>
+        </div>
+        </div>
+
+        <div className="modal fade" id="exampleModal" tabIndex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div className="modal-dialog" role="document">
+          <div className="modal-content">
+            <div className="modal-header">
+              <h5 className="modal-title" id="exampleModalLabel">Enter Your Message</h5>
+              <button type="button" className="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
             </div>
+            <div className="modal-body">
+            <form onSubmit = {this.sendMessage} className="needs-validation">
+            <div className="form-group">
+                <input type="text" className="form-control" onChange={this.handleNameChange} name="name" id="formGroupExampleInput" placeholder="Your Name" required />
+            </div>
+            <div className="form-group">
+                <input type="email" className="form-control" name="email" onChange={this.handleEmailChange} id="formGroupExampleInput2" placeholder="Your Email Address" required/>
+            </div>
+            <div className="form-group">
+                <input type="tel" className="form-control" name="phone" onChange={this.handlePhoneChange} id="formGroupExampleInput2" placeholder="Your Phone Number: Optional"/>
+            </div>
+            <div className="form-group">
+                <textarea className="form-control" id="exampleFormControlTextarea1" name="desc" onChange={this.handleDescChange}placeholder="Message" rows="3"></textarea>
+            </div><br/>
+        <div className="modal-footer">
+        <button type="button" className="btn btn-primary" data-dismiss="modal">Close</button>
+        <button type="button" className="btn btn-danger" data-dismiss="modal" onClick = {this.sendMessage}>Send</button>
+      </div>
+        </form>
+        <br/>
+        </div>
+      </div>
+    </div>
+  </div>
+  </div>
+          
           </div>
         </div><br/>
 
