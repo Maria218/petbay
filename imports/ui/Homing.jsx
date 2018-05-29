@@ -102,7 +102,7 @@ export default class Homing extends Component {
               </div>
               <div className="text-center">
                <h6>Already have have an account? Please login <a href="" onClick={this.goToLogin}><strong>here</strong></a></h6>
-             </div> 
+             </div>
               <form onSubmit = {this.getUserData} className="needs-validation">
                 <div className="form-group">
                   <label className="col-form-label" htmlFor="formGroupExampleInput">Individual or Organization Name</label>

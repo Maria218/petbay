@@ -8,7 +8,7 @@ import Pets from '../api/profiles/collections.js';
 import {UserFiles} from '../api/upload/collections.js';
 import FileUploadComponent from './uploadFile.jsx';
 import { Mongo } from 'meteor/mongo';
-import moment from 'meteor/momentjs:moment';
+// import moment from 'meteor/momentjs:moment';
 
 export class Dogs extends Component{
 
@@ -22,7 +22,7 @@ export class Dogs extends Component{
       const trial = pet.imageId;
       const link = UserFiles.findOne({_id: trial}).link();
       console.log(trial);
-      const post = moment().startOf('hour').fromNow()
+      // const post = moment().startOf('hour').fromNow()
       return (
         <div key = {pet._id} className="card border-primary">
           <img className="card-img-top" src={link} style={{width: 100 + "%",height:200 + "px"}} alt="Card image cap"/>

@@ -16,7 +16,7 @@ export class AllUsers extends Component {
 	// const users  = Meteor.users.find({}, {sort: {createdAt: 1}}).fetch();
   // console.log(users[0].createdAt);
 	return users.map((user) => {
-    user.createdAt = moment().format('MMMM Do YYYY, h:mm:ss a');
+    // user.createdAt = moment().format('DD-MM-YY');
     return (
       <div key = {user._id} className="card border-primary">
         <div className="card-body">
