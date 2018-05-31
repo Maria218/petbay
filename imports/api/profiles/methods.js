@@ -11,6 +11,10 @@ Meteor.methods({
   'pets.delete': (pet)=> Pets.remove(pet)
 });
 
+Meteor.methods({
+  'users.delete': (user)=> Users.remove(user)
+});
+
 // Meteor.methods({
 //   'pets.edit': (pet) => {
 //     Pets.update(pet)

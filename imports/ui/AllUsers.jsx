@@ -12,18 +12,24 @@ import FileUploadComponent from './uploadFile.jsx';
 
 export class AllUsers extends Component {
 
+  deleteProfile = (e, id) => {
+    Meteor.call('users.delete', id);
+  }
+
   renderAllUsers(users){
 	// const users  = Meteor.users.find({}, {sort: {createdAt: 1}}).fetch();
   // console.log(users[0].createdAt);
 	return users.map((user) => {
-    // user.createdAt = moment().format('DD-MM-YY');
+    const createdDate = moment(user.createdAt).format('Do MMM, YYYY');
+    const createdTime = moment(user.createdAt).format('HH:mm a');
     return (
       <div key = {user._id} className="card border-primary">
         <div className="card-body">
           <h5 className="card-title"><strong>Name:</strong> {user.profile.name}</h5>
           <h6 className="card-subtitle mb-2"><strong>Email:</strong> {user.emails[0].address}</h6>
           <h6 className="card-subtitle mb-2"><strong>Number:</strong> {user.profile.phone}</h6>
-          <h6 className="card-subtitle mb-2"><strong>Date Created:</strong> {user.createdAt.toString()}</h6>
+          <h6 className="card-subtitle mb-2"><strong>Date Created:</strong> {createdDate}</h6>
+          <h6 className="card-subtitle mb-2"><strong>Time Created:</strong> {createdTime}</h6>
           <br />
 
           <a href="" className="btn btn-primary edit btn-sm" onClick = {this.editProfile}>Edit <i className="fa fa-edit"></i></a> <a href="" className="btn btn-danger delete btn-sm" data-toggle="modal" data-target="#exampleModal" onClick = {this.warning}>Delete <i className="fa fa-trash"></i></a>
@@ -42,7 +48,7 @@ export class AllUsers extends Component {
                 </div>
                 <div className="modal-footer">
                   <button type="button" className="btn btn-primary" data-dismiss="modal">Close</button>
-                  <button type="button" className="btn btn-danger" data-dismiss="modal" onClick = {this.deleteProfile}>Yes, delete</button>
+                  <button type="button" className="btn btn-danger" data-dismiss="modal" onClick = {e => this.deleteProfile(e, pet._id)}>Yes, delete</button>
                 </div>
               </div>
             </div>

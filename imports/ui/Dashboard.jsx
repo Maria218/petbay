@@ -17,7 +17,6 @@ import UserPets from '/imports/ui/UserPets.jsx';
 import UserItems from '/imports/ui/UserItems.jsx';
 import $ from 'jquery';
 
-
 export class Dashboard extends Component {
 
 constructor(props){

@@ -22,7 +22,17 @@ export class Dogs extends Component{
       const trial = pet.imageId;
       const link = UserFiles.findOne({_id: trial}).link();
       console.log(trial);
-      // const post = moment().startOf('hour').fromNow()
+
+      updateTime = () => {
+        var time = moment(pet.createdAt).startOf('seconds').fromNow();
+        Session.set('timeFromNow', time);
+        setTimeout(updateTime, 60000); // 60 seconds
+      }
+      updateTime()
+
+      const post = Session.get('timeFromNow')
+
+      // const post = moment(pet.createdAt).startOf('minute').fromNow()
       return (
         <div key = {pet._id} className="card border-primary">
           <img className="card-img-top" src={link} style={{width: 100 + "%",height:200 + "px"}} alt="Card image cap"/>
@@ -37,6 +47,12 @@ export class Dogs extends Component{
             <h6 className="card-subtitle mb-2"><strong>Description:</strong> {pet.description}</h6>
           </div>
           <div className="card-footer poster">
+            <h5>Seller Name: {pet.owner}</h5>
+            <h5>Email: {pet.email}</h5>
+            <h5>Number: {pet.number}</h5>
+            <h5>Location: {pet.residence}</h5>
+            <hr />
+            <h6>Posted: {post}</h6>
           </div>
           <div className="text-center">
             <button className="btn btn-primary btn-block adding" data-toggle="modal" data-target="#exampleModalCenter">Get Pet</button>

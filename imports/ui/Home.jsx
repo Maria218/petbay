@@ -10,6 +10,14 @@ export default class Home extends Component {
     route.go("/homing")
   }
 
+  goToVets = () => {
+    route.go("/vets")
+  }
+
+  goToSupplies = () => {
+    route.go("/petcare")
+  }
+
   render(){
     return(
       <div>
@@ -40,15 +48,21 @@ export default class Home extends Component {
               <img src="/images/dog-homepage.jpg" />
               <br />
               <br />
-              <h4 className="top-middle">Get Yourself a Furry Friend</h4>
-              <p className="bottom-middle">Check out the different categories of pets put up for adoption by different centres and individuals. Connect with adoption centers, pet stores and others to find these wonderful pets forever homes.</p>
+              <h4 className="top-middle">Get Your Furry Friend A Gift</h4>
+              <p className="bottom-middle">Check out the wide array of pet supplies that are up for grabs and being sold by different stores and a variety of brands. Pamper your pet with toys, food, name tags, bowls, a purrfect leash and other things by checking out our pet supplies page.</p>
+              <div className="text-center">
+                <button className="btn btn-outline-primary adding2" onClick = {this.goToSupplies}>Pet Supplies</button>
+              </div>
             </div>
             <div className = "col-md-4">
               <img src="/images/cat-homepage.jpg" />
               <br />
               <br />
               <h4 className="top-middle">Talk to a Vet</h4>
-              <p className="bottom-middle">Visit our Vet Services page to read through helpful information on all things pet care from registered veterinarians and dietitians. Connect to these vets directly with their contact information and ask questions, set appointments, or talk about the general health of a pet.</p>
+              <p className="bottom-middle">Visit our Vet Services page to read through helpful information on pet care from registered veterinarians and dietitians. Connect to these vets directly with their contact information and ask questions, set appointments, or talk about the general health of a pet.</p>
+              <div className="text-center">
+                <button className="btn btn-outline-primary adding2" onClick = {this.goToVets}>Vet Services</button>
+              </div>
             </div>
             <div className = "col-md-4">
               <img src="/images/parrots-homepage.jpg" />
@@ -56,6 +70,9 @@ export default class Home extends Component {
               <br />
               <h4 className="top-middle">Give a Pet for Adoption</h4>
               <p className="bottom-middle">Have a pet you want to give up for adoption? Create an account, upload information about your pet and set a price and your pet will be added to our list of pets for adoption for any potential buyer to see. Give your pet a good home today.</p>
+              <div className="text-center">
+                <button className="btn btn-outline-primary adding2" onClick = {this.goToHoming}>Sign Up</button>
+              </div>
             </div>
           </div>
         </div>

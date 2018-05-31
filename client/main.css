@@ -254,6 +254,18 @@ body {
   color: #000000;
 }
 
+.adding2{
+  border-color: #0AFF7D;
+  color: #000000;
+  background-color: #0AFF7D;
+}
+
+.adding2:hover{
+  border-color: #0ADB7D;
+  color: #000000;
+  background-color: #0ADB7D;
+}
+
 .dash {
   background-color: #00BEA5;
   width:100%;
