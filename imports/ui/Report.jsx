@@ -15,8 +15,7 @@ export default class Report extends Component {
           <div className="row justify-content-center">
             <div className="col-md-4">
               <h1 className="report">TAKE ACTION</h1>
-              <h4 className="report">SEEN A STRAY?</h4>
-              <h4 className="report">SEEN ACTS OF ANIMAL CRUELTY?</h4>
+              <h4 className="report">SEEN A STRAY OR ACTS OF CRUELTY?</h4>
               <br />
               <br />
               <div className="text-center">

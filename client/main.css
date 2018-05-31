@@ -358,3 +358,9 @@ body {
 .poster {
   color: #000000;
 }
+
+@media screen and (max-width: 996px){
+  .bark {
+    display: none;
+  }
+}

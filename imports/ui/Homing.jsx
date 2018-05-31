@@ -94,7 +94,7 @@ export default class Homing extends Component {
         <br />
         <div className="container">
           <div className="row justify-content-center">
-            <div className="col-md-4">
+            <div className="bark col-md-4">
               <img src="/images/pethom2.jpg" className="pethom"/>
             </div>
             <div className="col-md-8" className="spc">
