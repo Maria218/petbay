@@ -210,7 +210,7 @@ renderComponent = ()=>{
               </div>
               <br />
               <br />
-              <div className=" container justify-content-end btn-group">
+              <div className="dashTable container btn-group">
                 <button className="btn btn-primary btn-lg adding " onClick={this.renderUsers}>Users</button>
                 <button className="btn btn-primary btn-lg adding " onClick={this.renderUserFeedback}>User Feedback</button>
                 <button className="btn btn-primary btn-lg adding " onClick={this.renderAllPets}>All Pets</button>

@@ -364,3 +364,15 @@ body {
     display: none;
   }
 }
+
+@media screen and (max-width: 996px){
+  .dashTable {
+    justify-content: center;
+  }
+}
+
+@media screen and (min-width: 997px){
+  .dashTable {
+    justify-content: end;
+  }
+}
