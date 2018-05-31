@@ -49,7 +49,7 @@ export default class Home extends Component {
               <br />
               <br />
               <h4 className="top-middle">Get Your Furry Friend A Gift</h4>
-              <p className="bottom-middle">Check out the wide array of pet supplies that are up for grabs and being sold by different stores and a variety of brands. Pamper your pet with toys, food, name tags, bowls, a purrfect leash and other things by checking out our pet supplies page.</p>
+              <p className="bottom-middle">Check out the wide array of pet supplies that are up for grabs and being sold by different stores and a variety of brands. Pamper your pet with toys, name tags, bowls, a purrfect leash and other things by checking out our pet supplies page.</p>
               <div className="text-center">
                 <button className="btn btn-outline-primary adding2" onClick = {this.goToSupplies}>Pet Supplies</button>
               </div>
