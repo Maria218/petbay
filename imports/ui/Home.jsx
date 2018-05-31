@@ -25,7 +25,7 @@ export default class Home extends Component {
         <Navbar home={'active'}/>
         <div className="holder">
           <img src="/images/homepage.jpg" />
-          <div className = "signUpHere">
+          <div className = "signUpHere" style={{marginBottom: 41 + "%"}}>
             <br />
             <br />
             <h5>Want to sell your pet or put it up for adoption?</h5>
