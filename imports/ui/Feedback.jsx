@@ -12,7 +12,7 @@ import FileUploadComponent from './uploadFile.jsx';
 export class Feedback extends Component {
 
 
-      deleteMessage = (e, id) => {
+  deleteMessage = (e, id) => {
     Meteor.call('messages.delete', id);
   }
 
@@ -21,7 +21,7 @@ export class Feedback extends Component {
     const messages = this.props.messages;
     // console.log(JSON.stringify(messages))
      return messages.map((message) => {
-      return ( 
+      return (
         <div key = {message._id} className="card border-primary">
          <div className="card-body">
          <div style={{backgroundColor:'',height: 5 +'em'}}>
@@ -33,6 +33,9 @@ export class Feedback extends Component {
          </div>
          <div>
             <h6 className="card-subtitle mb-2"><strong>Message:</strong> {message.desc}</h6>
+         </div>
+         <div>
+            <h6 className="card-subtitle mb-2"><strong>By:</strong> {message.createdBy}</h6>
          </div>
            <a href="" className="btn btn-danger delete" data-toggle="modal" data-target="#exampleModal" onClick = {this.warning}>Delete <i className="fa fa-trash"></i></a>
                      <div className="modal fade" id="exampleModal" tabIndex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -100,7 +103,7 @@ export default withTracker(() =>{
   Meteor.subscribe('messages');
   let isDataReady = Meteor.subscribe('files.all');
   return{
-    messages : Messages.find().fetch(),
+    messages : Messages.find({}, {sort: {createdAt: -1}}).fetch(),
     files : UserFiles.find({}, {sort: {name: 1}}).fetch(),
     isDataReady: isDataReady.ready(),
   }

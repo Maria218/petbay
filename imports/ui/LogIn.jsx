@@ -37,7 +37,7 @@ export default class LogIn extends Component {
     return (
       <div>
         <Navbar login={'active'}/><br />
-          <div className="container">              
+          <div className="container">
               <div className="text-center">
                <h4>Enter Your Login Details to Proceed</h4>
               </div>
@@ -56,14 +56,14 @@ export default class LogIn extends Component {
                     </div>
                     <br />
                     <div className="text-center"  style={{fontSize:20+"px",paddingBottom:10+"px"}}>
-                      <button type="submit" className="btn btn-primary adding">Login <i class="fa fa-sign-in"></i></button>
+                      <button type="submit" className="btn btn-primary adding">Login <i className="fa fa-sign-in"></i></button>
                     </div>
                   </form>
             </div>
           </div>
           <div className="text-center">
             <h6>If you don't have an account, please Sign Up <a href="" onClick={this.goToHoming}><strong>here</strong></a></h6>
-          </div>        
+          </div>
         </div>
         <br />
         <Footer />

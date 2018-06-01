@@ -20,11 +20,12 @@ export class ContactUs extends Component {
   }
   sendMessage =(e) =>{
     e.preventDefault();
-    const currentUserId = Meteor.userId()
     const message = {
       name:this.state.name,
       email:this.state.email,
       desc:this.state.desc,
+      createdBy: Meteor.user().profile.name,
+      createdAt: new Date(),
     }
     Meteor.call('messages.create',message);
     console.log("Message sent");

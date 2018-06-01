@@ -5,26 +5,27 @@ import route from '/imports/routing/router.js';
 import Navbar from '/imports/ui/Navbar.jsx';
 import Footer from '/imports/ui/Footer.jsx';
 import { withTracker } from 'meteor/react-meteor-data';
-import Items from '../api/advertiser/collections.js';
+import Pets from '../api/profiles/collections.js';
 import {UserFiles} from '../api/upload/collections.js';
 import FileUploadComponent from './uploadFile.jsx';
 
-export class AllItems extends Component{
+export class Pet extends Component{
    constructor(props){
     super(props);
     this.state={
       editing:null,
+      petName:'',
       price:'',
       paid:''
     }
   }
 
   deleteProfile = (e, _id) => {
-    Meteor.call('items.delete', _id);
+    Meteor.call('pets.delete', _id);
   }
 
-  toggleEditing=( itemId )=>{
-    this.setState( { editing: itemId } );
+  toggleEditing=( petId )=>{
+    this.setState( { editing: petId } );
   }
 
   handleEditField=( event )=>{
@@ -33,21 +34,22 @@ export class AllItems extends Component{
       update = {};
       update._id = this.state.editing;
       update[ target.name ] = target.value;
-      this.handleItemUpdate( update );
+      this.handlePetUpdate( update );
     }
   }
 
-  handleEditItem=()=>{
-    let itemId = this.state.editing;
-    this.handleItemUpdate({
-      _id: itemId,
-      price: this.refs[ `price_${ itemId }` ].value,
-      paid: this.refs[ `paid_${ itemId }` ].value
+  handleEditPet=()=>{
+    let petId = this.state.editing;
+    this.handlePetUpdate({
+      _id: petId,
+      petName: this.refs[ `petName_${ petId }` ].value,
+      price: this.refs[ `price_${ petId }` ].value,
+      paid: this.refs[ `paid_${ petId }` ].value
     });
   }
 
-  handleItemUpdate=( update )=>{
-    Meteor.call( 'updateItem', update, ( error, response ) => {
+  handlePetUpdate=( update )=>{
+    Meteor.call( 'updateVinyl', update, ( error, response ) => {
       if ( error ) {
         alert( error.reason, 'danger' );
       }
@@ -58,19 +60,19 @@ export class AllItems extends Component{
     });
   }
 
-  renderItemOrEditField=( item )=>{
-    if ( this.state.editing === item._id ) {
-      return <table key={ `editing-${ item._id }` } className="list-group-item">
+  renderItemOrEditField=( pet )=>{
+    if ( this.state.editing === pet._id ) {
+      return <table key={ `editing-${ pet._id }` } className="list-group-item">
         <tbody>
           <tr>
             <td className="">
               <input
                 onKeyDown={ this.handleEditField }
-                type="number"
+                type="text"
                 className="form-control"
-                ref={ `price_${ item._id }` }
-                name="price"
-                defaultValue={ item.price}
+                ref={ `petName_${ pet._id }` }
+                name="petName"
+                defaultValue={ pet.petName }
               />
             </td>
             <td className="">
@@ -78,38 +80,53 @@ export class AllItems extends Component{
                 onKeyDown={ this.handleEditField }
                 type="text"
                 className="form-control"
-                ref={ `paid_${ item._id }` }
-                name="paid"
-                defaultValue={ item.paid }
+                ref={ `price_${ pet._id }` }
+                name="price"
+                defaultValue={ pet.price}
               />
             </td>
             <td className="">
-              <button className="btn btn-primary adding" onClick={ this.handleEditItem }>"Update Item" </button>
+              <input
+                onKeyDown={ this.handleEditField }
+                type="text"
+                className="form-control"
+                ref={ `paid_${ pet._id }` }
+                name="paid"
+                defaultValue={ pet.paid }
+              />
+            </td>
+            <td className="">
+              <button className="btn btn-primary" onClick={ this.handleEditPet }>"Update Item" </button>
             </td>
           </tr>
         </tbody>
         </table>;
     }
     else {
-        const trial = item.imageId;
+      // return this.props.pets.map( ( pet ) => {
+        const trial = pet.imageId;
         const link = UserFiles.findOne({_id: trial}).link();
         return (
-          <div key={ item._id } className="card border-primary">
+          <div key={ pet._id } className="card border-primary">
               <img className="card-img-top" src={link} style={{width: 100 + "%",height:200 + "px"}} alt="Card image cap"/>
               <div className="card-body">
-                <h5 className="card-title"> { `Name: ${ item.itemName }`} </h5>
-                <h6 className="card-subtitle mb-2">{ `Condition: ${ item.itemCondition }`}</h6>
-                <h6 className="card-subtitle mb-2">{ `Price: ${ item.price }`}</h6>
-                <h6 className="card-subtitle mb-2">{ `Description: ${ item.description }`}</h6>
+                <h5 className="card-title"> { `Name: ${ pet.petName }`} </h5>
+                <h6 className="card-subtitle mb-2">{ `Age: ${ pet.age }`}</h6>
+                <h6 className="card-subtitle mb-2">{ `Gender: ${ pet.gender }`}</h6>
+                <h6 className="card-subtitle mb-2">{ `Breed: ${ pet.breed }`}</h6>
+                <h6 className="card-subtitle mb-2">{ `Health: ${ pet.health }`}</h6>
+                <h6 className="card-subtitle mb-2">{ `Price: ${ pet.price }`}</h6>
+                <h6 className="card-subtitle mb-2">{ `Location: ${ pet.location }`}</h6>
+                <h6 className="card-subtitle mb-2">{ `Description: ${ pet.description }`}</h6>
                 <br />
-                <a href="" className="btn btn-primary edit" onClick={this.toggleEditing.bind(null, item._id)}>Edit <i className="fa fa-edit"></i></a>
+                <a href="" className="btn btn-primary edit" onClick={this.toggleEditing.bind(null, pet._id)}>Edit <i className="fa fa-edit"></i></a>
                 <a href="" className="btn btn-danger delete" data-toggle="modal" data-target="#exampleModal">Delete <i className="fa fa-trash"></i></a>
 
                 <div className="modal fade" id="exampleModal" tabIndex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                   <div className="modal-dialog" role="document">
                     <div className="modal-content">
                       <div className="modal-header">
-                        <h5 className="modal-title" id="exampleModalLabel">Delete Item</h5>
+                        <h5 className="modal-title" id="exampleModalLabel">Delete Pet</h5>
                         <button type="button" className="close" data-dismiss="modal" aria-label="Close">
                           <span aria-hidden="true">&times;</span>
                         </button>
@@ -119,7 +136,7 @@ export class AllItems extends Component{
                       </div>
                       <div className="modal-footer">
                         <button type="button" className="btn btn-primary" data-dismiss="modal">Close</button>
-                        <button type="button" className="btn btn-danger" data-dismiss="modal" onClick = {e => this.deleteProfile(e, item._id)}>Yes, delete</button>
+                        <button type="button" className="btn btn-danger" data-dismiss="modal" onClick = {e => this.deleteProfile(e, pet._id)}>Yes, delete</button>
                       </div>
                     </div>
                   </div>
@@ -127,14 +144,18 @@ export class AllItems extends Component{
               </div>
             </div>
         )
+      // })
+
       }
     }
 
   render() {
     if (this.props.isDataReady) {
       return (<div className="card-columns">
-        {this.props.items.map( ( item ) => {
-          return this.renderItemOrEditField( item);
+        {this.props.pets.map( ( pet ) => {
+          // const trial = pet.imageId;
+          // const link = UserFiles.findOne({_id: trial}).link();
+          return this.renderItemOrEditField( pet);
         })}
       </div>);
     }
@@ -153,12 +174,12 @@ export class AllItems extends Component{
   }
 }
 
-export default withTracker(() =>{
-  Meteor.subscribe('items')
-  let isDataReady = Meteor.subscribe('files.all');
-  return{
-    items : Items.find().fetch(),
-    files : UserFiles.find({}, {sort: {name: 1}}).fetch(),
-    isDataReady: isDataReady.ready(),
-  }
-})(AllItems);
+  export default withTracker(() =>{
+    Meteor.subscribe('pets');
+    let isDataReady = Meteor.subscribe('files.all');
+    return{
+      pets : Pets.find().fetch(),
+      files : UserFiles.find({}, {sort: {name: 1}}).fetch(),
+      isDataReady: isDataReady.ready(),
+    }
+  })(Pet);

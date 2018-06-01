@@ -4,6 +4,7 @@ import React, { Component } from 'react';
 import { Accounts } from 'meteor/accounts-base';
 import {withTracker} from 'meteor/react-meteor-data';
 import route from '/imports/routing/router.js';
+import Messages from '../api/messages/collections.js';
 import Pets from '../api/profiles/collections.js';
 import Footer from '/imports/ui/Footer.jsx';
 import Navbar from '/imports/ui/Navbar.jsx';
@@ -22,6 +23,7 @@ export class Dashboard extends Component {
 constructor(props){
     super(props);
     this.state={
+      desc:"",
       view:"current"
 
     }
@@ -76,7 +78,6 @@ renderThisComponent = ()=>{
     e.preventDefault();
     Meteor.logout(err => {
       this.navChange();
-      window.location.reload();
     });
     route.go("/login");
   }
@@ -94,6 +95,25 @@ renderThisComponent = ()=>{
       const name = Meteor.user().profile.name
       return(name);
     }
+  }
+
+  sendMessage =(e) =>{
+    e.preventDefault();
+    const message = {
+      desc:this.state.desc,
+      createdBy: Meteor.user().profile.name,
+      createdAt: new Date(),
+    }
+    Meteor.call('messages.create',message);
+    alert("Message Sent");
+    console.log(message);
+    route.go('/dashboard');
+  }
+
+  handleDescChange = (e) => {
+    this.setState({
+      desc: e.target.value
+    })
   }
 
   render(){
@@ -136,6 +156,34 @@ renderThisComponent = ()=>{
               <div className="dash">
                 <br />
                 <br />
+                <button className="btn btn-outline-primary hello2" style={{fontFamily: "Courgette", fontSize: 20 + "px", color: "black"}} data-toggle="modal" data-target="#exampleModal">Contact Admin</button>
+
+                <div className="modal fade" id="exampleModal" tabIndex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div className="modal-dialog" role="document">
+                  <div className="modal-content">
+                    <div className="modal-header">
+                      <h5 className="modal-title" id="exampleModalLabel">Enter Your Message</h5>
+                      <button type="button" className="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                      </button>
+                    </div>
+                    <div className="modal-body">
+                    <form onSubmit = {this.sendMessage} className="needs-validation">
+                    <div className="form-group">
+                        <textarea className="form-control" id="exampleFormControlTextarea1" name="desc" onChange={this.handleDescChange}placeholder="Message" rows="3"></textarea>
+                    </div><br/>
+                <div className="modal-footer">
+                <button type="button" className="btn btn-danger adding" data-dismiss="modal" onClick = {this.sendMessage}>Send</button>
+                <button type="button" className="btn btn-danger" data-dismiss="modal">Close</button>
+              </div>
+                </form>
+                <br/>
+                </div>
+              </div>
+            </div>
+          </div>
+
+
                 <h3 className="hello"  style={{fontFamily: "Courgette", fontSize: 37 + "px"}}>Welcome, {this.welcome()}</h3>
               </div><br />
               <h2 className="report">Upload Your Merchandise</h2>

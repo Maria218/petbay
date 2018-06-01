@@ -15,6 +15,7 @@ import Dashboard from '/imports/ui/Dashboard.jsx';
 import Dashboard2 from '/imports/ui/Dashboard2.jsx';
 import Uploads from '/imports/ui/Upload.jsx';
 import Uploads2 from '/imports/ui/Upload2.jsx';
+import Pet from '/imports/ui/PetEditing.jsx';
 
 route('/', Home);
 route('/dogs', Dogs);
@@ -32,3 +33,4 @@ route('/dashboard', Dashboard);
 route('/dashboard2', Dashboard2);
 route('/upload', Uploads);
 route('/upload2', Uploads2);
+route('/edit', Pet);

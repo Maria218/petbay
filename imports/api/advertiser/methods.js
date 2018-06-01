@@ -21,3 +21,22 @@ Meteor.methods({
     });
   },
 });
+
+Meteor.methods({
+  updateItem( item ) {
+    check( item, Object );
+    console.log('updateItem item=', item);
+
+    try {
+      var documentId = Items.update( item._id, {
+        $set: {
+          'price': item.price ,
+          'paid': item.paid
+        }
+      });
+      return documentId;
+    } catch( exception ) {
+      return exception;
+    }
+  }
+});

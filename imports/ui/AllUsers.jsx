@@ -95,7 +95,7 @@ export class AllUsers extends Component {
 export default withTracker(() =>{
   const usersHandle = Meteor.subscribe('users');
   return{
-    users : Meteor.users.find({}).fetch(),
+    users : Meteor.users.find({}, {sort: {createdAt: 1}}).fetch(),
     usersReady: usersHandle.ready(),
   }
 })(AllUsers);

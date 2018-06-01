@@ -113,7 +113,7 @@ export default withTracker(() =>{
   Meteor.subscribe('items')
   let isDataReady = Meteor.subscribe('files.all');
   return{
-    items : Items.find().fetch(),
+    items : Items.find({paid:"true"}).fetch(),
     files : UserFiles.find({}, {sort: {name: 1}}).fetch(),
     isDataReady: isDataReady.ready(),
   }

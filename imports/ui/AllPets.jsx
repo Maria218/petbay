@@ -1,91 +1,174 @@
 import { Meteor } from 'meteor/meteor';
+import { Mongo } from 'meteor/mongo';
 import React, { Component } from 'react';
 import route from '/imports/routing/router.js';
-import { withTracker } from 'meteor/react-meteor-data';
 import Navbar from '/imports/ui/Navbar.jsx';
 import Footer from '/imports/ui/Footer.jsx';
+import { withTracker } from 'meteor/react-meteor-data';
 import Pets from '../api/profiles/collections.js';
 import {UserFiles} from '../api/upload/collections.js';
 import FileUploadComponent from './uploadFile.jsx';
-import { Mongo } from 'meteor/mongo';
-
-
+import $ from 'jquery';
 
 export class AllPets extends Component{
-
-  deleteProfile = (e, id) => {
-    Meteor.call('pets.delete', id);
+   constructor(props){
+    super(props);
+    this.state={
+      editing:null,
+      petName:'',
+      price:'',
+      paid:''
+    }
   }
 
 
-  getAllPets=()=>{
-    const pets = this.props.pets;
-    return pets.map((pet) => {
-      const edit = Pets.findOne({_id: pet._id});
-      const trial = pet.imageId;
-      Pets.update()
-      const link = UserFiles.findOne({_id: trial}).link();
-      return (
-        <div key = {pet._id} className="card border-primary">
-          <img className="card-img-top" src={link} style={{width: 100 + "%",height:200 + "px"}} alt="Card image cap"/>
-          <div className="card-body">
-            <h5 className="card-title"><strong>Name:</strong> {pet.petName}</h5>
-            <h6 className="card-subtitle mb-2"><strong>Age:</strong> {pet.age}</h6>
-            <h6 className="card-subtitle mb-2"><strong>Gender:</strong> {pet.gender}</h6>
-            <h6 className="card-subtitle mb-2"><strong>Breed:</strong> {pet.breed}</h6>
-            <h6 className="card-subtitle mb-2"><strong>Health:</strong> {pet.health}</h6>
-            <h6 className="card-subtitle mb-2"><strong>Price:</strong> {pet.price}</h6>
-            <h6 className="card-subtitle mb-2"><strong>Location:</strong> {pet.location}</h6>
-            <h6 className="card-subtitle mb-2"><strong>Description:</strong> {pet.description}</h6>
-            <a href="" className="btn btn-primary edit" onClick = {this.editProfile}>Edit <i className="fa fa-edit"></i></a> <a href="" className="btn btn-danger delete" data-toggle="modal" data-target="#exampleModal" onClick = {this.warning}>Delete <i className="fa fa-trash"></i></a>
 
-            <div className="modal fade" id="exampleModal" tabIndex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-              <div className="modal-dialog" role="document">
-                <div className="modal-content">
-                  <div className="modal-header">
-                    <h5 className="modal-title" id="exampleModalLabel">Delete Pet</h5>
-                    <button type="button" className="close" data-dismiss="modal" aria-label="Close">
-                      <span aria-hidden="true">&times;</span>
-                    </button>
-                  </div>
-                  <div className="modal-body">
-                    Are you sure you want to delete this file?
-                  </div>
-                  <div className="modal-footer">
-                    <button type="button" className="btn btn-primary" data-dismiss="modal">Close</button>
-                    <button type="button" className="btn btn-danger" data-dismiss="modal" onClick = {e => this.deleteProfile(e, pet._id)}>Yes, delete</button>
+  deleteProfile = (e, id) => {
+    Meteor.call('pets.delete', id);
+    console.log(id);
+  }
+
+  toggleEditing=( petId )=>{
+    this.setState( { editing: petId } );
+  }
+
+  handleEditField=( event )=>{
+    if ( event.keyCode === 13 ) {
+      let target = event.target,
+      update = {};
+      update._id = this.state.editing;
+      update[ target.name ] = target.value;
+      this.handlePetUpdate( update );
+    }
+  }
+
+  handleEditPet=()=>{
+    let petId = this.state.editing;
+    this.handlePetUpdate({
+      _id: petId,
+      petName: this.refs[ `petName_${ petId }` ].value,
+      price: this.refs[ `price_${ petId }` ].value,
+      paid: this.refs[ `paid_${ petId }` ].value
+    });
+  }
+
+  handlePetUpdate=( update )=>{
+    Meteor.call( 'updatePet', update, ( error, response ) => {
+      if ( error ) {
+        alert( error.reason, 'danger' );
+      }
+      else {
+        this.setState( { editing: null } );
+        alert( 'Record updated!', 'success' );
+      }
+    });
+  }
+
+  warning = () => {
+    if (this.props.isDataReady){
+      $("#myBtn").click(() => {
+        $("#exampleModal").modal();
+    });
+  };
+  }
+
+  renderItemOrEditField=( pet )=>{
+    if ( this.state.editing === pet._id ) {
+      return <table key={ `editing-${ pet._id }` } className="list-group-item">
+        <tbody>
+          <tr>
+            <td className="">
+              <input
+                onKeyDown={ this.handleEditField }
+                type="text"
+                className="form-control"
+                ref={ `petName_${ pet._id }` }
+                name="petName"
+                defaultValue={ pet.petName }
+              />
+            </td>
+            <td className="">
+              <input
+                onKeyDown={ this.handleEditField }
+                type="text"
+                className="form-control"
+                ref={ `price_${ pet._id }` }
+                name="price"
+                defaultValue={ pet.price}
+              />
+            </td>
+            <td className="">
+              <input
+                onKeyDown={ this.handleEditField }
+                type="text"
+                className="form-control"
+                ref={ `paid_${ pet._id }` }
+                name="paid"
+                defaultValue={ pet.paid }
+              />
+            </td>
+            <td className="">
+              <button className="btn btn-primary" onClick={ this.handleEditPet }>"Update Item" </button>
+            </td>
+          </tr>
+        </tbody>
+        </table>;
+    }
+    else {
+      // return this.props.pets.map( ( pet ) => {
+        const trial = pet.imageId;
+        const link = UserFiles.findOne({_id: trial}).link();
+        return (
+          <div key={ pet._id } className="card border-primary">
+              <img className="card-img-top" src={link} style={{width: 100 + "%",height:200 + "px"}} alt="Card image cap"/>
+              <div className="card-body">
+                <h5 className="card-title"> { `Name: ${ pet.petName }`} </h5>
+                <h6 className="card-subtitle mb-2">{ `Age: ${ pet.age }`}</h6>
+                <h6 className="card-subtitle mb-2">{ `Gender: ${ pet.gender }`}</h6>
+                <h6 className="card-subtitle mb-2">{ `Breed: ${ pet.breed }`}</h6>
+                <h6 className="card-subtitle mb-2">{ `Health: ${ pet.health }`}</h6>
+                <h6 className="card-subtitle mb-2">{ `Price: ${ pet.price }`}</h6>
+                <h6 className="card-subtitle mb-2">{ `Location: ${ pet.location }`}</h6>
+                <h6 className="card-subtitle mb-2">{ `Description: ${ pet.description }`}</h6>
+                <br />
+                <a href="" className="btn btn-primary edit" onClick={this.toggleEditing.bind(null, pet._id)}>Edit <i className="fa fa-edit"></i></a> <a href="" id="myBtn" className="btn btn-danger delete" onClick={this.warning}>Delete <i className="fa fa-trash"></i></a>
+
+                <div className="modal fade" id="exampleModal" tabIndex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                  <div className="modal-dialog" role="document">
+                    <div className="modal-content">
+                      <div className="modal-header">
+                        <h5 className="modal-title" id="exampleModalLabel">Delete Pet</h5>
+                        <button type="button" className="close" data-dismiss="modal" aria-label="Close">
+                          <span aria-hidden="true">&times;</span>
+                        </button>
+                      </div>
+                      <div className="modal-body">
+                        Are you sure you want to delete this file?
+                      </div>
+                      <div className="modal-footer">
+                        <button type="button" className="btn btn-primary" data-dismiss="modal">Close</button>
+                        <button type="button" className="btn btn-danger" data-dismiss="modal" onClick = {e => this.deleteProfile(e, pet._id)}>Yes, delete</button>
+                      </div>
+                    </div>
                   </div>
                 </div>
               </div>
             </div>
+        )
+      // })
 
-          </div>
-          <div className="card-footer poster">
-            <h5>Posted by: {pet.owner}</h5>
-            <h5>Email: {pet.email}</h5>
-            <h5>Location: {pet.residence}</h5>
-            <h5>Number: {pet.number}</h5>
-          </div>
-        </div>
-      )
+      }
     }
-  )
-}
 
-  render(){
+  render() {
     if (this.props.isDataReady) {
-      return(
-        <div>
-          <br/>
-          <p className="h1" style={{textAlign: "center"}}>All Pets</p><br />
-          <div className ="container">
-            <div className="card-columns">
-              {this.getAllPets()}
-            </div>
-          </div>
-          <br /><br />
-        </div>
-      )
+      return (<div className="card-columns">
+        {this.props.pets.map( ( pet ) => {
+          // const trial = pet.imageId;
+          // const link = UserFiles.findOne({_id: trial}).link();
+          return this.renderItemOrEditField( pet);
+        })}
+      </div>);
     }
     else {
       return (
@@ -100,7 +183,7 @@ export class AllPets extends Component{
       )
     }
   }
-  }
+}
 
   export default withTracker(() =>{
     Meteor.subscribe('pets');

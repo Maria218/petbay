@@ -114,7 +114,7 @@ export class Birds extends Component{
     Meteor.subscribe('files.all');
     let isDataReady = Meteor.subscribe('files.all');
     return{
-      pets : Pets.find({category: "bird"}).fetch(),
+      pets : Pets.find({category: "bird",paid:"true"}).fetch(),
       files : UserFiles.find({}, {sort: {name: 1}}).fetch(),
       isDataReady: isDataReady.ready(),
     }
